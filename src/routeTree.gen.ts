@@ -9,38 +9,251 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WhyNicwinRouteImport } from './routes/why-nicwin'
+import { Route as ProductsRouteImport } from './routes/products'
+import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProductsUpvcRouteImport } from './routes/products.upvc'
+import { Route as ProductsSteelRouteImport } from './routes/products.steel'
+import { Route as ProductsAluminiumRouteImport } from './routes/products.aluminium'
+import { Route as ProductsUpvcWindowsRouteImport } from './routes/products.upvc.windows'
+import { Route as ProductsUpvcDoorsRouteImport } from './routes/products.upvc.doors'
+import { Route as ProductsUpvcColorsRouteImport } from './routes/products.upvc.colors'
+import { Route as ProductsAluminiumWindowsRouteImport } from './routes/products.aluminium.windows'
+import { Route as ProductsAluminiumDoorsRouteImport } from './routes/products.aluminium.doors'
+import { Route as ProductsAluminiumColorsRouteImport } from './routes/products.aluminium.colors'
 
+const WhyNicwinRoute = WhyNicwinRouteImport.update({
+  id: '/why-nicwin',
+  path: '/why-nicwin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsRoute = ProductsRouteImport.update({
+  id: '/products',
+  path: '/products',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GalleryRoute = GalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProductsUpvcRoute = ProductsUpvcRouteImport.update({
+  id: '/upvc',
+  path: '/upvc',
+  getParentRoute: () => ProductsRoute,
+} as any)
+const ProductsSteelRoute = ProductsSteelRouteImport.update({
+  id: '/steel',
+  path: '/steel',
+  getParentRoute: () => ProductsRoute,
+} as any)
+const ProductsAluminiumRoute = ProductsAluminiumRouteImport.update({
+  id: '/aluminium',
+  path: '/aluminium',
+  getParentRoute: () => ProductsRoute,
+} as any)
+const ProductsUpvcWindowsRoute = ProductsUpvcWindowsRouteImport.update({
+  id: '/windows',
+  path: '/windows',
+  getParentRoute: () => ProductsUpvcRoute,
+} as any)
+const ProductsUpvcDoorsRoute = ProductsUpvcDoorsRouteImport.update({
+  id: '/doors',
+  path: '/doors',
+  getParentRoute: () => ProductsUpvcRoute,
+} as any)
+const ProductsUpvcColorsRoute = ProductsUpvcColorsRouteImport.update({
+  id: '/colors',
+  path: '/colors',
+  getParentRoute: () => ProductsUpvcRoute,
+} as any)
+const ProductsAluminiumWindowsRoute =
+  ProductsAluminiumWindowsRouteImport.update({
+    id: '/windows',
+    path: '/windows',
+    getParentRoute: () => ProductsAluminiumRoute,
+  } as any)
+const ProductsAluminiumDoorsRoute = ProductsAluminiumDoorsRouteImport.update({
+  id: '/doors',
+  path: '/doors',
+  getParentRoute: () => ProductsAluminiumRoute,
+} as any)
+const ProductsAluminiumColorsRoute = ProductsAluminiumColorsRouteImport.update({
+  id: '/colors',
+  path: '/colors',
+  getParentRoute: () => ProductsAluminiumRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/gallery': typeof GalleryRoute
+  '/products': typeof ProductsRouteWithChildren
+  '/why-nicwin': typeof WhyNicwinRoute
+  '/products/aluminium': typeof ProductsAluminiumRouteWithChildren
+  '/products/steel': typeof ProductsSteelRoute
+  '/products/upvc': typeof ProductsUpvcRouteWithChildren
+  '/products/aluminium/colors': typeof ProductsAluminiumColorsRoute
+  '/products/aluminium/doors': typeof ProductsAluminiumDoorsRoute
+  '/products/aluminium/windows': typeof ProductsAluminiumWindowsRoute
+  '/products/upvc/colors': typeof ProductsUpvcColorsRoute
+  '/products/upvc/doors': typeof ProductsUpvcDoorsRoute
+  '/products/upvc/windows': typeof ProductsUpvcWindowsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/gallery': typeof GalleryRoute
+  '/products': typeof ProductsRouteWithChildren
+  '/why-nicwin': typeof WhyNicwinRoute
+  '/products/aluminium': typeof ProductsAluminiumRouteWithChildren
+  '/products/steel': typeof ProductsSteelRoute
+  '/products/upvc': typeof ProductsUpvcRouteWithChildren
+  '/products/aluminium/colors': typeof ProductsAluminiumColorsRoute
+  '/products/aluminium/doors': typeof ProductsAluminiumDoorsRoute
+  '/products/aluminium/windows': typeof ProductsAluminiumWindowsRoute
+  '/products/upvc/colors': typeof ProductsUpvcColorsRoute
+  '/products/upvc/doors': typeof ProductsUpvcDoorsRoute
+  '/products/upvc/windows': typeof ProductsUpvcWindowsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/gallery': typeof GalleryRoute
+  '/products': typeof ProductsRouteWithChildren
+  '/why-nicwin': typeof WhyNicwinRoute
+  '/products/aluminium': typeof ProductsAluminiumRouteWithChildren
+  '/products/steel': typeof ProductsSteelRoute
+  '/products/upvc': typeof ProductsUpvcRouteWithChildren
+  '/products/aluminium/colors': typeof ProductsAluminiumColorsRoute
+  '/products/aluminium/doors': typeof ProductsAluminiumDoorsRoute
+  '/products/aluminium/windows': typeof ProductsAluminiumWindowsRoute
+  '/products/upvc/colors': typeof ProductsUpvcColorsRoute
+  '/products/upvc/doors': typeof ProductsUpvcDoorsRoute
+  '/products/upvc/windows': typeof ProductsUpvcWindowsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/gallery'
+    | '/products'
+    | '/why-nicwin'
+    | '/products/aluminium'
+    | '/products/steel'
+    | '/products/upvc'
+    | '/products/aluminium/colors'
+    | '/products/aluminium/doors'
+    | '/products/aluminium/windows'
+    | '/products/upvc/colors'
+    | '/products/upvc/doors'
+    | '/products/upvc/windows'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/gallery'
+    | '/products'
+    | '/why-nicwin'
+    | '/products/aluminium'
+    | '/products/steel'
+    | '/products/upvc'
+    | '/products/aluminium/colors'
+    | '/products/aluminium/doors'
+    | '/products/aluminium/windows'
+    | '/products/upvc/colors'
+    | '/products/upvc/doors'
+    | '/products/upvc/windows'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/gallery'
+    | '/products'
+    | '/why-nicwin'
+    | '/products/aluminium'
+    | '/products/steel'
+    | '/products/upvc'
+    | '/products/aluminium/colors'
+    | '/products/aluminium/doors'
+    | '/products/aluminium/windows'
+    | '/products/upvc/colors'
+    | '/products/upvc/doors'
+    | '/products/upvc/windows'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  ContactRoute: typeof ContactRoute
+  GalleryRoute: typeof GalleryRoute
+  ProductsRoute: typeof ProductsRouteWithChildren
+  WhyNicwinRoute: typeof WhyNicwinRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/why-nicwin': {
+      id: '/why-nicwin'
+      path: '/why-nicwin'
+      fullPath: '/why-nicwin'
+      preLoaderRoute: typeof WhyNicwinRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products': {
+      id: '/products'
+      path: '/products'
+      fullPath: '/products'
+      preLoaderRoute: typeof ProductsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gallery': {
+      id: '/gallery'
+      path: '/gallery'
+      fullPath: '/gallery'
+      preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +261,126 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/products/upvc': {
+      id: '/products/upvc'
+      path: '/upvc'
+      fullPath: '/products/upvc'
+      preLoaderRoute: typeof ProductsUpvcRouteImport
+      parentRoute: typeof ProductsRoute
+    }
+    '/products/steel': {
+      id: '/products/steel'
+      path: '/steel'
+      fullPath: '/products/steel'
+      preLoaderRoute: typeof ProductsSteelRouteImport
+      parentRoute: typeof ProductsRoute
+    }
+    '/products/aluminium': {
+      id: '/products/aluminium'
+      path: '/aluminium'
+      fullPath: '/products/aluminium'
+      preLoaderRoute: typeof ProductsAluminiumRouteImport
+      parentRoute: typeof ProductsRoute
+    }
+    '/products/upvc/windows': {
+      id: '/products/upvc/windows'
+      path: '/windows'
+      fullPath: '/products/upvc/windows'
+      preLoaderRoute: typeof ProductsUpvcWindowsRouteImport
+      parentRoute: typeof ProductsUpvcRoute
+    }
+    '/products/upvc/doors': {
+      id: '/products/upvc/doors'
+      path: '/doors'
+      fullPath: '/products/upvc/doors'
+      preLoaderRoute: typeof ProductsUpvcDoorsRouteImport
+      parentRoute: typeof ProductsUpvcRoute
+    }
+    '/products/upvc/colors': {
+      id: '/products/upvc/colors'
+      path: '/colors'
+      fullPath: '/products/upvc/colors'
+      preLoaderRoute: typeof ProductsUpvcColorsRouteImport
+      parentRoute: typeof ProductsUpvcRoute
+    }
+    '/products/aluminium/windows': {
+      id: '/products/aluminium/windows'
+      path: '/windows'
+      fullPath: '/products/aluminium/windows'
+      preLoaderRoute: typeof ProductsAluminiumWindowsRouteImport
+      parentRoute: typeof ProductsAluminiumRoute
+    }
+    '/products/aluminium/doors': {
+      id: '/products/aluminium/doors'
+      path: '/doors'
+      fullPath: '/products/aluminium/doors'
+      preLoaderRoute: typeof ProductsAluminiumDoorsRouteImport
+      parentRoute: typeof ProductsAluminiumRoute
+    }
+    '/products/aluminium/colors': {
+      id: '/products/aluminium/colors'
+      path: '/colors'
+      fullPath: '/products/aluminium/colors'
+      preLoaderRoute: typeof ProductsAluminiumColorsRouteImport
+      parentRoute: typeof ProductsAluminiumRoute
+    }
   }
 }
 
+interface ProductsAluminiumRouteChildren {
+  ProductsAluminiumColorsRoute: typeof ProductsAluminiumColorsRoute
+  ProductsAluminiumDoorsRoute: typeof ProductsAluminiumDoorsRoute
+  ProductsAluminiumWindowsRoute: typeof ProductsAluminiumWindowsRoute
+}
+
+const ProductsAluminiumRouteChildren: ProductsAluminiumRouteChildren = {
+  ProductsAluminiumColorsRoute: ProductsAluminiumColorsRoute,
+  ProductsAluminiumDoorsRoute: ProductsAluminiumDoorsRoute,
+  ProductsAluminiumWindowsRoute: ProductsAluminiumWindowsRoute,
+}
+
+const ProductsAluminiumRouteWithChildren =
+  ProductsAluminiumRoute._addFileChildren(ProductsAluminiumRouteChildren)
+
+interface ProductsUpvcRouteChildren {
+  ProductsUpvcColorsRoute: typeof ProductsUpvcColorsRoute
+  ProductsUpvcDoorsRoute: typeof ProductsUpvcDoorsRoute
+  ProductsUpvcWindowsRoute: typeof ProductsUpvcWindowsRoute
+}
+
+const ProductsUpvcRouteChildren: ProductsUpvcRouteChildren = {
+  ProductsUpvcColorsRoute: ProductsUpvcColorsRoute,
+  ProductsUpvcDoorsRoute: ProductsUpvcDoorsRoute,
+  ProductsUpvcWindowsRoute: ProductsUpvcWindowsRoute,
+}
+
+const ProductsUpvcRouteWithChildren = ProductsUpvcRoute._addFileChildren(
+  ProductsUpvcRouteChildren,
+)
+
+interface ProductsRouteChildren {
+  ProductsAluminiumRoute: typeof ProductsAluminiumRouteWithChildren
+  ProductsSteelRoute: typeof ProductsSteelRoute
+  ProductsUpvcRoute: typeof ProductsUpvcRouteWithChildren
+}
+
+const ProductsRouteChildren: ProductsRouteChildren = {
+  ProductsAluminiumRoute: ProductsAluminiumRouteWithChildren,
+  ProductsSteelRoute: ProductsSteelRoute,
+  ProductsUpvcRoute: ProductsUpvcRouteWithChildren,
+}
+
+const ProductsRouteWithChildren = ProductsRoute._addFileChildren(
+  ProductsRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  ContactRoute: ContactRoute,
+  GalleryRoute: GalleryRoute,
+  ProductsRoute: ProductsRouteWithChildren,
+  WhyNicwinRoute: WhyNicwinRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
