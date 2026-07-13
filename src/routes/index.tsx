@@ -17,7 +17,7 @@ export const Route = createFileRoute("/")({
         content:
           "Premium uPVC, Aluminium and Steel windows and doors. Engineered for Indian monsoons. Designed for silence, light, and security.",
       },
-      { property: "og:title", content: "Nicwin — Windows & Doors that quiet the world" },
+      { property: "og:title", content: "Nicwin — Always looking for the better." },
       { property: "og:description", content: SITE.description },
     ],
     links: [{ rel: "canonical", href: "/" }],

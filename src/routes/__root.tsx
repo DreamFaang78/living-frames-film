@@ -104,7 +104,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Nicwin — Windows & Doors that quiet the world" },
+      { title: "Nicwin — Always looking for the better." },
       { name: "description", content: SITE.description },
       { name: "theme-color", content: "#0A0A0B" },
       { property: "og:site_name", content: SITE.fullName },
@@ -112,6 +112,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:description", content: SITE.description },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Nicwin — Always looking for the better." },
+      { name: "description", content: "Premium uPVC, Aluminium and Steel windows and doors. Engineered for Indian monsoons. Designed for silence, light, and security." },
+      { property: "og:description", content: "Premium uPVC, Aluminium and Steel windows and doors. Engineered for Indian monsoons. Designed for silence, light, and security." },
+      { name: "twitter:description", content: "Premium uPVC, Aluminium and Steel windows and doors. Engineered for Indian monsoons. Designed for silence, light, and security." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/d89ee429-c12e-44ed-8471-0c38997c02ba/id-preview-6e07e447--c3f04641-dd6d-482b-9765-df5e37edf668.lovable.app-1783951719198.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/d89ee429-c12e-44ed-8471-0c38997c02ba/id-preview-6e07e447--c3f04641-dd6d-482b-9765-df5e37edf668.lovable.app-1783951719198.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
