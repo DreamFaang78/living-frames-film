@@ -1,12 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import { CinematicScene } from "@/components/site/CinematicScene";
 import { CTAExternal, CTALink } from "@/components/site/CTAButton";
 import { CountUp } from "@/components/site/CountUp";
 import { Reveal, Stagger, item } from "@/components/site/Reveal";
+import { VideoHero } from "@/components/site/VideoHero";
 import { SITE } from "@/lib/site";
 import { Link } from "@tanstack/react-router";
+import heroVideo from "@/assets/nicwin_hero_doors_opening.mp4.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -97,64 +98,75 @@ const testimonials = [
 ];
 
 function Home() {
-  const heroRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress: heroP } = useScroll({
-    target: heroRef,
-    offset: ["start start", "end start"],
-  });
-  const heroY = useTransform(heroP, [0, 1], ["0%", "22%"]);
-  const heroOpacity = useTransform(heroP, [0, 0.9], [1, 0]);
-
   return (
     <>
-      {/* HERO */}
-      <div ref={heroRef}>
-        <CinematicScene variant="night" rain className="min-h-[100svh]">
+      {/* HERO — cinematic video */}
+      <VideoHero src={heroVideo.url}>
+        <div className="mx-auto flex h-full w-full max-w-[1440px] flex-1 flex-col items-center justify-center px-6 pb-32 pt-28 text-center md:px-10 md:pb-40">
           <motion.div
-            style={{ y: heroY, opacity: heroOpacity }}
-            className="mx-auto flex min-h-[100svh] max-w-[1440px] flex-col justify-end px-6 pb-24 pt-40 md:px-10 md:pb-32"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.2, duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            className="mb-8 inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-[11px] uppercase tracking-[0.3em] text-offwhite/80 backdrop-blur-md"
           >
-            <Reveal>
-              <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-[11px] uppercase tracking-[0.28em] text-offwhite/70 backdrop-blur">
-                <span className="h-1.5 w-1.5 rounded-full bg-champagne" />
-                Nicwin · Deoghar, Jharkhand
-              </div>
-            </Reveal>
-            <Reveal delay={1}>
-              <h1 className="text-balance font-display text-[13vw] leading-[0.9] text-offwhite md:text-[8.2rem]">
-                Always looking
-                <br />
-                <span className="italic text-champagne">for the better.</span>
-              </h1>
-            </Reveal>
-            <Reveal delay={2}>
-              <p className="mt-8 max-w-2xl text-pretty text-lg text-offwhite/75 md:text-xl">
-                uPVC · Aluminium · Steel — engineered for Indian homes that
-                demand light, silence, and strength.
-              </p>
-            </Reveal>
-            <Reveal delay={3}>
-              <div className="mt-10 flex flex-wrap gap-3">
-                <CTAExternal href={SITE.whatsappUrl}>Talk to us on WhatsApp</CTAExternal>
-                <CTALink to="/products" variant="ghost">
-                  Explore the range
-                </CTALink>
-              </div>
-            </Reveal>
+            <span className="h-1.5 w-1.5 rounded-full bg-champagne shadow-[0_0_10px_rgba(201,162,39,0.8)]" />
+            Nicwin · Deoghar, Jharkhand
           </motion.div>
 
-          <motion.div
-            aria-hidden
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.6, duration: 1 }}
-            className="pointer-events-none absolute bottom-6 left-1/2 z-10 -translate-x-1/2 text-[10px] uppercase tracking-[0.4em] text-offwhite/50"
+          <motion.h1
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.4, duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+            className="text-balance font-display text-[13vw] leading-[0.92] text-offwhite md:text-[8.6rem]"
           >
-            <div className="mx-auto mb-3 h-10 w-px animate-pulse bg-champagne/60" />
-            scroll
+            Always looking
+            <br />
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.75, duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
+              className="italic"
+              style={{ color: "#C9A227" }}
+            >
+              for the better.
+            </motion.span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 2.05, duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-8 max-w-2xl text-pretty text-base text-offwhite/85 md:text-xl"
+          >
+            uPVC · Aluminium · Steel — engineered for Indian homes that demand
+            light, silence, and strength.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 2.35, duration: 0.9, type: "spring", stiffness: 90, damping: 18 }}
+            className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center"
+          >
+            <CTAExternal href={SITE.whatsappUrl}>Talk to us on WhatsApp</CTAExternal>
+            <CTALink to="/products" variant="ghost">
+              Explore the range
+            </CTALink>
           </motion.div>
-        </CinematicScene>
-      </div>
+        </div>
+
+        <motion.div
+          aria-hidden
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 2.8, duration: 1.2 }}
+          className="pointer-events-none absolute bottom-6 left-1/2 z-10 -translate-x-1/2 text-center text-[10px] uppercase tracking-[0.4em] text-offwhite/60"
+        >
+          <div className="mx-auto mb-3 h-10 w-px animate-pulse bg-champagne/70" />
+          scroll
+        </motion.div>
+      </VideoHero>
+
 
       {/* STATS */}
       <section className="border-y border-white/5 bg-ink">
