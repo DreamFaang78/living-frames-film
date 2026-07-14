@@ -270,6 +270,11 @@ function Home() {
         </div>
       </section>
 
+      {/* 5b · PRODUCT SHOWCASE — real photos with details */}
+      <ProductShowcase />
+
+
+
       {/* 6 · WHY CHOOSE US — four pillars */}
       <section className="relative bg-[color:var(--paper)] py-24 md:py-32">
         <div className="mx-auto max-w-[1440px] px-6 md:px-10">
