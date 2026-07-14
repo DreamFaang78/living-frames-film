@@ -110,7 +110,7 @@ function Home() {
             transition={{ delay: 1.2, duration: 1, ease: [0.22, 1, 0.36, 1] }}
             className="mb-8 inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-[11px] uppercase tracking-[0.3em] text-offwhite/80 backdrop-blur-md"
           >
-            <span className="h-1.5 w-1.5 rounded-full bg-champagne shadow-[0_0_10px_rgba(201,162,39,0.8)]" />
+            <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--nicwin-red)] shadow-[0_0_12px_rgba(227,30,36,0.9)]" />
             Nicwin · Deoghar, Jharkhand
           </motion.div>
 
