@@ -41,23 +41,39 @@
   --color-champagne-soft: var(--champagne-soft);
   --color-warm-grey: var(--warm-grey);
   --color-ink: var(--ink);
+  --color-nicwin-red: var(--nicwin-red);
+  --color-nicwin-red-dark: var(--nicwin-red-dark);
+  --color-nicwin-blue: var(--nicwin-blue);
+  --color-nicwin-blue-deep: var(--nicwin-blue-deep);
+  --color-paper: var(--paper);
+  --color-paper-dim: var(--paper-dim);
+  --color-gold-whisper: var(--gold-whisper);
 
   --font-display: "Fraunces", ui-serif, Georgia, serif;
-  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "General Sans", "Sora", ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
   --radius: 0.625rem;
 
-  /* Brand palette (Nicwin) */
-  --charcoal: #0A0A0B;
-  --ink: #141416;
-  --offwhite: #F7F5F2;
-  --teal: #0D7377;
-  --teal-deep: #094a4d;
-  --champagne: #C9A227;
-  --champagne-soft: #E4C464;
-  --warm-grey: #E8E4DF;
+  /* Nicwin brand — red + blue + paper */
+  --nicwin-red: #E31E24;
+  --nicwin-red-dark: #B3151A;
+  --nicwin-blue: #1B5FAE;
+  --nicwin-blue-deep: #0E3B73;
+  --paper: #FAFAF8;
+  --paper-dim: #F0EFEA;
+  --gold-whisper: #C9A227;
+
+  /* Legacy token aliases (mapped onto the new palette so existing pages inherit) */
+  --charcoal: #071A33;         /* was near-black — now blue-black for dark sections */
+  --ink: #0E3B73;              /* was #141416 — now blue-deep for cards / footer base */
+  --offwhite: #FAFAF8;
+  --teal: #1B5FAE;             /* blue takes the "secondary" slot */
+  --teal-deep: #0E3B73;
+  --champagne: #E31E24;        /* red takes the "primary/accent" slot */
+  --champagne-soft: #B3151A;   /* hover / pressed */
+  --warm-grey: #F0EFEA;
 
   --background: var(--charcoal);
   --foreground: var(--offwhite);
@@ -65,19 +81,19 @@
   --card-foreground: var(--offwhite);
   --popover: var(--ink);
   --popover-foreground: var(--offwhite);
-  --primary: var(--champagne);
-  --primary-foreground: var(--charcoal);
-  --secondary: var(--teal);
+  --primary: var(--nicwin-red);
+  --primary-foreground: #ffffff;
+  --secondary: var(--nicwin-blue);
   --secondary-foreground: var(--offwhite);
-  --muted: #1a1a1c;
-  --muted-foreground: #a9a49b;
-  --accent: var(--teal);
+  --muted: #0A2751;
+  --muted-foreground: #b8c7dd;
+  --accent: var(--nicwin-blue);
   --accent-foreground: var(--offwhite);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: var(--offwhite);
-  --border: rgba(247, 245, 242, 0.08);
-  --input: rgba(247, 245, 242, 0.12);
-  --ring: var(--champagne);
+  --destructive: #E31E24;
+  --destructive-foreground: #ffffff;
+  --border: rgba(250, 250, 248, 0.10);
+  --input: rgba(250, 250, 248, 0.14);
+  --ring: var(--nicwin-red);
 }
 
 .dark {
