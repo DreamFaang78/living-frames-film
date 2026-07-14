@@ -12,16 +12,16 @@ export function Marquee() {
   return (
     <div
       aria-hidden
-      className="relative overflow-hidden border-y border-white/10 bg-[color:var(--nicwin-red)] py-4 group"
+      className="group relative overflow-hidden border-y border-[color:var(--line)] bg-[color:var(--paper)] py-5"
     >
       <div className="marquee-track flex w-max whitespace-nowrap group-hover:[animation-play-state:paused]">
         {row.map((text, i) => (
           <span
             key={i}
-            className="flex items-center gap-8 pr-8 font-display text-lg font-medium uppercase tracking-[0.2em] text-white/95 md:text-xl"
+            className="flex items-center gap-8 pr-8 font-display text-lg font-medium uppercase tracking-[0.22em] text-[color:var(--ink)] md:text-xl"
           >
             {text}
-            <span className="text-white/60">★</span>
+            <span className="inline-block h-2 w-2 rounded-full bg-[color:var(--nicwin-red)]" />
           </span>
         ))}
       </div>
