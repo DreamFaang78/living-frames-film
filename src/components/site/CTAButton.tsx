@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 
 type CommonProps = {
   children: ReactNode;
-  variant?: "gold" | "ghost" | "teal";
+  variant?: "gold" | "ghost" | "teal" | "ink-ghost";
   className?: string;
 };
 
@@ -12,6 +12,7 @@ const styles = {
   gold: "bg-[color:var(--nicwin-red)] text-white hover:bg-[color:var(--nicwin-red-dark)] hover:shadow-[0_18px_50px_-12px_rgba(227,30,36,0.55)]",
   ghost: "border border-white/40 text-white hover:border-white hover:bg-white/10",
   teal: "bg-[color:var(--nicwin-blue)] text-white hover:bg-[color:var(--nicwin-blue-deep)]",
+  "ink-ghost": "border border-[color:var(--ink)]/20 text-[color:var(--ink)] hover:border-[color:var(--nicwin-red)] hover:text-[color:var(--nicwin-red)]",
 } as const;
 
 const base =
