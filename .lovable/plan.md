@@ -1,56 +1,33 @@
-# Nicwin — White-First Cinematic Rebuild
+# WebGPU Corner-Joint Hero Moment
 
-Rebuilding the site on a **true-white base** with red + blue as structural accents, matching the psychological order in the brief. Evolves the existing Lovable project (routes, components, media pointers all stay) — no clean slate, no lost history.
+A single interactive 3D scene sitting between the video hero and the marquee: a slowly rotating uPVC window corner-joint (mitred 45° weld) that the visitor can subtly drag to rotate. Uses `three/webgpu` + TSL. Falls back to a looped MP4 for reduced-motion users and browsers without WebGPU.
 
-## Direction pivot (from the current dark-navy build)
+## Deliverables
 
-- Base surface flips from dark charcoal to `#FFFFFF` / `#FAFAFA`; ink text on white
-- Red stays the single action color (buttons, top hairline, active states) — never a large field
-- Blue reserved for trust cues + exactly **one** deep-blue anchor section per page
-- Fraunces (display) + Hanken Grotesk (UI/body, free General Sans equivalent)
-- Section padding minimums: 96px desktop / 56px mobile
-- Soft, tinted shadows (blue/red whisper, never neutral grey)
-
-## Scope this pass (homepage first, tokens sitewide)
-
-Sitewide token + shell:
-1. `src/styles.css` — rewrite tokens to white-first palette, swap `mesh-*`, `vignette`, `grain` utilities to work on white; add tinted shadow tokens; keep legacy token aliases so product pages don't break
-2. `src/routes/__root.tsx` — swap fonts to Fraunces + Hanken Grotesk, update theme-color, body bg to `--paper`
-3. `src/components/site/Nav.tsx` — invert default state (ink on white, transparent-over-hero → white+red-hairline on scroll)
-4. `src/components/site/Footer.tsx` — keep deep-blue (this is the sanctioned anchor), tighten to real socials only, fix `gamil.com` typo in `src/lib/site.ts`
-5. `src/components/site/CTAButton.tsx` — primary red on white, ghost = ink outline
-6. `src/components/site/Marquee.tsx` — white bg, ink text, red dot separators (was red bg)
-7. `src/components/site/ScrollProgress.tsx` — 2px red line under header (already red, verify placement)
-
-Homepage rebuild in the psychological order (`src/routes/index.tsx`):
-1. **Hero** — keep existing video, overlay flips to lighter wash so headline is ink+red on light glass; add subtle 3D window corner (Three.js/TSL) lazy-mounted with reduced-motion + mobile fallback to existing video loop
-2. **Marquee** — credibility strip (materials · Made in Jharkhand · Monsoon-engineered)
-3. **Stat bar** — count-up on scroll (Years / Projects / Clients / Team) — this is the one deep-blue anchor section
-4. **Problem strip** — 2-3 lines, regional specificity ("Deoghar monsoons. Ranchi summers. Wooden frames don't survive either.")
-5. **Product categories** — uPVC / Aluminium / Steel, hover tilt + video loop on hover
-6. **Why Choose Us** — 4 pillars (Climate / Acoustic / Security / Craft) on warm-white
-7. **Colors** — swatch teaser linking to `/products/upvc/colors`
-8. **Testimonials** — 3 regionally-specific quotes, scroll-snap carousel
-9. **Gallery teaser** — 4 captioned tiles → `/gallery`
-10. **CTA + Contact quick-form** → link to `/contact`
-
-Motion system (one consistent pattern, GSAP + Framer Motion already installed):
-- Section reveal: 24px rise + fade, 0.7s, 0.06s stagger
-- Header state change under 300ms
-- Stat counters finish in ≤1.2s
-- All motion behind `prefers-reduced-motion`
-
-## Deferred to follow-up passes (out of scope this turn — call out in closing)
-
-- Rewriting every product page's copy to be genuinely unique (6 distinct one-liners per category × 3 categories = 18 lines) — big content pass
-- Steel doors SKU breakdown
-- Regenerating hero + per-category background videos via Video Creator skill
-- Full Three.js window model (this pass ships the mount point + a clean CSS/SVG placeholder that reads as engineered; upgrade to real geometry next pass)
-- Google Maps embed on contact
-- Final Accessibility + SEO skill runs (do after content is locked)
+1. `bun add three` (+ `@types/three` dev).
+2. `src/components/site/hero-joint/buildJoint.ts` — procedural geometry: two extruded uPVC profile bars mitred at 45° forming an L-corner, with a thin glass inset. Pure Three.js BufferGeometry, no assets.
+3. `src/components/site/hero-joint/Scene.ts` — framework-free class:
+   - `WebGPURenderer` (async `init()`), `PerspectiveCamera`, soft studio lighting (key + rim + ambient).
+   - `MeshStandardNodeMaterial` for the frame: `colorNode` = brand white with a subtle TSL fresnel rim tinted `--nicwin-blue`; `roughnessNode` ≈ 0.35. Glass uses `MeshPhysicalNodeMaterial` (transmission, low roughness).
+   - Idle motion: gentle sine yaw/pitch via TSL `time`.
+   - Pointer drag: quaternion-based rotation with spring damping (rAF); clamp ±25°. Auto-resume idle after 2s of no input.
+   - Handles resize + `renderer.dispose()` on unmount.
+4. `src/components/site/HeroJoint3D.tsx` — client mount:
+   - `useEffect` boots `Scene` into a `<canvas>`; feature-detects `'gpu' in navigator` and lazy-imports `three/webgpu`.
+   - On failure or when `matchMedia('(prefers-reduced-motion: reduce)').matches`, renders a `<video autoplay muted loop playsinline>` fallback instead.
+   - Overlay hint: "drag to rotate" that fades after first interaction.
+5. `src/components/site/HeroJointSection.tsx` — section wrapper with white background, kicker "Engineered at the corner", one-line body, and the 3D canvas at ~70vh. Framer Motion reveal on scroll.
+6. Video fallback asset: reuse the existing `nicwin_hero_doors_opening.mp4` for now (no new videogen). A later turn can swap in a dedicated joint clip via `videogen--generate_video` if desired.
+7. Wire `<HeroJointSection />` into `src/routes/index.tsx` directly after `<VideoHero />` and before the marquee.
 
 ## Technical notes
 
-- Reuses existing `framer-motion` + `lenis`; adds `gsap` for ScrollTrigger timelines
-- `SmoothScroll`, `WhatsAppBubble`, `Reveal`, `CountUp`, `CinematicScene` all kept — restyled via tokens, not rewritten
-- Product routes inherit new tokens automatically via the legacy alias layer, so they won't break mid-migration — their bespoke rebuild happens in the follow-up copy pass
+- Import surface: `import * as THREE from 'three/webgpu'` and TSL helpers from `'three/tsl'` (per the webgpu-threejs-tsl skill). Keep this dynamic-imported so non-WebGPU users don't pay the bundle cost.
+- SSR: component is `'use client'`-safe — all Three.js work runs inside `useEffect`; the module never touches `window` at import time.
+- Accessibility: canvas gets `role="img"` and an `aria-label`; keyboard users get arrow-key rotate as a bonus.
+- Performance: single mesh, no post-processing, capped DPR at 1.75, `powerPreference: 'high-performance'`.
+
+## Out of scope
+
+- No new video generation this turn.
+- No changes to other routes or the design tokens.
