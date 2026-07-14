@@ -162,10 +162,14 @@ function Home() {
           transition={{ delay: 2.8, duration: 1.2 }}
           className="pointer-events-none absolute bottom-6 left-1/2 z-10 -translate-x-1/2 text-center text-[10px] uppercase tracking-[0.4em] text-offwhite/60"
         >
-          <div className="mx-auto mb-3 h-10 w-px animate-pulse bg-champagne/70" />
+          <div className="mx-auto mb-3 h-10 w-px animate-pulse bg-[color:var(--nicwin-red)]" />
           scroll
         </motion.div>
       </VideoHero>
+
+      {/* MARQUEE */}
+      <Marquee />
+
 
 
       {/* STATS */}
