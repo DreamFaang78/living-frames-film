@@ -33,6 +33,7 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
+  /* Legacy tokens — kept so existing product/gallery/contact pages inherit without a rewrite */
   --color-charcoal: var(--charcoal);
   --color-offwhite: var(--offwhite);
   --color-teal: var(--teal);
@@ -40,65 +41,78 @@
   --color-champagne: var(--champagne);
   --color-champagne-soft: var(--champagne-soft);
   --color-warm-grey: var(--warm-grey);
+
+  /* Nicwin white-first tokens */
   --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-paper: var(--paper);
+  --color-paper-warm: var(--paper-warm);
+  --color-line: var(--line);
   --color-nicwin-red: var(--nicwin-red);
   --color-nicwin-red-dark: var(--nicwin-red-dark);
+  --color-nicwin-red-deep: var(--nicwin-red-dark);
   --color-nicwin-blue: var(--nicwin-blue);
   --color-nicwin-blue-deep: var(--nicwin-blue-deep);
-  --color-paper: var(--paper);
-  --color-paper-dim: var(--paper-dim);
   --color-gold-whisper: var(--gold-whisper);
 
   --font-display: "Fraunces", ui-serif, Georgia, serif;
-  --font-sans: "General Sans", "Sora", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Hanken Grotesk", "General Sans", ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
   --radius: 0.625rem;
 
-  /* Nicwin brand — red + blue + paper */
+  /* Nicwin brand — white first, red + blue as structural accents */
+  --paper: #FFFFFF;
+  --paper-warm: #FAFAFA;
+  --ink: #17181C;
+  --ink-soft: #55585F;
   --nicwin-red: #E31E24;
   --nicwin-red-dark: #B3151A;
   --nicwin-blue: #1B5FAE;
   --nicwin-blue-deep: #0E3B73;
-  --paper: #FAFAF8;
-  --paper-dim: #F0EFEA;
+  --line: rgba(23, 24, 28, 0.08);
   --gold-whisper: #C9A227;
 
-  /* Legacy token aliases (mapped onto the new palette so existing pages inherit) */
-  --charcoal: #071A33;         /* was near-black — now blue-black for dark sections */
-  --ink: #0E3B73;              /* was #141416 — now blue-deep for cards / footer base */
-  --offwhite: #FAFAF8;
-  --teal: #1B5FAE;             /* blue takes the "secondary" slot */
+  /* Legacy aliases — dark-theme product pages continue to render correctly */
+  --charcoal: #0E3B73;          /* dark surface = brand blue-deep */
+  --offwhite: #FFFFFF;
+  --teal: #1B5FAE;
   --teal-deep: #0E3B73;
-  --champagne: #E31E24;        /* red takes the "primary/accent" slot */
-  --champagne-soft: #B3151A;   /* hover / pressed */
-  --warm-grey: #F0EFEA;
+  --champagne: #E31E24;
+  --champagne-soft: #B3151A;
+  --warm-grey: #FAFAFA;
 
-  --background: var(--charcoal);
-  --foreground: var(--offwhite);
-  --card: var(--ink);
-  --card-foreground: var(--offwhite);
-  --popover: var(--ink);
-  --popover-foreground: var(--offwhite);
+  /* Shadcn semantic — light theme */
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --card: var(--paper);
+  --card-foreground: var(--ink);
+  --popover: var(--paper);
+  --popover-foreground: var(--ink);
   --primary: var(--nicwin-red);
   --primary-foreground: #ffffff;
   --secondary: var(--nicwin-blue);
-  --secondary-foreground: var(--offwhite);
-  --muted: #0A2751;
-  --muted-foreground: #b8c7dd;
+  --secondary-foreground: #ffffff;
+  --muted: var(--paper-warm);
+  --muted-foreground: var(--ink-soft);
   --accent: var(--nicwin-blue);
-  --accent-foreground: var(--offwhite);
+  --accent-foreground: #ffffff;
   --destructive: #E31E24;
   --destructive-foreground: #ffffff;
-  --border: rgba(250, 250, 248, 0.10);
-  --input: rgba(250, 250, 248, 0.14);
+  --border: var(--line);
+  --input: var(--line);
   --ring: var(--nicwin-red);
+
+  /* Tinted, "designed" shadows */
+  --shadow-soft-blue: 0 20px 60px -20px rgba(14, 59, 115, 0.18);
+  --shadow-soft-red: 0 18px 50px -18px rgba(227, 30, 36, 0.22);
+  --shadow-hairline: 0 1px 0 rgba(23, 24, 28, 0.06);
 }
 
 .dark {
-  --background: var(--charcoal);
-  --foreground: var(--offwhite);
+  --background: var(--paper);
+  --foreground: var(--ink);
 }
 
 @layer base {
@@ -107,18 +121,18 @@
   }
 
   html {
-    background-color: var(--charcoal);
-    color: var(--offwhite);
+    background-color: var(--paper);
+    color: var(--ink);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
   }
 
   body {
-    background-color: var(--charcoal);
-    color: var(--offwhite);
+    background-color: var(--paper);
+    color: var(--ink);
     font-family: var(--font-sans);
-    font-feature-settings: "ss01", "cv11";
+    font-feature-settings: "ss01";
     overflow-x: hidden;
   }
 
@@ -126,6 +140,7 @@
     font-family: var(--font-display);
     font-weight: 500;
     letter-spacing: -0.02em;
+    color: var(--ink);
   }
 
   ::selection {
@@ -136,6 +151,15 @@
 
 /* ---------- Cinematic utilities ---------- */
 
+@utility eyebrow {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--nicwin-blue);
+}
+
 @utility grain {
   position: relative;
   &::after {
@@ -143,9 +167,9 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
-    opacity: 0.09;
-    mix-blend-mode: overlay;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.6 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    opacity: 0.05;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
     z-index: 1;
   }
 }
@@ -157,47 +181,61 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
-    background: radial-gradient(ellipse at center, transparent 40%, rgba(7, 26, 51, 0.65) 100%);
+    background: radial-gradient(ellipse at center, transparent 45%, rgba(14, 59, 115, 0.35) 100%);
     z-index: 1;
   }
 }
 
+/* Dark deep-blue mesh — for the ONE anchor section per page and product hero scenes */
 @utility mesh-charcoal {
-  background-color: var(--charcoal);
+  background-color: var(--nicwin-blue-deep);
   background-image:
-    radial-gradient(at 20% 15%, rgba(27, 95, 174, 0.42) 0px, transparent 55%),
-    radial-gradient(at 85% 30%, rgba(227, 30, 36, 0.18) 0px, transparent 55%),
-    radial-gradient(at 75% 90%, rgba(14, 59, 115, 0.55) 0px, transparent 55%),
+    radial-gradient(at 20% 15%, rgba(27, 95, 174, 0.55) 0px, transparent 55%),
+    radial-gradient(at 85% 30%, rgba(227, 30, 36, 0.20) 0px, transparent 55%),
+    radial-gradient(at 75% 90%, rgba(27, 95, 174, 0.45) 0px, transparent 55%),
     radial-gradient(at 15% 85%, rgba(7, 26, 51, 0.95) 0px, transparent 60%);
 }
 
-@utility mesh-warm {
+@utility mesh-paper {
   background-color: var(--paper);
   background-image:
-    radial-gradient(at 15% 20%, rgba(227, 30, 36, 0.08) 0px, transparent 55%),
-    radial-gradient(at 85% 80%, rgba(27, 95, 174, 0.10) 0px, transparent 55%);
+    radial-gradient(at 12% 10%, rgba(227, 30, 36, 0.05) 0px, transparent 55%),
+    radial-gradient(at 88% 90%, rgba(27, 95, 174, 0.06) 0px, transparent 55%);
+}
+
+@utility mesh-warm {
+  background-color: var(--paper-warm);
+  background-image:
+    radial-gradient(at 15% 20%, rgba(227, 30, 36, 0.04) 0px, transparent 55%),
+    radial-gradient(at 85% 80%, rgba(27, 95, 174, 0.06) 0px, transparent 55%);
 }
 
 @utility glass {
-  background: rgba(7, 26, 51, 0.65);
+  background: rgba(14, 59, 115, 0.65);
   backdrop-filter: blur(18px) saturate(140%);
-  border: 1px solid rgba(250, 250, 248, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 @utility glass-light {
-  background: rgba(250, 250, 248, 0.88);
+  background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(18px) saturate(140%);
-  border-bottom: 1px solid var(--line, rgba(20,22,26,0.08));
-}
-
-@utility hair-gold {
-  background: linear-gradient(90deg, transparent, var(--nicwin-red), transparent);
-  height: 1px;
+  border-bottom: 1px solid var(--line);
 }
 
 @utility hair-red {
   background: linear-gradient(90deg, transparent, var(--nicwin-red), transparent);
   height: 1px;
+}
+
+@utility hair-blue {
+  background: linear-gradient(90deg, transparent, var(--nicwin-blue), transparent);
+  height: 1px;
+}
+
+@utility soft-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-soft-blue);
 }
 
 @utility text-balance {
@@ -208,7 +246,6 @@
   text-wrap: pretty;
 }
 
-/* Animated moving gradient for hero — the "living" backdrop */
 @keyframes drift {
   0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
   50% { transform: translate3d(-3%, 2%, 0) scale(1.08); }
@@ -227,11 +264,10 @@
 @utility scene-rain {
   background-image:
     linear-gradient(to bottom, transparent 0%, rgba(232, 228, 223, 0.18) 40%, transparent 100%),
-    linear-gradient(to bottom, transparent 0%, rgba(232, 228, 223, 0.12) 60%, transparent 100%),
-    linear-gradient(to bottom, transparent 0%, rgba(232, 228, 223, 0.10) 50%, transparent 100%);
-  background-size: 2px 120px, 2px 160px, 2px 100px;
+    linear-gradient(to bottom, transparent 0%, rgba(232, 228, 223, 0.12) 60%, transparent 100%);
+  background-size: 2px 120px, 2px 160px;
   background-repeat: repeat;
-  background-position: 0 0, 50px 0, 100px 0;
+  background-position: 0 0, 50px 0;
   animation: rain-fall 1.4s linear infinite;
   opacity: 0.5;
   mix-blend-mode: screen;
@@ -252,7 +288,7 @@
 }
 
 @utility marquee-track {
-  animation: marquee-x 32s linear infinite;
+  animation: marquee-x 42s linear infinite;
   will-change: transform;
 }
 
