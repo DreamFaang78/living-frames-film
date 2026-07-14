@@ -5,6 +5,7 @@ import { CountUp } from "@/components/site/CountUp";
 import { Reveal, Stagger, item } from "@/components/site/Reveal";
 import { VideoHero } from "@/components/site/VideoHero";
 import { Marquee } from "@/components/site/Marquee";
+import { HeroJointSection } from "@/components/site/HeroJointSection";
 import { SITE } from "@/lib/site";
 import heroVideo from "@/assets/nicwin_hero_doors_opening.mp4.asset.json";
 
@@ -168,6 +169,10 @@ function Home() {
 
       {/* 2 · MARQUEE — immediate credibility */}
       <Marquee />
+
+      {/* 2b · WEBGPU CORNER JOINT — one interactive 3D moment */}
+      <HeroJointSection />
+
 
       {/* 3 · STAT BAR — the ONE deep-blue anchor for the page */}
       <section className="relative overflow-hidden bg-[color:var(--nicwin-blue-deep)]">
