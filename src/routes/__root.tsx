@@ -20,19 +20,19 @@ import { SITE } from "@/lib/site";
 
 function NotFoundComponent() {
   return (
-    <div className="mesh-charcoal grain flex min-h-screen items-center justify-center px-4">
+    <div className="flex min-h-dvh items-center justify-center bg-[color:var(--paper)] px-4">
       <div className="relative z-10 max-w-md text-center">
         <div className="font-display text-[10rem] leading-none text-[color:var(--nicwin-red)]">404</div>
-        <h2 className="mt-2 font-display text-2xl text-offwhite">
+        <h2 className="mt-2 font-display text-2xl text-[color:var(--ink)]">
           This corner of the house isn't built yet.
         </h2>
-        <p className="mt-3 text-sm text-offwhite/60">
+        <p className="mt-3 text-sm text-[color:var(--ink-soft)]">
           Let's walk you back to the front door.
         </p>
         <div className="mt-8">
           <Link
             to="/"
-            className="inline-flex items-center rounded-full bg-champagne px-6 py-3 text-sm font-semibold text-charcoal transition hover:bg-champagne-soft"
+            className="inline-flex items-center rounded-full bg-[color:var(--nicwin-red)] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[color:var(--nicwin-red-dark)]"
           >
             Go home →
           </Link>
@@ -50,10 +50,10 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   }, [error]);
 
   return (
-    <div className="mesh-charcoal flex min-h-screen items-center justify-center px-4">
+    <div className="flex min-h-dvh items-center justify-center bg-[color:var(--paper)] px-4">
       <div className="max-w-md text-center">
-        <h1 className="font-display text-3xl text-offwhite">Something didn't load.</h1>
-        <p className="mt-2 text-sm text-offwhite/60">
+        <h1 className="font-display text-3xl text-[color:var(--ink)]">Something didn't load.</h1>
+        <p className="mt-2 text-sm text-[color:var(--ink-soft)]">
           The frame slipped. Try again — or head back to the entrance.
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
@@ -62,13 +62,13 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
               router.invalidate();
               reset();
             }}
-            className="rounded-full bg-champagne px-5 py-3 text-sm font-semibold text-charcoal"
+            className="rounded-full bg-[color:var(--nicwin-red)] px-5 py-3 text-sm font-semibold text-white"
           >
             Try again
           </button>
           <a
             href="/"
-            className="rounded-full border border-offwhite/30 px-5 py-3 text-sm text-offwhite"
+            className="rounded-full border border-[color:var(--ink)]/20 px-5 py-3 text-sm text-[color:var(--ink)]"
           >
             Go home
           </a>
