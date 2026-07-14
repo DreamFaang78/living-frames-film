@@ -106,7 +106,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Nicwin — Always looking for the better." },
       { name: "description", content: SITE.description },
-      { name: "theme-color", content: "#0A0A0B" },
+      { name: "theme-color", content: "#E31E24" },
       { property: "og:site_name", content: SITE.fullName },
       { property: "og:title", content: "Nicwin — Always looking for the better." },
       { property: "og:description", content: SITE.description },
