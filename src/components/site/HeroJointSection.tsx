@@ -1,0 +1,41 @@
+import { motion } from "framer-motion";
+import { HeroJoint3D } from "./HeroJoint3D";
+
+export function HeroJointSection() {
+  return (
+    <section className="relative w-full bg-[color:var(--paper)] py-24 md:py-32">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 md:grid-cols-12 md:px-10">
+        <motion.header
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-15% 0px" }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="md:col-span-4 md:pt-6"
+        >
+          <div className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[color:var(--nicwin-red)]">
+            Engineered at the corner
+          </div>
+          <h2 className="mt-4 font-[family-name:var(--font-display)] text-4xl leading-[1.05] text-[color:var(--ink)] md:text-5xl">
+            The joint is where windows fail. Ours doesn&rsquo;t.
+          </h2>
+          <p className="mt-6 max-w-md text-base leading-relaxed text-[color:var(--ink)]/70">
+            Mitred at forty-five, thermally welded, sealed for a decade of monsoons.
+            Rotate it. Look inside. This is the detail most brands hope you never notice.
+          </p>
+        </motion.header>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.96 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, margin: "-10% 0px" }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          className="md:col-span-8"
+        >
+          <div className="relative h-[60vh] min-h-[420px] w-full overflow-hidden rounded-2xl bg-gradient-to-br from-[#f7f7f4] to-[#eef2f7] ring-1 ring-black/5">
+            <HeroJoint3D />
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
