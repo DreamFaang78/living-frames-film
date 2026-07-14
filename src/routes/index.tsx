@@ -6,6 +6,7 @@ import { Reveal, Stagger, item } from "@/components/site/Reveal";
 import { VideoHero } from "@/components/site/VideoHero";
 import { Marquee } from "@/components/site/Marquee";
 import { HeroJointSection } from "@/components/site/HeroJointSection";
+import { ProductShowcase } from "@/components/site/ProductShowcase";
 import { SITE } from "@/lib/site";
 import heroVideo from "@/assets/nicwin_hero_doors_opening.mp4.asset.json";
 
