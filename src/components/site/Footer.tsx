@@ -3,20 +3,27 @@ import { SITE } from "@/lib/site";
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden border-t border-white/5 bg-ink pt-24">
-      <div className="pointer-events-none absolute inset-0 mesh-charcoal opacity-60" />
+    <footer className="relative overflow-hidden bg-[color:var(--nicwin-blue-deep)] pt-24">
+      {/* Red hairline at top */}
+      <div aria-hidden className="absolute inset-x-0 top-0 h-[3px] bg-[color:var(--nicwin-red)]" />
+      <div className="pointer-events-none absolute inset-0 opacity-40 mesh-charcoal" />
       <div className="relative mx-auto max-w-[1440px] px-6 md:px-10">
         <div className="grid gap-14 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
-            <div className="font-display text-3xl text-offwhite">
-              nic<span className="text-champagne">win</span>
+            <div className="flex items-center gap-3">
+              <svg viewBox="0 0 40 40" className="h-10 w-10" aria-hidden>
+                <rect x="2" y="2" width="36" height="36" rx="6" fill="#ffffff" />
+                <path d="M11 30 V10 h4 l10 14 V10 h4 v20 h-4 L15 16 v14 z" fill="var(--nicwin-blue)" />
+                <rect x="2" y="34" width="36" height="4" rx="1" fill="var(--nicwin-red)" />
+              </svg>
+              <div className="font-display text-3xl text-white">Nicwin</div>
             </div>
-            <p className="mt-4 max-w-md text-pretty text-lg text-offwhite/70">
+            <p className="mt-6 max-w-md text-pretty text-lg text-white/75">
               Engineered for monsoons. Designed for modern Indian life.
               <br />
-              <span className="italic text-champagne">Always looking for the better.</span>
+              <span className="italic text-white">Always looking for the better.</span>
             </p>
-            <div className="mt-8 hair-gold w-24" />
+            <div className="mt-8 h-[2px] w-24 bg-[color:var(--nicwin-red)]" />
           </div>
 
           <div>

@@ -9,9 +9,9 @@ type CommonProps = {
 };
 
 const styles = {
-  gold: "bg-champagne text-charcoal hover:bg-champagne-soft hover:shadow-[0_18px_50px_-10px_rgba(201,162,39,0.55)]",
-  ghost: "border border-offwhite/30 text-offwhite hover:border-champagne hover:text-champagne",
-  teal: "bg-teal text-offwhite hover:bg-teal-deep",
+  gold: "bg-[color:var(--nicwin-red)] text-white hover:bg-[color:var(--nicwin-red-dark)] hover:shadow-[0_18px_50px_-12px_rgba(227,30,36,0.55)]",
+  ghost: "border border-white/40 text-white hover:border-white hover:bg-white/10",
+  teal: "bg-[color:var(--nicwin-blue)] text-white hover:bg-[color:var(--nicwin-blue-deep)]",
 } as const;
 
 const base =

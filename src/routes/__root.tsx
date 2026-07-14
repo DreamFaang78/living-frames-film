@@ -22,7 +22,7 @@ function NotFoundComponent() {
   return (
     <div className="mesh-charcoal grain flex min-h-screen items-center justify-center px-4">
       <div className="relative z-10 max-w-md text-center">
-        <div className="font-display text-[10rem] leading-none text-champagne">404</div>
+        <div className="font-display text-[10rem] leading-none text-[color:var(--nicwin-red)]">404</div>
         <h2 className="mt-2 font-display text-2xl text-offwhite">
           This corner of the house isn't built yet.
         </h2>
@@ -106,7 +106,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Nicwin — Always looking for the better." },
       { name: "description", content: SITE.description },
-      { name: "theme-color", content: "#0A0A0B" },
+      { name: "theme-color", content: "#E31E24" },
       { property: "og:site_name", content: SITE.fullName },
       { property: "og:title", content: "Nicwin — Always looking for the better." },
       { property: "og:description", content: SITE.description },
@@ -126,7 +126,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Sora:wght@300;400;500;600;700&display=swap",
+      },
+      {
+        rel: "stylesheet",
+        href: "https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap",
       },
     ],
     scripts: [

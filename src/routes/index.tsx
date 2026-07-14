@@ -5,6 +5,7 @@ import { CTAExternal, CTALink } from "@/components/site/CTAButton";
 import { CountUp } from "@/components/site/CountUp";
 import { Reveal, Stagger, item } from "@/components/site/Reveal";
 import { VideoHero } from "@/components/site/VideoHero";
+import { Marquee } from "@/components/site/Marquee";
 import { SITE } from "@/lib/site";
 import { Link } from "@tanstack/react-router";
 import heroVideo from "@/assets/nicwin_hero_doors_opening.mp4.asset.json";
@@ -109,7 +110,7 @@ function Home() {
             transition={{ delay: 1.2, duration: 1, ease: [0.22, 1, 0.36, 1] }}
             className="mb-8 inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-[11px] uppercase tracking-[0.3em] text-offwhite/80 backdrop-blur-md"
           >
-            <span className="h-1.5 w-1.5 rounded-full bg-champagne shadow-[0_0_10px_rgba(201,162,39,0.8)]" />
+            <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--nicwin-red)] shadow-[0_0_12px_rgba(227,30,36,0.9)]" />
             Nicwin · Deoghar, Jharkhand
           </motion.div>
 
@@ -117,18 +118,17 @@ function Home() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.4, duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-            className="text-balance font-display text-[13vw] leading-[0.92] text-offwhite md:text-[8.6rem]"
+            className="text-balance font-display text-[13vw] leading-[0.92] text-white md:text-[8.6rem]"
           >
-            Always looking
+            We don't compromise
             <br />
             <motion.span
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.75, duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-              className="italic"
-              style={{ color: "#C9A227" }}
+              className="italic text-white/95"
             >
-              for the better.
+              with quality.
             </motion.span>
           </motion.h1>
 
@@ -162,10 +162,14 @@ function Home() {
           transition={{ delay: 2.8, duration: 1.2 }}
           className="pointer-events-none absolute bottom-6 left-1/2 z-10 -translate-x-1/2 text-center text-[10px] uppercase tracking-[0.4em] text-offwhite/60"
         >
-          <div className="mx-auto mb-3 h-10 w-px animate-pulse bg-champagne/70" />
+          <div className="mx-auto mb-3 h-10 w-px animate-pulse bg-[color:var(--nicwin-red)]" />
           scroll
         </motion.div>
       </VideoHero>
+
+      {/* MARQUEE */}
+      <Marquee />
+
 
 
       {/* STATS */}
