@@ -5,6 +5,7 @@ import { CTAExternal, CTALink } from "@/components/site/CTAButton";
 import { CountUp } from "@/components/site/CountUp";
 import { Reveal, Stagger, item } from "@/components/site/Reveal";
 import { VideoHero } from "@/components/site/VideoHero";
+import { Marquee } from "@/components/site/Marquee";
 import { SITE } from "@/lib/site";
 import { Link } from "@tanstack/react-router";
 import heroVideo from "@/assets/nicwin_hero_doors_opening.mp4.asset.json";
