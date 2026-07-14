@@ -118,18 +118,17 @@ function Home() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.4, duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-            className="text-balance font-display text-[13vw] leading-[0.92] text-offwhite md:text-[8.6rem]"
+            className="text-balance font-display text-[13vw] leading-[0.92] text-white md:text-[8.6rem]"
           >
-            Always looking
+            We don't compromise
             <br />
             <motion.span
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.75, duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-              className="italic"
-              style={{ color: "#C9A227" }}
+              className="italic text-white/95"
             >
-              for the better.
+              with quality.
             </motion.span>
           </motion.h1>
 
