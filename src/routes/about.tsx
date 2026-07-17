@@ -1,10 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 
-import { CTAExternal, CTALink } from "@/components/site/CTAButton";
 import { FinalCTA } from "@/components/site/FinalCTA";
-
 import { Reveal, Stagger, item } from "@/components/site/Reveal";
-import { SITE } from "@/lib/site";
+
 import { motion } from "framer-motion";
 
 export const Route = createFileRoute("/about")({
