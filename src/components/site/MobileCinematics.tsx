@@ -37,9 +37,9 @@ export function MobileCinematics() {
 
       mm.add("(max-width: 768px)", () => {
         // 1) Section reveal batch — every top-level section drifts up + fades in
-        const sections = gsap.utils.toArray<HTMLElement>(
-          "main section, main [data-scene]",
-        );
+        const sections = gsap.utils
+          .toArray<HTMLElement>("main section, main [data-scene]")
+          .filter((el) => !el.hasAttribute("data-hero"));
 
         sections.forEach((el, i) => {
           gsap.fromTo(
