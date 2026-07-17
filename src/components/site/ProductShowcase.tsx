@@ -122,7 +122,9 @@ const products: Product[] = [
       "Stainless steel rollers · self-lubricating",
       "Weep-drainage channels for heavy rain",
     ],
-    img: upvcDurable,
+    // Use a clean product photo. The legacy `upvcDurable` asset has a baked-in
+    // yellow-green overlay from the old marketing site — don't reuse it.
+    img: tiltTurn,
     to: "/products/upvc/windows",
     aspect: "landscape",
   },
