@@ -1,9 +1,19 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { CinematicScene } from "@/components/site/CinematicScene";
 import { Reveal, Stagger, item } from "@/components/site/Reveal";
+import { AutoCarousel, type CarouselSlide } from "@/components/site/AutoCarousel";
 import { motion } from "framer-motion";
 import { useMemo, useState } from "react";
 import { cn } from "@/lib/utils";
+
+import aluminium from "@/assets/products/aluminium-system.png.asset.json";
+import french from "@/assets/products/french-doors.png.asset.json";
+import slideFold from "@/assets/products/slide-fold.png.asset.json";
+import casement from "@/assets/products/casement-door.jpg.asset.json";
+import upvcEco from "@/assets/products/upvc-eco.png.asset.json";
+import upvcSecure from "@/assets/products/upvc-secure.png.asset.json";
+import tiltTurn from "@/assets/products/tilt-turn.png.asset.json";
+import luxuryInterior from "@/assets/products/luxury-interior.png.asset.json";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
@@ -12,7 +22,7 @@ export const Route = createFileRoute("/gallery")({
       {
         name: "description",
         content:
-          "A living gallery of Nicwin uPVC, Aluminium and Steel installations. Filter by material, product or geography.",
+          "Real Nicwin installations across Jharkhand and Bihar — labelled by product type, material and location.",
       },
       { property: "og:title", content: "Nicwin Gallery" },
     ],
@@ -23,21 +33,71 @@ export const Route = createFileRoute("/gallery")({
 
 type Tag = "All" | "Windows" | "Doors" | "uPVC" | "Aluminium" | "Steel";
 
-const projects: Array<{
+type Project = {
   title: string;
   place: string;
+  productType: string;
   tags: Tag[];
-  variant: "night" | "teal" | "gold" | "warm";
-  span?: string;
-}> = [
-  { title: "Courtyard house", place: "Ranchi", tags: ["uPVC", "Windows"], variant: "teal", span: "md:col-span-2 md:row-span-2" },
-  { title: "Monsoon apartment", place: "Deoghar", tags: ["Aluminium", "Doors"], variant: "night" },
-  { title: "Family bungalow", place: "Jamui", tags: ["Steel", "Doors"], variant: "gold" },
-  { title: "Weekend retreat", place: "Giridih", tags: ["uPVC", "Doors"], variant: "warm" },
-  { title: "City penthouse", place: "Dhanbad", tags: ["Aluminium", "Windows"], variant: "night", span: "md:col-span-2" },
-  { title: "Heritage restoration", place: "Deoghar", tags: ["Steel", "Windows"], variant: "gold" },
-  { title: "Riverside villa", place: "Bhagalpur", tags: ["Aluminium", "Doors"], variant: "teal" },
-  { title: "Studio annex", place: "Deoghar", tags: ["uPVC", "Windows"], variant: "night" },
+  img: { url: string };
+};
+
+const projects: Project[] = [
+  {
+    title: "Courtyard house",
+    place: "Ranchi, Jharkhand",
+    productType: "Tilt & Turn uPVC Window",
+    tags: ["uPVC", "Windows"],
+    img: tiltTurn,
+  },
+  {
+    title: "Monsoon apartment",
+    place: "Deoghar, Jharkhand",
+    productType: "Aluminium System Sliding Door",
+    tags: ["Aluminium", "Doors"],
+    img: aluminium,
+  },
+  {
+    title: "Family bungalow",
+    place: "Jamui, Bihar",
+    productType: "uPVC Casement Door",
+    tags: ["uPVC", "Doors"],
+    img: casement,
+  },
+  {
+    title: "Weekend retreat",
+    place: "Giridih, Jharkhand",
+    productType: "uPVC Slide & Fold Doors",
+    tags: ["uPVC", "Doors"],
+    img: slideFold,
+  },
+  {
+    title: "City penthouse",
+    place: "Dhanbad, Jharkhand",
+    productType: "Aluminium Floor-to-Ceiling Window",
+    tags: ["Aluminium", "Windows"],
+    img: luxuryInterior,
+  },
+  {
+    title: "Riverside villa",
+    place: "Bhagalpur, Bihar",
+    productType: "French uPVC Doors",
+    tags: ["uPVC", "Doors"],
+    img: french,
+  },
+  {
+    title: "Studio annex",
+    place: "Deoghar, Jharkhand",
+    productType: "uPVC Fixed Picture Window",
+    tags: ["uPVC", "Windows"],
+    img: upvcSecure,
+  },
+  {
+    title: "Garden pavilion",
+    place: "Deoghar, Jharkhand",
+    productType: "uPVC Bay Casement Window",
+    tags: ["uPVC", "Windows"],
+    img: upvcEco,
+  },
 ];
 
 const FILTERS: Tag[] = ["All", "Windows", "Doors", "uPVC", "Aluminium", "Steel"];
@@ -48,6 +108,13 @@ function Gallery() {
     () => (tag === "All" ? projects : projects.filter((p) => p.tags.includes(tag))),
     [tag],
   );
+
+  const slides: CarouselSlide[] = projects.slice(0, 6).map((p) => ({
+    src: p.img.url,
+    alt: `${p.productType} installed at ${p.place}`,
+    productType: p.productType,
+    place: p.place,
+  }));
 
   return (
     <>
@@ -61,10 +128,33 @@ function Gallery() {
               Homes we've quieted.
             </h1>
           </Reveal>
+          <Reveal delay={2}>
+            <p className="mt-4 max-w-xl text-offwhite/75">
+              Every image below names the exact product, material and location — so you
+              can see what you'll actually get.
+            </p>
+          </Reveal>
         </div>
       </CinematicScene>
 
-      <section className="border-y border-white/5 bg-ink py-24">
+      {/* Auto-advancing showcase */}
+      <section className="bg-[color:var(--paper)] py-20 md:py-24">
+        <div className="mx-auto max-w-[1200px] px-6 md:px-10">
+          <Reveal>
+            <div className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[color:var(--nicwin-red)]">
+              Featured installations
+            </div>
+          </Reveal>
+          <Reveal delay={1}>
+            <h2 className="mt-3 mb-10 font-display text-3xl text-[color:var(--ink)] md:text-4xl">
+              A slow slideshow of recent work.
+            </h2>
+          </Reveal>
+          <AutoCarousel slides={slides} />
+        </div>
+      </section>
+
+      <section className="border-t border-[color:var(--line)] bg-[color:var(--paper-warm)] py-24">
         <div className="mx-auto max-w-[1440px] px-6 md:px-10">
           <div className="mb-10 flex flex-wrap gap-2">
             {FILTERS.map((f) => (
@@ -74,8 +164,8 @@ function Gallery() {
                 className={cn(
                   "rounded-full border px-4 py-2 text-sm transition-all",
                   tag === f
-                    ? "border-champagne bg-champagne text-charcoal"
-                    : "border-white/10 text-offwhite/70 hover:border-champagne/50 hover:text-champagne",
+                    ? "border-[color:var(--nicwin-red)] bg-[color:var(--nicwin-red)] text-white"
+                    : "border-[color:var(--line)] text-[color:var(--ink-soft)] hover:border-[color:var(--nicwin-red)]/50 hover:text-[color:var(--nicwin-red)]",
                 )}
               >
                 {f}
@@ -84,26 +174,41 @@ function Gallery() {
           </div>
 
           <Stagger
-            className="grid auto-rows-[220px] gap-4 md:grid-cols-4 md:auto-rows-[240px]"
+            className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
             stagger={0.05}
           >
             {list.map((p) => (
-              <motion.div
-                key={p.title + p.place}
+              <motion.article
                 layout
+                key={p.title + p.place}
                 variants={item}
-                className={cn("group relative overflow-hidden rounded-2xl", p.span)}
+                className="group flex flex-col overflow-hidden rounded-2xl border border-[color:var(--line)] bg-[color:var(--paper)] shadow-[0_10px_30px_-20px_rgba(14,59,115,0.25)] transition-shadow duration-500 hover:shadow-[0_30px_70px_-30px_rgba(14,59,115,0.35)]"
               >
-                <CinematicScene variant={p.variant} parallax={false} className="h-full w-full">
-                  <div className="flex h-full flex-col justify-end p-6 transition-transform duration-700 group-hover:-translate-y-1">
-                    <div className="text-[10px] uppercase tracking-[0.3em] text-champagne">
-                      {p.tags.join(" · ")}
-                    </div>
-                    <h3 className="mt-2 font-display text-2xl text-offwhite">{p.title}</h3>
-                    <div className="text-sm text-offwhite/60">{p.place}</div>
+                <div className="aspect-[4/3] w-full overflow-hidden bg-[color:var(--paper-warm)]">
+                  <img
+                    src={p.img.url}
+                    alt={`${p.productType} installed at ${p.place}`}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
+                  />
+                </div>
+                <div className="flex flex-1 flex-col p-6">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="rounded-full border border-[color:var(--line)] px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-[0.22em] text-[color:var(--nicwin-blue)]">
+                      {p.tags[0]}
+                    </span>
+                    <span className="text-[10px] uppercase tracking-[0.22em] text-[color:var(--ink-soft)]">
+                      {p.tags.slice(1).join(" · ")}
+                    </span>
                   </div>
-                </CinematicScene>
-              </motion.div>
+                  <h3 className="mt-4 font-display text-xl text-[color:var(--ink)]">
+                    {p.productType}
+                  </h3>
+                  <div className="mt-1 text-sm text-[color:var(--ink-soft)]">
+                    {p.title} — {p.place}
+                  </div>
+                </div>
+              </motion.article>
             ))}
           </Stagger>
         </div>

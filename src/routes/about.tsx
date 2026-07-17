@@ -173,6 +173,51 @@ function About() {
         </div>
       </section>
 
+      {/* TODO(client-media): swap these placeholders for real Nicwin factory
+          and showroom photos + walkthrough video when the client shares them. */}
+      <section className="border-y border-white/5 bg-ink py-24 md:py-32">
+        <div className="mx-auto max-w-[1200px] px-6 md:px-10">
+          <Reveal>
+            <div className="text-xs uppercase tracking-[0.3em] text-champagne">
+              See it in person
+            </div>
+          </Reveal>
+          <Reveal delay={1}>
+            <h2 className="mt-3 max-w-3xl font-display text-4xl text-offwhite md:text-5xl">
+              Factory & Experience Center — Deoghar.
+            </h2>
+          </Reveal>
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            {[
+              {
+                label: "Factory — Deoghar",
+                body: "Nayachitkat, Rikhiya Dumma Border Road. In-house fabrication floor with QC bay.",
+              },
+              {
+                label: "Experience Center & Showroom — Deoghar",
+                body: "Sparsh Complex, Deoghar College Road, Tiwari Chowk. Walk through live installations.",
+              },
+            ].map((slot) => (
+              <div
+                key={slot.label}
+                className="relative flex aspect-[4/3] flex-col justify-end overflow-hidden rounded-2xl border border-dashed border-white/25 bg-charcoal/60 p-8"
+              >
+                <div className="absolute left-4 top-4 rounded-full border border-champagne/40 bg-black/50 px-3 py-1 text-[10px] uppercase tracking-[0.22em] text-champagne">
+                  Coming soon · awaiting client media
+                </div>
+                <div className="font-display text-2xl text-offwhite">{slot.label}</div>
+                <p className="mt-2 max-w-md text-sm text-offwhite/60">{slot.body}</p>
+                <div className="mt-4 text-[11px] uppercase tracking-[0.22em] text-offwhite/40">
+                  Real photos & walkthrough video will be added here.
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
+
       <section className="py-32">
         <div className="mx-auto max-w-[900px] px-6 text-center md:px-10">
           <Reveal>
@@ -182,7 +227,7 @@ function About() {
           </Reveal>
           <Reveal delay={1}>
             <p className="mt-4 text-offwhite/70">
-              Deoghar factory. Jamui branch. And a WhatsApp always open.
+              Deoghar factory. Deoghar Experience Center & Showroom. And a WhatsApp always open.
             </p>
           </Reveal>
           <Reveal delay={2}>

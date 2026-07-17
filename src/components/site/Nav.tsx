@@ -4,6 +4,7 @@ import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { NAV, MEGA, SITE } from "@/lib/site";
 import { cn } from "@/lib/utils";
+import nicwinLogo from "@/assets/brand/nicwin-logo.png.asset.json";
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -40,16 +41,22 @@ export function Nav() {
         onMouseLeave={() => setMega(false)}
       >
         <div className="mx-auto flex max-w-[1440px] items-center justify-between px-6 py-4 md:px-10">
-          <Link to="/" className="group flex items-center gap-3">
-            {/* Logo mark — blue N with red bar, mirrors existing brand mark */}
-            <svg viewBox="0 0 40 40" className="h-9 w-9" aria-hidden>
-              <rect x="2" y="2" width="36" height="36" rx="6" fill="var(--nicwin-blue)" />
-              <path d="M11 30 V10 h4 l10 14 V10 h4 v20 h-4 L15 16 v14 z" fill="#ffffff" />
-              <rect x="2" y="34" width="36" height="4" rx="1" fill="var(--nicwin-red)" />
-            </svg>
-            <div className={cn("font-display text-2xl font-medium tracking-tight transition-colors", inkText)}>
-              Nicwin
-            </div>
+          <Link to="/" className="group flex items-center gap-3" aria-label="Nicwin — Home">
+            <span
+              className={cn(
+                "flex h-11 items-center justify-center rounded-md px-2 transition-colors",
+                scrolled ? "bg-transparent" : "bg-white/95 shadow-sm",
+              )}
+            >
+              <img
+                src={nicwinLogo.url}
+                alt="Nicwin Windows & Door Systems"
+                className="h-9 w-auto md:h-10"
+                width={110}
+                height={44}
+              />
+            </span>
+            <span className={cn("sr-only", inkText)}>Nicwin</span>
           </Link>
 
           <nav className="hidden items-center gap-1 md:flex">

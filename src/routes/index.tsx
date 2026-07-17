@@ -82,12 +82,12 @@ const pillars = [
 ];
 
 const swatches = [
-  { label: "Pure White",   color: "#F6F6F3" },
-  { label: "Anthracite",   color: "#2A2C2F" },
-  { label: "Golden Oak",   color: "#8B5A2B" },
-  { label: "Nicwin Red",   color: "#E31E24" },
-  { label: "Deep Blue",    color: "#0E3B73" },
-  { label: "Champagne",    color: "#C9A227" },
+  { label: "Pure White",       color: "#F6F6F3" },
+  { label: "Anthracite Grey",  color: "#2A2C2F" },
+  { label: "Golden Oak",       color: "#8B5A2B" },
+  { label: "Walnut",           color: "#5A3A22" },
+  { label: "Jet Black",        color: "#111214" },
+  { label: "Diamond Grey",     color: "#8A8F94" },
 ];
 
 const testimonials = [

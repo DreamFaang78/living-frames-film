@@ -11,7 +11,7 @@ import { motion, AnimatePresence } from "framer-motion";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact Nicwin — Deoghar & Jamui" },
+      { title: "Contact Nicwin — Deoghar Factory & Showroom" },
       {
         name: "description",
         content:
@@ -47,7 +47,7 @@ function Contact() {
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [sent, setSent] = useState(false);
-  const [mapLoc, setMapLoc] = useState<"factory" | "branch">("factory");
+  const [mapLoc, setMapLoc] = useState<"factory" | "showroom">("showroom");
 
   const toggleProduct = (p: string) => {
     setForm((f) => ({
@@ -69,7 +69,7 @@ function Contact() {
     setSent(true);
   };
 
-  const mapQuery = mapLoc === "factory" ? SITE.factory.mapQuery : SITE.branch.mapQuery;
+  const mapQuery = mapLoc === "factory" ? SITE.factory.mapQuery : SITE.showroom.mapQuery;
 
   return (
     <>
@@ -262,7 +262,7 @@ function Contact() {
 
             <div className="overflow-hidden rounded-3xl border border-white/8">
               <div className="flex border-b border-white/8">
-                {(["factory", "branch"] as const).map((loc) => (
+                {(["showroom", "factory"] as const).map((loc) => (
                   <button
                     key={loc}
                     onClick={() => setMapLoc(loc)}
@@ -273,19 +273,26 @@ function Contact() {
                         : "bg-charcoal/60 text-offwhite/70 hover:text-champagne",
                     )}
                   >
-                    {loc === "factory" ? SITE.factory.label : SITE.branch.label}
+                    {loc === "factory" ? SITE.factory.label : "Showroom"}
                   </button>
                 ))}
               </div>
+              {/* TODO(client-media): swap address-based search for exact map pin
+                  coordinates once the client confirms them for each site. */}
               <iframe
                 key={mapQuery}
-                title="Map"
+                title={mapLoc === "factory" ? SITE.factory.label : SITE.showroom.label}
                 src={`https://maps.google.com/maps?q=${mapQuery}&output=embed`}
                 className="h-[320px] w-full grayscale"
                 loading="lazy"
               />
               <div className="bg-charcoal/60 p-5 text-sm text-offwhite/75">
-                {mapLoc === "factory" ? SITE.factory.address : SITE.branch.address}
+                <div className="text-xs uppercase tracking-widest text-champagne">
+                  {mapLoc === "factory" ? SITE.factory.label : SITE.showroom.label}
+                </div>
+                <div className="mt-2">
+                  {mapLoc === "factory" ? SITE.factory.address : SITE.showroom.address}
+                </div>
               </div>
             </div>
           </div>

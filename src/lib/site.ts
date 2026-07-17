@@ -4,13 +4,11 @@ export const SITE = {
   tagline: "Always looking for the better.",
   description:
     "Engineered for monsoons. Designed for modern Indian life. Premium uPVC, Aluminium and Steel windows and doors from Deoghar, Jharkhand.",
-  whatsappUrl: "https://wa.me/919234233892",
+  whatsappUrl: "https://wa.me/917909039070",
   email: "nicwinsystems@gmail.com",
   phones: [
-    { label: "Deoghar", number: "+91-9234233892", tel: "+919234233892" },
-    { label: "Jamui", number: "+91-8002003892", tel: "+918002003892" },
-    { label: "Dhanbad", number: "+91-9801753892", tel: "+919801753892" },
-    { label: "Enquiries", number: "+91-6206697588", tel: "+916206697588" },
+    { label: "Primary", number: "+91 79090 39070", tel: "+917909039070" },
+    { label: "Enquiries", number: "+91 92205 33892", tel: "+919220533892" },
   ],
   hours: "Mon–Sat · 9:30 – 18:30",
   factory: {
@@ -19,11 +17,12 @@ export const SITE = {
       "Nayachitkat, Rikhiya Dumma Border Road, Near-Navoday School Rikhiya, Deoghar, Jharkhand – 814113",
     mapQuery: "Nayachitkat+Rikhiya+Deoghar+Jharkhand+814113",
   },
-  branch: {
-    label: "Branch Office",
+  showroom: {
+    label: "Experience Center & Showroom",
     address:
-      "Boss Gym, Near Sisodiya Petrol Pump, Katouna, Jamui, Bihar – 811313",
-    mapQuery: "Katouna+Jamui+Bihar+811313",
+      "Sparsh Complex, Deoghar College Road, Near Daffodil Garden, Tiwari Chowk, Deoghar, Jharkhand – 814112",
+    mapQuery:
+      "Sparsh+Complex+Deoghar+College+Road+Tiwari+Chowk+Deoghar+Jharkhand+814112",
   },
   socials: [
     { label: "YouTube", href: "https://www.youtube.com/channel/UCAHR_e9hu4v9Tll0L94jn2Q" },
@@ -31,6 +30,11 @@ export const SITE = {
     { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61558177406089" },
   ],
 } as const;
+
+// Back-compat alias — some routes still reference SITE.branch.
+// Points to the new Experience Center & Showroom.
+// Deprecated: use SITE.showroom directly.
+export const LEGACY_BRANCH_ALIAS = SITE.showroom;
 
 export const NAV = [
   { to: "/", label: "Home" },

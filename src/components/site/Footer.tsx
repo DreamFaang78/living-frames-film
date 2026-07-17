@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { SITE } from "@/lib/site";
+import nicwinLogo from "@/assets/brand/nicwin-logo.png.asset.json";
 
 export function Footer() {
   return (
@@ -11,12 +12,15 @@ export function Footer() {
         <div className="grid gap-14 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
             <div className="flex items-center gap-3">
-              <svg viewBox="0 0 40 40" className="h-10 w-10" aria-hidden>
-                <rect x="2" y="2" width="36" height="36" rx="6" fill="#ffffff" />
-                <path d="M11 30 V10 h4 l10 14 V10 h4 v20 h-4 L15 16 v14 z" fill="var(--nicwin-blue)" />
-                <rect x="2" y="34" width="36" height="4" rx="1" fill="var(--nicwin-red)" />
-              </svg>
-              <div className="font-display text-3xl text-white">Nicwin</div>
+              <span className="inline-flex items-center justify-center rounded-lg bg-white px-3 py-2 shadow-sm">
+                <img
+                  src={nicwinLogo.url}
+                  alt="Nicwin Windows & Door Systems"
+                  className="h-12 w-auto"
+                  width={140}
+                  height={56}
+                />
+              </span>
             </div>
             <p className="mt-6 max-w-md text-pretty text-lg text-white/75">
               Engineered for monsoons. Designed for modern Indian life.
@@ -65,8 +69,8 @@ export function Footer() {
                 <div>{SITE.factory.address}</div>
               </div>
               <div>
-                <div className="text-offwhite">{SITE.branch.label}</div>
-                <div>{SITE.branch.address}</div>
+                <div className="text-offwhite">{SITE.showroom.label}</div>
+                <div>{SITE.showroom.address}</div>
               </div>
             </div>
             <div className="mt-6 flex gap-3">

@@ -8,7 +8,7 @@ import slideFold from "@/assets/products/slide-fold.png.asset.json";
 import casement from "@/assets/products/casement-door.jpg.asset.json";
 import upvcEco from "@/assets/products/upvc-eco.png.asset.json";
 import upvcSecure from "@/assets/products/upvc-secure.png.asset.json";
-import upvcDurable from "@/assets/products/upvc-durability.png.asset.json";
+// upvc-durability.png intentionally not imported — legacy overlay baked in.
 import tiltTurn from "@/assets/products/tilt-turn.png.asset.json";
 
 type Product = {
@@ -122,7 +122,9 @@ const products: Product[] = [
       "Stainless steel rollers · self-lubricating",
       "Weep-drainage channels for heavy rain",
     ],
-    img: upvcDurable,
+    // Use a clean product photo. The legacy `upvcDurable` asset has a baked-in
+    // yellow-green overlay from the old marketing site — don't reuse it.
+    img: tiltTurn,
     to: "/products/upvc/windows",
     aspect: "landscape",
   },
