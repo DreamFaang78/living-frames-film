@@ -201,7 +201,7 @@ function Home() {
           </Reveal>
           <Reveal delay={1}>
             <h2 className="mt-6 max-w-4xl text-balance font-display text-4xl leading-[1.05] text-[color:var(--ink)] md:text-[clamp(2.5rem,5vw,4.5rem)]">
-              Kanpur summers. Deoghar monsoons. <span className="text-[color:var(--nicwin-red)]">Wooden frames don't survive either.</span>
+              45°C summers. Lashing monsoons. Dust that gets into everything. <span className="text-[color:var(--nicwin-red)]">Wooden frames don't survive any of it.</span>
             </h2>
           </Reveal>
           <Reveal delay={2}>
