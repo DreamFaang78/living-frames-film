@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { CinematicScene } from "@/components/site/CinematicScene";
+
 import { CTAExternal, CTALink } from "@/components/site/CTAButton";
 import { Reveal, Stagger, item } from "@/components/site/Reveal";
 import { SITE } from "@/lib/site";
@@ -62,28 +62,31 @@ const pillars = [
 function About() {
   return (
     <>
-      <CinematicScene variant="teal" className="min-h-[80svh]">
+      <section className="relative isolate overflow-hidden mesh-paper">
+        <div aria-hidden className="absolute inset-x-0 top-0 h-px bg-[var(--nicwin-red)]/60" />
         <div className="mx-auto flex min-h-[80svh] max-w-[1440px] flex-col justify-end px-6 pb-24 pt-40 md:px-10">
           <Reveal>
-            <div className="mb-4 text-xs uppercase tracking-[0.3em] text-champagne">About Nicwin</div>
+            <div className="mb-4 text-xs uppercase tracking-[0.3em] text-[var(--nicwin-red)]">
+              About Nicwin
+            </div>
           </Reveal>
           <Reveal delay={1}>
-            <h1 className="text-balance font-display text-6xl leading-[0.95] text-offwhite md:text-[8rem]">
+            <h1 className="text-balance font-display text-6xl leading-[0.95] text-[var(--ink)] md:text-[8rem]">
               We make the frames
               <br />
-              <span className="italic text-champagne">that frame your life.</span>
+              <span className="italic text-[var(--nicwin-blue-deep)]">that frame your life.</span>
             </h1>
           </Reveal>
           <Reveal delay={2}>
-            <p className="mt-8 max-w-2xl text-lg text-offwhite/75">
+            <p className="mt-8 max-w-2xl text-lg text-[var(--ink-soft)]">
               High-quality uPVC and aluminium doors and windows that combine modern
               design, durability, and affordability — engineered in a fully automated
               15,000 sq ft plant in Deoghar.
             </p>
-
           </Reveal>
         </div>
-      </CinematicScene>
+      </section>
+
 
       {/* HERITAGE */}
       <section className="border-y border-white/5 bg-ink py-32">
