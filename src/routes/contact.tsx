@@ -11,7 +11,7 @@ import { motion, AnimatePresence } from "framer-motion";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact Nicwin — Deoghar & Jamui" },
+      { title: "Contact Nicwin — Deoghar Factory & Showroom" },
       {
         name: "description",
         content:

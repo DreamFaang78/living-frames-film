@@ -182,7 +182,7 @@ function About() {
           </Reveal>
           <Reveal delay={1}>
             <p className="mt-4 text-offwhite/70">
-              Deoghar factory. Jamui branch. And a WhatsApp always open.
+              Deoghar factory. Deoghar Experience Center & Showroom. And a WhatsApp always open.
             </p>
           </Reveal>
           <Reveal delay={2}>
