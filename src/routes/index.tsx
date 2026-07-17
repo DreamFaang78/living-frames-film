@@ -388,7 +388,7 @@ function Home() {
             <Reveal><div className="eyebrow">Recent projects</div></Reveal>
             <Reveal delay={1}>
               <h2 className="mt-4 max-w-2xl font-display text-4xl leading-[1.05] text-[color:var(--ink)] md:text-[clamp(2.25rem,4.5vw,4rem)]">
-                Homes across Jharkhand and Bihar.
+                Homes across India. Made one frame at a time.
               </h2>
             </Reveal>
           </div>
