@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { CinematicScene } from "@/components/site/CinematicScene";
+
 import { CTAExternal, CTALink } from "@/components/site/CTAButton";
 import { Reveal, Stagger, item } from "@/components/site/Reveal";
 import { SITE } from "@/lib/site";
