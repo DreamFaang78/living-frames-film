@@ -76,9 +76,11 @@ function About() {
           </Reveal>
           <Reveal delay={2}>
             <p className="mt-8 max-w-2xl text-lg text-offwhite/75">
-              A window is not a feature. It is the border between the world and your morning
-              tea. We take that border seriously.
+              High-quality uPVC and aluminium doors and windows that combine modern
+              design, durability, and affordability — engineered in a fully automated
+              15,000 sq ft plant in Deoghar.
             </p>
+
           </Reveal>
         </div>
       </CinematicScene>
