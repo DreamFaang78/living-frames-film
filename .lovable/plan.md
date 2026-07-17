@@ -1,50 +1,34 @@
-# Fix invisible pre-footer CTA + site-wide contrast audit
-
 ## Root cause
 
-The pre-footer CTA is NOT a shared component — it's duplicated inline on every page. Four instances render `text-offwhite` (white) on a section with **no background set**, so it inherits the page's paper-white → white text on white paper → invisible.
+`CinematicScene`'s `teal` and `gold` variants use Tailwind arbitrary values with commas inside `radial-gradient(...)` — Tailwind v4 doesn't parse those, so the mesh div renders transparent. The only thing you see on the uPVC and Steel cards is the `vignette` layer (transparent center → deep-blue edges) sitting on the page's white background, which reads as "light card with a blue vignette." White text on that white center is invisible. The Aluminium card uses `mesh-charcoal` (a real `@utility`), so it renders correctly dark and the white text is fine.
 
-| Page | Section bg | Text color | Result |
-|---|---|---|---|
-| Home `/` | `bg-[var(--paper)]` | `text-[var(--ink)]` | Correct |
-| About `/about` | none (paper) | `text-offwhite` | Invisible (H2 + `<p>`) |
-| Products `/products` | none (paper) | `text-offwhite` | Invisible (H2 + `<p>`) |
-| Why Nicwin `/why-nicwin` | none (paper) | `text-offwhite` | Invisible (H2 only) |
-| Product categories (uPVC/Aluminium/Steel via `ProductCategoryPage`) | `CinematicScene variant="night"` (dark blue) | `text-offwhite` | Correct |
-| Gallery, Contact | no pre-footer CTA of this shape | — | N/A |
-
-The "sometimes blank, sometimes faintly visible" difference the user saw is not conditional rendering — it's that Why-Nicwin has H2 only (no `<p>`) while About/Products have both, so the blank-looking one is just a shorter block.
+The pre-footer CTA on `/products` already renders correctly (`FinalCTA` is wired and readable) — no fix needed there this turn; the stale report is from a pre-fix screenshot.
 
 ## Fix
 
-### 1. Create one shared component
+Honor the user's stated preference: keep the light/dark/light rhythm across the three cards, and pair text color to background.
 
-New file `src/components/site/FinalCTA.tsx` — a single pre-footer CTA block used by every page that needs one. Props: `eyebrow?`, `headline`, `sub?`, `primaryLabel?` (default "Talk to us on WhatsApp"), `secondary?: { label, to }`. Renders on `--paper` with `--ink` headline, `--ink-soft` sub, red accent word optional. Matches the homepage's Scene 10 treatment so the whole site closes on the same beat.
+1. **`src/styles.css`** — add two new utilities:
+   - `mesh-cool-light`: white base with a soft blue radial wash (for uPVC card).
+   - `mesh-warm-light`: warm off-white base with a soft amber+red radial wash (for Steel card). No brand-red saturation, kept at ~4–6% alpha so it reads as a finish, not an alert.
+   - Also add proper dark `mesh-teal` and `mesh-gold` utilities so the existing `variant="teal"` / `variant="gold"` no longer silently fails elsewhere (product hero scenes rely on them).
 
-### 2. Replace the four broken inline instances
+2. **`src/components/site/CinematicScene.tsx`** — add two new variant values, `cool-light` and `warm-light`, that map to the new utilities. Also fix the broken `teal` and `gold` variants to reference the new proper utilities instead of arbitrary Tailwind gradients. No behavior change to `night` / `warm`.
 
-- `src/routes/about.tsx` lines 243-264 → `<FinalCTA headline="Come see the workshop." sub="Deoghar factory. Deoghar Experience Center & Showroom. And a WhatsApp always open." secondary={{ label: "Plan a visit", to: "/contact" }} />`
-- `src/routes/products.tsx` lines 97-112 → `<FinalCTA eyebrow="Not sure where to start?" headline="Tell us the room. We'll suggest the frame." secondary={{ label: "Get a quote", to: "/contact" }} />`
-- `src/routes/why-nicwin.tsx` lines 135-151 → `<FinalCTA headline="Bring the better home." secondary={{ label: "See the range", to: "/products" }} />`
-- `src/routes/index.tsx` Scene 10 (lines 401-424) → keep the existing correct block, but swap to `<FinalCTA>` for consistency (optional; low risk since it already renders correctly).
+3. **`src/routes/products.tsx`** — change the three universe cards:
+   - uPVC → `variant="cool-light"`, text uses `--ink` / `--ink-soft`, kicker stays red (`--nicwin-red`), CTA arrow uses `--nicwin-blue-deep`.
+   - Aluminium → stays `variant="night"`, keeps current white text (already correct).
+   - Steel → `variant="warm-light"`, same dark-text treatment as uPVC.
+   - Render text color conditionally off the variant (a small `isLight` boolean in the map) so headline, subtext line ("6 windows…", "Secure solid…"), and the "Explore →" CTA all switch together. Do NOT hardcode `text-offwhite` on the card.
 
-`ProductCategoryPage.tsx`'s CTA already sits on a dark `CinematicScene` and reads fine — leave it alone.
+4. **Sitewide contrast pass (scoped, not a rewrite)** — grep for `text-offwhite`, `text-champagne`, `text-white` and confirm every occurrence sits on a truly dark background (`mesh-charcoal`, `bg-ink`, `bg-[color:var(--nicwin-blue-deep)]`, or a `CinematicScene` variant that resolves to dark). Fix any that sit on `--paper` / `--paper-warm` / `mesh-paper` / `mesh-warm` / bare white sections. Report any additional instances found so we don't ship another round of invisible-text bugs.
 
-### 3. Site-wide contrast audit (single pass)
+## Not doing
 
-Grep every route + shared component for the two failure patterns and confirm each hit:
+- Not making all three cards dark ("sidestep") — explicitly rejected by the user.
+- Not touching `FinalCTA` — it already renders correctly on `/products` in the current build.
+- No copy changes, no motion changes, no layout changes to the cards beyond text-color pairing.
 
-1. `text-offwhite` / `text-white` inside a section with no explicit dark bg — flag and darken to `--ink`.
-2. `text-ink` / `text-[var(--ink)]` inside a `bg-ink`, `bg-charcoal`, `mesh-charcoal`, or `CinematicScene` (all dark) — flag and lighten to `--offwhite`.
+## Verification
 
-Sections to walk through: `routes/index.tsx` (all 10 scenes), `about.tsx`, `why-nicwin.tsx`, `gallery.tsx`, `contact.tsx`, `products.tsx`, `products.upvc.tsx`, `products.aluminium.tsx`, `products.steel.tsx`, and the four `products.*.windows/doors/colors.tsx`; plus shared `ProductShowcase.tsx`, `AutoCarousel.tsx`, `Marquee.tsx`, `Footer.tsx`, `Nav.tsx`. Fix in place — no design changes, just token swaps to match each section's actual background.
-
-### 4. Verify
-
-Playwright: load `/`, `/about`, `/products`, `/products/upvc`, `/why-nicwin`, `/gallery`, `/contact`; screenshot each pre-footer area at 1280×1800 and confirm the headline is legible. Also assert `getComputedStyle` on each final-CTA H2 returns `rgb(23, 24, 28)` (ink), not white.
-
-## Out of scope
-
-- Redesigning the CTA copy or layout.
-- Touching the homepage hero, product category hero, or any working dark section.
-- Placeholder factory/showroom media cards (still awaiting client assets).
+After the edit, screenshot `/products` (top of grid + bottom pre-footer) via Playwright and confirm: (a) uPVC and Steel headlines/subtext are readable dark text on light cards, (b) Aluminium card unchanged, (c) FinalCTA still renders. Run `tsgo` to confirm the new variant union compiles across all `CinematicScene` call sites.
