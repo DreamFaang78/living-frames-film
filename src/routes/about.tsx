@@ -142,14 +142,15 @@ function About() {
       <section className="py-32">
         <div className="mx-auto max-w-[1440px] px-6 md:px-10">
           <Reveal>
-            <div className="text-xs uppercase tracking-[0.3em] text-champagne">
+            <div className="text-xs uppercase tracking-[0.3em] text-[color:var(--nicwin-red)]">
               What we hold ourselves to
             </div>
           </Reveal>
           <Reveal delay={1}>
-            <h2 className="mt-4 max-w-3xl font-display text-5xl text-offwhite md:text-6xl">
+            <h2 className="mt-4 max-w-3xl font-display text-5xl text-[color:var(--ink)] md:text-6xl">
               Four short sentences, kept out loud.
             </h2>
+
           </Reveal>
           <Stagger className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {values.map((v, i) => (
