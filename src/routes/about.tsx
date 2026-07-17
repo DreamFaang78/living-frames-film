@@ -80,8 +80,9 @@ function About() {
           <Reveal delay={2}>
             <p className="mt-8 max-w-2xl text-lg text-[var(--ink-soft)]">
               High-quality uPVC and aluminium doors and windows that combine modern
-              design, durability, and affordability — engineered in a fully automated
-              15,000 sq ft plant in Deoghar.
+              design, durability, and affordability — built in a fully automated
+              15,000 sq ft plant in Deoghar, Jharkhand, and delivered to homes
+              across India.
             </p>
           </Reveal>
         </div>
