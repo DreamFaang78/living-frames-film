@@ -16,6 +16,9 @@ import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { WhatsAppBubble } from "@/components/site/WhatsAppBubble";
 import { ScrollProgress } from "@/components/site/ScrollProgress";
+import { MobileCinematics } from "@/components/site/MobileCinematics";
+import { AmbientCanvas } from "@/components/site/AmbientCanvas";
+import { SceneRail } from "@/components/site/SceneRail";
 import { SITE } from "@/lib/site";
 
 function NotFoundComponent() {
@@ -171,6 +174,9 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <SmoothScroll />
       <ScrollProgress />
+      <AmbientCanvas />
+      <SceneRail />
+      <MobileCinematics />
       <Nav />
       <main>
         <Outlet />
