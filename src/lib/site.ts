@@ -3,7 +3,7 @@ export const SITE = {
   fullName: "Nicwin Windows & Door Systems",
   tagline: "Always looking for the better.",
   description:
-    "Engineered for monsoons. Designed for modern Indian life. Premium uPVC, Aluminium and Steel windows and doors from Deoghar, Jharkhand.",
+    "Engineered for Indian climate. Designed for modern Indian life. Premium uPVC, Aluminium and Steel windows and doors — made in Deoghar, Jharkhand, delivered across India.",
   whatsappUrl: "https://wa.me/917909039070",
   email: "nicwinsystems@gmail.com",
   phones: [

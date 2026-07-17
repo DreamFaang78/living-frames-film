@@ -80,8 +80,9 @@ function About() {
           <Reveal delay={2}>
             <p className="mt-8 max-w-2xl text-lg text-[var(--ink-soft)]">
               High-quality uPVC and aluminium doors and windows that combine modern
-              design, durability, and affordability — engineered in a fully automated
-              15,000 sq ft plant in Deoghar.
+              design, durability, and affordability — built in a fully automated
+              15,000 sq ft plant in Deoghar, Jharkhand, and delivered to homes
+              across India.
             </p>
           </Reveal>
         </div>
@@ -119,7 +120,8 @@ function About() {
                 15,000 square feet, is equipped with advanced technology to ensure
                 precision, consistency, and superior product quality. We maintain the
                 highest standards at every stage of production while continuously
-                innovating to meet modern architectural and lifestyle needs.
+                innovating to meet modern architectural and lifestyle needs. From this
+                single plant in Jharkhand, we deliver to homes across India.
               </p>
               <p>
                 At Nicwin, we focus not only on stylish and contemporary designs but

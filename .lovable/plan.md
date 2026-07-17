@@ -1,34 +1,65 @@
-## Root cause
+# Broaden Copy to Pan-India Voice
 
-`CinematicScene`'s `teal` and `gold` variants use Tailwind arbitrary values with commas inside `radial-gradient(...)` — Tailwind v4 doesn't parse those, so the mesh div renders transparent. The only thing you see on the uPVC and Steel cards is the `vignette` layer (transparent center → deep-blue edges) sitting on the page's white background, which reads as "light card with a blue vignette." White text on that white center is invisible. The Aluminium card uses `mesh-charcoal` (a real `@utility`), so it renders correctly dark and the white text is fine.
+Scope: text-only edits. No component, layout, or style changes. Preserve tone (short, confident, wry). Keep every factual location (factory address, showroom, testimonial city tags, structured data, footer, contact page).
 
-The pre-footer CTA on `/products` already renders correctly (`FinalCTA` is wired and readable) — no fix needed there this turn; the stale report is from a pre-fix screenshot.
+## 1. `src/routes/index.tsx` — Homepage
 
-## Fix
+**Problem strip (line 204):** replace the Kanpur/Deoghar headline.
+- New H2: `45°C summers. Lashing monsoons. Dust that gets into everything. <span red>Wooden frames don't survive any of it.</span>`
+- Keep sub-paragraph (lines 208–212) as-is — already universal.
 
-Honor the user's stated preference: keep the light/dark/light rhythm across the three cards, and pair text color to background.
+**Gallery teaser (line 391):** replace `Homes across Jharkhand and Bihar.`
+- New: `Homes across India. Made one frame at a time.`
 
-1. **`src/styles.css`** — add two new utilities:
-   - `mesh-cool-light`: white base with a soft blue radial wash (for uPVC card).
-   - `mesh-warm-light`: warm off-white base with a soft amber+red radial wash (for Steel card). No brand-red saturation, kept at ~4–6% alpha so it reads as a finish, not an alert.
-   - Also add proper dark `mesh-teal` and `mesh-gold` utilities so the existing `variant="teal"` / `variant="gold"` no longer silently fails elsewhere (product hero scenes rely on them).
+**Hero pill (line 124):** keep `Nicwin · Deoghar, Jharkhand` — provenance marker, matches the "Made in Jharkhand, built for India" framing.
 
-2. **`src/components/site/CinematicScene.tsx`** — add two new variant values, `cool-light` and `warm-light`, that map to the new utilities. Also fix the broken `teal` and `gold` variants to reference the new proper utilities instead of arbitrary Tailwind gradients. No behavior change to `night` / `warm`.
+**Testimonials (lines 97, 102):** keep city tags untouched.
 
-3. **`src/routes/products.tsx`** — change the three universe cards:
-   - uPVC → `variant="cool-light"`, text uses `--ink` / `--ink-soft`, kicker stays red (`--nicwin-red`), CTA arrow uses `--nicwin-blue-deep`.
-   - Aluminium → stays `variant="night"`, keeps current white text (already correct).
-   - Steel → `variant="warm-light"`, same dark-text treatment as uPVC.
-   - Render text color conditionally off the variant (a small `isLight` boolean in the map) so headline, subtext line ("6 windows…", "Secure solid…"), and the "Explore →" CTA all switch together. Do NOT hardcode `text-offwhite` on the card.
+## 2. `src/routes/why-nicwin.tsx`
 
-4. **Sitewide contrast pass (scoped, not a rewrite)** — grep for `text-offwhite`, `text-champagne`, `text-white` and confirm every occurrence sits on a truly dark background (`mesh-charcoal`, `bg-ink`, `bg-[color:var(--nicwin-blue-deep)]`, or a `CinematicScene` variant that resolves to dark). Fix any that sit on `--paper` / `--paper-warm` / `mesh-paper` / `mesh-warm` / bare white sections. Report any additional instances found so we don't ship another round of invisible-text bugs.
+**Pillar 04 body (line 62):** keep `In-house fabrication in Deoghar` — factual/provenance. No change needed. (Spot-check other pillar bodies already in file; only line 62 names a place and it's the factory, which stays.)
 
-## Not doing
+## 3. `src/routes/about.tsx`
 
-- Not making all three cards dark ("sidestep") — explicitly rejected by the user.
-- Not touching `FinalCTA` — it already renders correctly on `/products` in the current build.
-- No copy changes, no motion changes, no layout changes to the cards beyond text-color pairing.
+**Hero subline (lines 81–85):** keep the `15,000 sq ft plant in Deoghar` factual reference, but extend with the national-delivery framing.
+- New: `High-quality uPVC and aluminium doors and windows that combine modern design, durability, and affordability — built in a fully automated 15,000 sq ft plant in Deoghar, Jharkhand, and delivered to homes across India.`
 
-## Verification
+**Story paragraphs (lines 104–130):** minor edit to paragraph 3 (line 118) to add the national-reach line explicitly:
+- Append to that paragraph: `From this single plant in Jharkhand, we deliver to homes across India.`
 
-After the edit, screenshot `/products` (top of grid + bottom pre-footer) via Playwright and confirm: (a) uPVC and Steel headlines/subtext are readable dark text on light cards, (b) Aluminium card unchanged, (c) FinalCTA still renders. Run `tsgo` to confirm the new variant union compiles across all `CinematicScene` call sites.
+**Values card "Craftsmanship" (line 58):** keep — factual (factory location).
+
+**Factory & Experience Center section (lines 210–221):** keep — factual.
+
+**FinalCTA sub (line 246):** keep — factual.
+
+## 4. `src/routes/gallery.tsx`
+
+**Intro (line 25):** replace `Real Nicwin installations across Jharkhand and Bihar — labelled by product type, material and location.`
+- New: `Real Nicwin installations in homes across India — labelled by product type, material and location.`
+
+**Individual `place` fields (lines 47–96):** keep — real project locations are credibility.
+
+## 5. `src/lib/site.ts`
+
+**Site description (line 6):** replace `...from Deoghar, Jharkhand.`
+- New: `Engineered for Indian climate. Designed for modern Indian life. Premium uPVC, Aluminium and Steel windows and doors — made in Deoghar, Jharkhand, delivered across India.`
+
+Addresses (lines 17–25): keep.
+
+## 6. Files intentionally NOT changed
+
+- `src/components/site/Footer.tsx` line 94 — already correct framing.
+- `src/components/site/Marquee.tsx` — "Made in Jharkhand" is provenance, keep.
+- `src/routes/__root.tsx` — JSON-LD LocalBusiness address must stay factual.
+- `src/routes/contact.tsx` — city/address specificity belongs here.
+- Product routes (`products.*.tsx`) — already spec-driven; grep confirms no city references.
+
+## Checklist against user's brief
+
+- [x] Kanpur/Deoghar problem line broadened to India-wide climate description
+- [x] "Made in Deoghar · Delivered across India" framing pulled up into About hero + story, not only footer
+- [x] Gallery teaser and gallery intro no longer say "Jharkhand and Bihar"
+- [x] Testimonial city tags untouched
+- [x] Factory, showroom, contact, JSON-LD untouched
+- [x] Tone preserved (short sentences, wry cadence)
