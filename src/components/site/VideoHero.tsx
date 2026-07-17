@@ -19,7 +19,7 @@ export function VideoHero({ src, poster, children }: Props) {
   }, [reduce]);
 
   return (
-    <section className="relative h-[100svh] min-h-[100svh] w-full overflow-hidden bg-ink">
+    <section data-no-parallax data-hero className="relative h-[100svh] min-h-[100svh] w-full overflow-hidden bg-ink">
       {/* Video / poster */}
       {reduce ? (
         poster ? (
