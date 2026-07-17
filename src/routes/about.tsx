@@ -120,7 +120,8 @@ function About() {
                 15,000 square feet, is equipped with advanced technology to ensure
                 precision, consistency, and superior product quality. We maintain the
                 highest standards at every stage of production while continuously
-                innovating to meet modern architectural and lifestyle needs.
+                innovating to meet modern architectural and lifestyle needs. From this
+                single plant in Jharkhand, we deliver to homes across India.
               </p>
               <p>
                 At Nicwin, we focus not only on stylish and contemporary designs but
