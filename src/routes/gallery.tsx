@@ -22,7 +22,7 @@ export const Route = createFileRoute("/gallery")({
       {
         name: "description",
         content:
-          "Real Nicwin installations across Jharkhand and Bihar — labelled by product type, material and location.",
+          "Real Nicwin installations in homes across India — labelled by product type, material and location.",
       },
       { property: "og:title", content: "Nicwin Gallery" },
     ],
