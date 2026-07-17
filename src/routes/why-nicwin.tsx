@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { CinematicScene } from "@/components/site/CinematicScene";
 import { FinalCTA } from "@/components/site/FinalCTA";
+import { Reveal, Stagger, item } from "@/components/site/Reveal";
+
 
 import { motion } from "framer-motion";
 
