@@ -76,9 +76,11 @@ function About() {
           </Reveal>
           <Reveal delay={2}>
             <p className="mt-8 max-w-2xl text-lg text-offwhite/75">
-              A window is not a feature. It is the border between the world and your morning
-              tea. We take that border seriously.
+              High-quality uPVC and aluminium doors and windows that combine modern
+              design, durability, and affordability — engineered in a fully automated
+              15,000 sq ft plant in Deoghar.
             </p>
+
           </Reveal>
         </div>
       </CinematicScene>
@@ -88,31 +90,48 @@ function About() {
         <div className="mx-auto grid max-w-[1200px] gap-16 px-6 md:grid-cols-[1fr_1.4fr] md:px-10">
           <Reveal>
             <div>
-              <div className="text-xs uppercase tracking-[0.3em] text-champagne">Heritage</div>
+              <div className="text-xs uppercase tracking-[0.3em] text-champagne">Our story</div>
               <h2 className="mt-4 font-display text-4xl text-offwhite md:text-5xl">
-                Five years of focused practice. Decades of collective craft.
+                Founded on 20+ years of craft. Built in a fully automated plant.
               </h2>
             </div>
           </Reveal>
           <Reveal delay={1}>
             <div className="space-y-5 text-lg leading-relaxed text-offwhite/75">
               <p>
-                Nicwin was founded in Deoghar to solve a specific frustration: the Indian
-                home was being asked to accept second-rate fenestration in a first-rate era
-                of interior design. We began by fabricating uPVC systems that could actually
-                hold their own against a Jharkhand summer and a Bengal monsoon.
+                At Nicwin Window &amp; Door Systems, we are committed to delivering
+                high-quality uPVC and aluminium doors and windows that combine modern
+                design, durability, and affordability.
               </p>
               <p>
-                The company is five years young. The people inside it carry decades — of
-                metalwork, glazing, joinery, and site experience. What ships is new. The
-                hands that ship it are not.
+                Founded by an industry professional with over 20 years of experience,
+                Nicwin was established with a vision to bring premium-quality products
+                to customers at reasonable prices — making modern window and door
+                solutions accessible to everyone. Starting from the founder's native
+                place, the company has grown with a strong focus on trust, quality,
+                and customer satisfaction.
+              </p>
+              <p>
+                Our fully automated manufacturing plant, spread across approximately
+                15,000 square feet, is equipped with advanced technology to ensure
+                precision, consistency, and superior product quality. We maintain the
+                highest standards at every stage of production while continuously
+                innovating to meet modern architectural and lifestyle needs.
+              </p>
+              <p>
+                At Nicwin, we focus not only on stylish and contemporary designs but
+                also on strength, performance, and long-lasting reliability. With a
+                commitment to continuous improvement and uncompromising quality, we
+                create products that enhance both the beauty and functionality of
+                every space.
               </p>
               <p className="italic text-champagne">
-                "Always looking for the better." It is not a tagline. It is the only rule
-                on the workshop wall.
+                "Always looking for the better." Not a tagline — the only rule on
+                the workshop wall.
               </p>
             </div>
           </Reveal>
+
         </div>
       </section>
 
