@@ -240,28 +240,12 @@ function About() {
 
 
 
-      <section className="py-32">
-        <div className="mx-auto max-w-[900px] px-6 text-center md:px-10">
-          <Reveal>
-            <h2 className="font-display text-4xl text-offwhite md:text-6xl">
-              Come see the workshop.
-            </h2>
-          </Reveal>
-          <Reveal delay={1}>
-            <p className="mt-4 text-offwhite/70">
-              Deoghar factory. Deoghar Experience Center & Showroom. And a WhatsApp always open.
-            </p>
-          </Reveal>
-          <Reveal delay={2}>
-            <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <CTAExternal href={SITE.whatsappUrl}>Talk to us on WhatsApp</CTAExternal>
-              <CTALink to="/contact" variant="ghost">
-                Plan a visit
-              </CTALink>
-            </div>
-          </Reveal>
-        </div>
-      </section>
+      <FinalCTA
+        headline="Come see the workshop."
+        sub="Deoghar factory. Deoghar Experience Center & Showroom. And a WhatsApp always open."
+        secondary={{ label: "Plan a visit", to: "/contact" }}
+      />
+
     </>
   );
 }
