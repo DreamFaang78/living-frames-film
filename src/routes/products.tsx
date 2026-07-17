@@ -27,7 +27,8 @@ const universes = [
     kicker: "uPVC",
     title: "Sealed. Silent. Sumptuous.",
     line: "6 window types. 5 door types. 7 finishes.",
-    variant: "teal" as const,
+    variant: "cool-light" as const,
+    tone: "light" as const,
   },
   {
     to: "/products/aluminium",
@@ -35,13 +36,15 @@ const universes = [
     title: "Thin frames. Widest views.",
     line: "5 windows. 5 doors. 5 finishes.",
     variant: "night" as const,
+    tone: "dark" as const,
   },
   {
     to: "/products/steel",
     kicker: "Steel",
     title: "The first hello. The last word.",
     line: "Security solid to designer panel.",
-    variant: "gold" as const,
+    variant: "warm-light" as const,
+    tone: "light" as const,
   },
 ];
 
@@ -70,29 +73,44 @@ function ProductsLanding() {
 
       <section className="py-24">
         <Stagger className="mx-auto grid max-w-[1440px] gap-6 px-6 md:grid-cols-3 md:px-10">
-          {universes.map((u) => (
-            <motion.div key={u.to} variants={item}>
-              <Link to={u.to} className="group block">
-                <CinematicScene
-                  variant={u.variant}
-                  className="aspect-[4/5] rounded-3xl transition-transform duration-700 group-hover:-translate-y-2"
-                >
-                  <div className="flex h-full flex-col justify-between p-8">
-                    <div className="text-xs uppercase tracking-[0.3em] text-champagne">{u.kicker}</div>
-                    <div>
-                      <h3 className="font-display text-4xl text-offwhite md:text-5xl">{u.title}</h3>
-                      <p className="mt-3 text-offwhite/70">{u.line}</p>
-                      <div className="mt-6 inline-flex items-center gap-2 text-sm text-champagne">
-                        Explore <span className="transition-transform group-hover:translate-x-1">→</span>
+          {universes.map((u) => {
+            const isLight = u.tone === "light";
+            const headline = isLight ? "text-[color:var(--ink)]" : "text-offwhite";
+            const body = isLight ? "text-[color:var(--ink-soft)]" : "text-offwhite/70";
+            const cta = isLight
+              ? "text-[color:var(--nicwin-blue-deep)]"
+              : "text-champagne";
+            const kicker = isLight
+              ? "text-[color:var(--nicwin-red)]"
+              : "text-champagne";
+            const border = isLight
+              ? "ring-1 ring-[color:var(--line)]"
+              : "";
+            return (
+              <motion.div key={u.to} variants={item}>
+                <Link to={u.to} className="group block">
+                  <CinematicScene
+                    variant={u.variant}
+                    className={`aspect-[4/5] rounded-3xl transition-transform duration-700 group-hover:-translate-y-2 ${border}`}
+                  >
+                    <div className="flex h-full flex-col justify-between p-8">
+                      <div className={`text-xs uppercase tracking-[0.3em] ${kicker}`}>{u.kicker}</div>
+                      <div>
+                        <h3 className={`font-display text-4xl md:text-5xl ${headline}`}>{u.title}</h3>
+                        <p className={`mt-3 ${body}`}>{u.line}</p>
+                        <div className={`mt-6 inline-flex items-center gap-2 text-sm ${cta}`}>
+                          Explore <span className="transition-transform group-hover:translate-x-1">→</span>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </CinematicScene>
-              </Link>
-            </motion.div>
-          ))}
+                  </CinematicScene>
+                </Link>
+              </motion.div>
+            );
+          })}
         </Stagger>
       </section>
+
 
       <FinalCTA
         eyebrow="Not sure where to start?"
