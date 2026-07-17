@@ -1,8 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 
-import { CTAExternal, CTALink } from "@/components/site/CTAButton";
+import { FinalCTA } from "@/components/site/FinalCTA";
 import { Reveal, Stagger, item } from "@/components/site/Reveal";
-import { SITE } from "@/lib/site";
+
 import { motion } from "framer-motion";
 
 export const Route = createFileRoute("/about")({
@@ -142,14 +142,15 @@ function About() {
       <section className="py-32">
         <div className="mx-auto max-w-[1440px] px-6 md:px-10">
           <Reveal>
-            <div className="text-xs uppercase tracking-[0.3em] text-champagne">
+            <div className="text-xs uppercase tracking-[0.3em] text-[color:var(--nicwin-red)]">
               What we hold ourselves to
             </div>
           </Reveal>
           <Reveal delay={1}>
-            <h2 className="mt-4 max-w-3xl font-display text-5xl text-offwhite md:text-6xl">
+            <h2 className="mt-4 max-w-3xl font-display text-5xl text-[color:var(--ink)] md:text-6xl">
               Four short sentences, kept out loud.
             </h2>
+
           </Reveal>
           <Stagger className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {values.map((v, i) => (
@@ -240,28 +241,12 @@ function About() {
 
 
 
-      <section className="py-32">
-        <div className="mx-auto max-w-[900px] px-6 text-center md:px-10">
-          <Reveal>
-            <h2 className="font-display text-4xl text-offwhite md:text-6xl">
-              Come see the workshop.
-            </h2>
-          </Reveal>
-          <Reveal delay={1}>
-            <p className="mt-4 text-offwhite/70">
-              Deoghar factory. Deoghar Experience Center & Showroom. And a WhatsApp always open.
-            </p>
-          </Reveal>
-          <Reveal delay={2}>
-            <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <CTAExternal href={SITE.whatsappUrl}>Talk to us on WhatsApp</CTAExternal>
-              <CTALink to="/contact" variant="ghost">
-                Plan a visit
-              </CTALink>
-            </div>
-          </Reveal>
-        </div>
-      </section>
+      <FinalCTA
+        headline="Come see the workshop."
+        sub="Deoghar factory. Deoghar Experience Center & Showroom. And a WhatsApp always open."
+        secondary={{ label: "Plan a visit", to: "/contact" }}
+      />
+
     </>
   );
 }

@@ -1,69 +1,50 @@
+# Fix invisible pre-footer CTA + site-wide contrast audit
 
-# Nicwin — Client Feedback Fix Pass
+## Root cause
 
-Execute in the priority order the client requested. Do NOT touch the hero video section (client explicitly asked to leave it alone). All work is presentation-layer — no data model or backend changes.
+The pre-footer CTA is NOT a shared component — it's duplicated inline on every page. Four instances render `text-offwhite` (white) on a section with **no background set**, so it inherits the page's paper-white → white text on white paper → invisible.
 
----
+| Page | Section bg | Text color | Result |
+|---|---|---|---|
+| Home `/` | `bg-[var(--paper)]` | `text-[var(--ink)]` | Correct |
+| About `/about` | none (paper) | `text-offwhite` | Invisible (H2 + `<p>`) |
+| Products `/products` | none (paper) | `text-offwhite` | Invisible (H2 + `<p>`) |
+| Why Nicwin `/why-nicwin` | none (paper) | `text-offwhite` | Invisible (H2 only) |
+| Product categories (uPVC/Aluminium/Steel via `ProductCategoryPage`) | `CinematicScene variant="night"` (dark blue) | `text-offwhite` | Correct |
+| Gallery, Contact | no pre-footer CTA of this shape | — | N/A |
 
-## 1. Logo swap (site-wide)
+The "sometimes blank, sometimes faintly visible" difference the user saw is not conditional rendering — it's that Why-Nicwin has H2 only (no `<p>`) while About/Products have both, so the blank-looking one is just a shorter block.
 
-- Fetch the real Nicwin logo from `https://www.nicwinsystems.com/images/LOGO-png.png`, upload via `lovable-assets` as `nicwin-logo.png`, and store the `.asset.json` at `src/assets/brand/nicwin-logo.png.asset.json`.
-- Replace the current SVG "N" mark in `src/components/site/Nav.tsx` and `src/components/site/Footer.tsx` with an `<img>` using the CDN URL (height ~40px in nav, ~56px in footer, white background safe — footer already dark blue, so wrap in a small white pill or invert if needed; use the color logo on white nav directly).
-- Replace favicon: save the same mark to `public/favicon.png`, update `src/routes/__root.tsx` `links` to `{ rel: "icon", type: "image/png", href: "/favicon.png" }`, and `rm public/favicon.ico`.
-- Flag to user: recommend they send a higher-res original later.
+## Fix
 
-## 2. Broken / invisible product images
+### 1. Create one shared component
 
-- **Catalogue overlay bug** — in `src/components/site/ProductShowcase.tsx`, find the card carrying the legacy translucent yellow-green highlight box (the "UPVC — the ultimate in durability" overlay from `upvc-durability.png`). Remove the overlay treatment entirely; render caption text *below* the image, matching the pattern used by neighboring cards (image → tag pill → headline → spec bullets). If the source image has the overlay baked in, swap that card's image to a clean one (`upvc-eco.png` or another clean product shot) and keep the durability copy in the caption instead.
-- **Text-over-photo audit** — scan `ProductShowcase.tsx`, `products.*.tsx`, and `gallery.tsx` for any product (not hero) image with text overlaid directly on the photo without a dedicated dark scrim. Move that text into a caption block below the image, or add a targeted bottom-gradient scrim (`from-black/70 via-black/20 to-transparent`) only where the composition genuinely needs it.
-- **Entry-door material check** — verify the image used for any "Entry Door" card in the catalogue is a uPVC unit consistent with the section it lives under. If the current asset is ambiguous or aluminium, relabel the card (e.g. move to Aluminium Doors) or swap to a clearly-uPVC image (`french-doors.png` or `casement-door.jpg`).
+New file `src/components/site/FinalCTA.tsx` — a single pre-footer CTA block used by every page that needs one. Props: `eyebrow?`, `headline`, `sub?`, `primaryLabel?` (default "Talk to us on WhatsApp"), `secondary?: { label, to }`. Renders on `--paper` with `--ink` headline, `--ink-soft` sub, red accent word optional. Matches the homepage's Scene 10 treatment so the whole site closes on the same beat.
 
-## 3. Contact info refresh (site-wide)
+### 2. Replace the four broken inline instances
 
-Update in `src/lib/site.ts` (single source of truth):
-- Primary phone: `+91 79090 39070`
-- Secondary phone: `+91 92205 33892`
-- Remove old numbers (9234233892 / 8002003892 / 9801753892 / 6206697588). Add a build note asking client to confirm if any old number should stay.
-- Update WhatsApp target in `src/components/site/WhatsAppBubble.tsx` to `+917909039070`.
-- Sweep hardcoded number strings via `rg` across `src/` and route them through the `SITE` constant.
+- `src/routes/about.tsx` lines 243-264 → `<FinalCTA headline="Come see the workshop." sub="Deoghar factory. Deoghar Experience Center & Showroom. And a WhatsApp always open." secondary={{ label: "Plan a visit", to: "/contact" }} />`
+- `src/routes/products.tsx` lines 97-112 → `<FinalCTA eyebrow="Not sure where to start?" headline="Tell us the room. We'll suggest the frame." secondary={{ label: "Get a quote", to: "/contact" }} />`
+- `src/routes/why-nicwin.tsx` lines 135-151 → `<FinalCTA headline="Bring the better home." secondary={{ label: "See the range", to: "/products" }} />`
+- `src/routes/index.tsx` Scene 10 (lines 401-424) → keep the existing correct block, but swap to `<FinalCTA>` for consistency (optional; low risk since it already renders correctly).
 
-## 4. Experience Center & Showroom replaces "Branch Office"
+`ProductCategoryPage.tsx`'s CTA already sits on a dark `CinematicScene` and reads fine — leave it alone.
 
-- In `src/lib/site.ts` addresses: replace the "Branch Office" entry with:
-  - Label: **Experience Center & Showroom**
-  - Address: `Sparsh Complex, Deoghar College Road, Near Daffodil Garden, Tiwari Chowk, Deoghar, Jharkhand – 814112`
-- In `src/routes/contact.tsx` and `Footer.tsx`, render Factory and Experience Center as two equal-weight cards (same visual treatment, side by side). Add a "Visit our showroom" affordance on the Experience Center card.
-- Google Maps embed: add a plain `<iframe>` search-embed for each address (no API key needed for `https://www.google.com/maps?q=<encoded address>&output=embed`). Mark a TODO comment where precise pin coordinates should replace address-based search once the client shares them.
+### 3. Site-wide contrast audit (single pass)
 
-## 5. Gallery — captions + auto-sliding carousel
+Grep every route + shared component for the two failure patterns and confirm each hit:
 
-- In `src/routes/gallery.tsx`, extend each project entry with `productType` (e.g. "Tilt & Turn uPVC Window") and `place`. Render a visible caption chip on every card: `{productType} — {place}`.
-- Add a new component `src/components/site/AutoCarousel.tsx`:
-  - Auto-advance every 5000ms, pause on hover / focus / touch, resume on leave.
-  - Prev/Next arrows and dot indicators, keyboard arrow-key support, `prefers-reduced-motion` disables autoplay.
-  - Slides render the same image + caption pair used in the grid, so the caption discipline is consistent.
-- Mount `AutoCarousel` at the top of the gallery route (above the filter grid) and re-use on the homepage Gallery teaser section.
+1. `text-offwhite` / `text-white` inside a section with no explicit dark bg — flag and darken to `--ink`.
+2. `text-ink` / `text-[var(--ink)]` inside a `bg-ink`, `bg-charcoal`, `mesh-charcoal`, or `CinematicScene` (all dark) — flag and lighten to `--offwhite`.
 
-## 6. Finishes correction
+Sections to walk through: `routes/index.tsx` (all 10 scenes), `about.tsx`, `why-nicwin.tsx`, `gallery.tsx`, `contact.tsx`, `products.tsx`, `products.upvc.tsx`, `products.aluminium.tsx`, `products.steel.tsx`, and the four `products.*.windows/doors/colors.tsx`; plus shared `ProductShowcase.tsx`, `AutoCarousel.tsx`, `Marquee.tsx`, `Footer.tsx`, `Nav.tsx`. Fix in place — no design changes, just token swaps to match each section's actual background.
 
-- In the Colors/Finishes section on `src/routes/index.tsx` (and any product finish tiles), remove "Nicwin Red" and "Deep Blue" swatches.
-- Replace with 6 real finishes: **Pure White, Anthracite Grey, Golden Oak, Walnut, Jet Black, Diamond Grey**. Keep hex values realistic (matte/wood tones, not brand primaries).
-- Change the CTA to "See all finishes" linking to `/products/upvc/colors` (which already exists in the route tree).
+### 4. Verify
 
-## 7. Factory & Showroom asset placeholders
+Playwright: load `/`, `/about`, `/products`, `/products/upvc`, `/why-nicwin`, `/gallery`, `/contact`; screenshot each pre-footer area at 1280×1800 and confirm the headline is legible. Also assert `getComputedStyle` on each final-CTA H2 returns `rgb(23, 24, 28)` (ink), not white.
 
-- In `src/routes/about.tsx` (or Contact if better fit), add two clearly-marked placeholder blocks: "Factory — Deoghar" and "Experience Center — Deoghar", each with a dashed-border frame and copy: *"Real photos and walkthrough video coming soon — awaiting client media."*
-- Do NOT substitute stock factory imagery. Leave the frames obviously empty so they don't ship as if real.
-- Add a `TODO(client-media)` comment at each slot for easy grep-swap later.
+## Out of scope
 
-## Out of scope for this pass
-
-- Google Business Profile cleanup (client-side task; call it out in the closing message, don't attempt in-app).
-- Custom map pins (waiting on exact coordinates — address-based embed is the interim).
-- Higher-res logo (using web-res until client sends original).
-
-## Technical notes
-
-- All copy and phone/address changes flow through `src/lib/site.ts` — do not scatter literals.
-- Hero video section (`VideoHero.tsx` + first scene of `index.tsx`) is untouched.
-- Verify with a build after edits; screenshot the homepage + gallery + contact via Playwright to confirm the logo, caption chips, carousel, and two-address contact block render as intended.
+- Redesigning the CTA copy or layout.
+- Touching the homepage hero, product category hero, or any working dark section.
+- Placeholder factory/showroom media cards (still awaiting client assets).

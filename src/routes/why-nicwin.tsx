@@ -1,8 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { CinematicScene } from "@/components/site/CinematicScene";
-import { CTAExternal, CTALink } from "@/components/site/CTAButton";
+import { FinalCTA } from "@/components/site/FinalCTA";
 import { Reveal, Stagger, item } from "@/components/site/Reveal";
-import { SITE } from "@/lib/site";
+
+
 import { motion } from "framer-motion";
 
 export const Route = createFileRoute("/why-nicwin")({
@@ -132,23 +133,11 @@ function Why() {
         </section>
       ))}
 
-      <section className="py-32 text-center">
-        <div className="mx-auto max-w-2xl px-6">
-          <Reveal>
-            <h2 className="font-display text-5xl text-offwhite md:text-6xl">
-              Bring the better home.
-            </h2>
-          </Reveal>
-          <Reveal delay={1}>
-            <div className="mt-10 flex flex-wrap justify-center gap-3">
-              <CTAExternal href={SITE.whatsappUrl}>Talk to us on WhatsApp</CTAExternal>
-              <CTALink to="/products" variant="ghost">
-                See the range
-              </CTALink>
-            </div>
-          </Reveal>
-        </div>
-      </section>
+      <FinalCTA
+        headline="Bring the better home."
+        secondary={{ label: "See the range", to: "/products" }}
+      />
+
     </>
   );
 }

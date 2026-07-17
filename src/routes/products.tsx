@@ -1,8 +1,8 @@
 import { createFileRoute, Link, Outlet, useMatches } from "@tanstack/react-router";
 import { CinematicScene } from "@/components/site/CinematicScene";
-import { CTAExternal, CTALink } from "@/components/site/CTAButton";
+import { FinalCTA } from "@/components/site/FinalCTA";
 import { Reveal, Stagger, item } from "@/components/site/Reveal";
-import { SITE } from "@/lib/site";
+
 import { motion } from "framer-motion";
 
 export const Route = createFileRoute("/products")({
@@ -94,22 +94,12 @@ function ProductsLanding() {
         </Stagger>
       </section>
 
-      <section className="py-16 text-center">
-        <Reveal>
-          <div className="mx-auto flex max-w-2xl flex-col items-center gap-4 px-6">
-            <h2 className="font-display text-4xl text-offwhite md:text-5xl">
-              Not sure where to start?
-            </h2>
-            <p className="text-offwhite/70">
-              Tell us the room. We'll suggest the frame.
-            </p>
-            <div className="mt-4 flex flex-wrap justify-center gap-3">
-              <CTAExternal href={SITE.whatsappUrl}>Talk to us on WhatsApp</CTAExternal>
-              <CTALink to="/contact" variant="ghost">Get a quote</CTALink>
-            </div>
-          </div>
-        </Reveal>
-      </section>
+      <FinalCTA
+        eyebrow="Not sure where to start?"
+        headline="Tell us the room. We'll suggest the frame."
+        secondary={{ label: "Get a quote", to: "/contact" }}
+      />
+
     </>
   );
 }
