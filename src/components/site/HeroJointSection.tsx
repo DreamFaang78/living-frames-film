@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { HeroJoint3D } from "./HeroJoint3D";
+import cornerJoint from "@/assets/corner-joint.jpeg.asset.json";
 
 export function HeroJointSection() {
   return (
@@ -20,7 +20,7 @@ export function HeroJointSection() {
           </h2>
           <p className="mt-6 max-w-md text-base leading-relaxed text-[color:var(--ink)]/70">
             Mitred at forty-five, thermally welded, sealed for a decade of monsoons.
-            Rotate it. Look inside. This is the detail most brands hope you never notice.
+            Look closely — this is the detail most brands hope you never notice.
           </p>
         </motion.header>
 
@@ -31,8 +31,13 @@ export function HeroJointSection() {
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           className="md:col-span-8"
         >
-          <div className="relative h-[60vh] min-h-[420px] w-full overflow-hidden rounded-2xl bg-gradient-to-br from-[#f7f7f4] to-[#eef2f7] ring-1 ring-black/5">
-            <HeroJoint3D />
+          <div className="relative h-[60vh] min-h-[420px] w-full overflow-hidden rounded-2xl bg-[#f4f5f2] ring-1 ring-black/5">
+            <img
+              src={cornerJoint.url}
+              alt="Close-up of a white uPVC window frame corner — mitred at forty-five degrees and thermally welded."
+              className="h-full w-full object-cover"
+              loading="lazy"
+            />
           </div>
         </motion.div>
       </div>
