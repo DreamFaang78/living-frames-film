@@ -8,7 +8,7 @@ import { Marquee } from "@/components/site/Marquee";
 import { HeroJointSection } from "@/components/site/HeroJointSection";
 import { ProductShowcase } from "@/components/site/ProductShowcase";
 import { SITE } from "@/lib/site";
-import heroVideo from "@/assets/nicwin_hero_doors_opening.mp4.asset.json";
+import heroVideo from "@/assets/nicwin_hero_window.mp4.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -113,12 +113,17 @@ function Home() {
     <>
       {/* 1 · HERO — attention + identity */}
       <VideoHero src={heroVideo.url}>
-        <div className="mx-auto flex h-full w-full max-w-[1440px] flex-1 flex-col items-center justify-center px-6 pb-32 pt-28 text-center md:px-10 md:pb-40">
+        {/* Readability scrim — sits between video overlays and content */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.55)_0%,rgba(0,0,0,0.35)_45%,rgba(0,0,0,0.15)_75%,transparent_100%)]"
+        />
+        <div className="relative z-[2] mx-auto flex h-full w-full max-w-[1200px] flex-1 flex-col items-center justify-center px-6 pb-28 pt-24 text-center md:px-10 md:pb-32">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.2, duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            className="mb-8 inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-[11px] uppercase tracking-[0.3em] text-white/90 backdrop-blur-md"
+            className="mb-8 inline-flex items-center gap-3 rounded-full border border-white/25 bg-black/35 px-4 py-1.5 text-[11px] uppercase tracking-[0.3em] text-white backdrop-blur-md"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--nicwin-red)] shadow-[0_0_12px_rgba(227,30,36,0.9)]" />
             Nicwin · Deoghar, Jharkhand
@@ -128,18 +133,18 @@ function Home() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.4, duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-            className="text-balance font-display text-[13vw] leading-[0.92] text-white md:text-[clamp(3rem,7vw,7rem)]"
+            className="text-balance font-display leading-[0.95] text-white text-[clamp(2.5rem,9vw,6.25rem)] [text-shadow:0_2px_24px_rgba(0,0,0,0.55)]"
           >
             We don't compromise
             <br />
-            <span className="italic text-white/95">with quality.</span>
+            <span className="italic">with quality.</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 2.05, duration: 1 }}
-            className="mt-8 max-w-2xl text-pretty text-base text-white/85 md:text-xl"
+            className="mx-auto mt-8 max-w-xl text-pretty text-[15px] leading-relaxed text-white/95 md:max-w-2xl md:text-lg [text-shadow:0_1px_12px_rgba(0,0,0,0.55)]"
           >
             uPVC · Aluminium · Steel — engineered for Indian homes that demand
             light, silence and strength.
@@ -161,7 +166,7 @@ function Home() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2.8, duration: 1.2 }}
-          className="pointer-events-none absolute bottom-6 left-1/2 z-10 -translate-x-1/2 text-center text-[10px] uppercase tracking-[0.4em] text-white/70"
+          className="pointer-events-none absolute bottom-6 left-1/2 z-[2] -translate-x-1/2 text-center text-[10px] uppercase tracking-[0.4em] text-white/80"
         >
           <div className="mx-auto mb-3 h-10 w-px animate-pulse bg-[color:var(--nicwin-red)]" />
           scroll
