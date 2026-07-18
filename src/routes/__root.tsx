@@ -19,6 +19,7 @@ import { ScrollProgress } from "@/components/site/ScrollProgress";
 import { MobileCinematics } from "@/components/site/MobileCinematics";
 import { AmbientCanvas } from "@/components/site/AmbientCanvas";
 import { SceneRail } from "@/components/site/SceneRail";
+import { CinematicCursor } from "@/components/site/CinematicCursor";
 import { SITE } from "@/lib/site";
 
 function NotFoundComponent() {
@@ -174,6 +175,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <SmoothScroll />
       <ScrollProgress />
+      <CinematicCursor />
       <AmbientCanvas />
       <SceneRail />
       <MobileCinematics />
