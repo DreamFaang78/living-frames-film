@@ -37,15 +37,16 @@ function UpvcLanding() {
           </Reveal>
           <Reveal delay={1}>
             <h1 className="mt-4 text-balance font-display text-6xl leading-[0.95] text-offwhite md:text-[7.5rem]">
-              Sealed. Silent.
+              No leaks.
               <br />
-              <span className="italic text-champagne">Sumptuous.</span>
+              <span className="italic text-champagne">No noise.</span>
             </h1>
           </Reveal>
           <Reveal delay={2}>
             <p className="mt-8 max-w-2xl text-lg text-offwhite/80">
-              Multi-chamber, lead-free uPVC engineered for 45°C summers and monsoon walls of
-              water. Twin gaskets, thermal breaks, and a finish list built for Indian interiors.
+              Lead-free uPVC frames made for 45°C summers and heavy monsoons.
+              Two rubber seals, insulating chambers, and colours that suit
+              Indian homes.
             </p>
           </Reveal>
         </div>
