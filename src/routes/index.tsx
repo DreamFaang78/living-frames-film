@@ -386,19 +386,27 @@ function Home() {
         </div>
       </section>
 
-      {/* 9 · GALLERY TEASER */}
+      {/* 9 · GALLERY TEASER + AUTO CAROUSEL */}
       <section className="border-t border-[color:var(--line)] bg-[color:var(--paper-warm)] py-24 md:py-32">
-        <div className="mx-auto flex max-w-[1440px] flex-col items-start justify-between gap-8 px-6 md:flex-row md:items-end md:px-10">
-          <div>
-            <Reveal><div className="eyebrow">Recent projects</div></Reveal>
-            <Reveal delay={1}>
-              <h2 className="mt-4 max-w-2xl font-display text-4xl leading-[1.05] text-[color:var(--ink)] md:text-[clamp(2.25rem,4.5vw,4rem)]">
-                Homes across India. Made one frame at a time.
-              </h2>
+        <div className="mx-auto max-w-[1440px] px-6 md:px-10">
+          <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
+            <div>
+              <Reveal><div className="eyebrow">Recently delivered</div></Reveal>
+              <Reveal delay={1}>
+                <h2 className="mt-4 max-w-2xl font-display text-4xl leading-[1.05] text-[color:var(--ink)] md:text-[clamp(2.25rem,4.5vw,4rem)]">
+                  Homes across India. Made one frame at a time.
+                </h2>
+              </Reveal>
+            </div>
+            <Reveal delay={2}>
+              <CTALink to="/gallery" variant="ink-ghost">Browse the gallery</CTALink>
             </Reveal>
           </div>
+
           <Reveal delay={2}>
-            <CTALink to="/gallery" variant="ink-ghost">Browse the gallery</CTALink>
+            <div className="mt-12 overflow-hidden rounded-2xl bg-[color:var(--paper)] shadow-[0_30px_80px_-30px_rgba(14,59,115,0.35)] ring-1 ring-[color:var(--line)]">
+              <HomeCarousel />
+            </div>
           </Reveal>
         </div>
       </section>

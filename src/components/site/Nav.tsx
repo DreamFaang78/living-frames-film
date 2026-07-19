@@ -4,6 +4,7 @@ import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { NAV, MEGA, SITE } from "@/lib/site";
 import { cn } from "@/lib/utils";
+import { TopBar } from "@/components/site/TopBar";
 import nicwinLogo from "@/assets/brand/nicwin-logo.png.asset.json";
 
 export function Nav() {
@@ -18,20 +19,13 @@ export function Nav() {
 
   return (
     <>
-      {/* Red brand strip that slides in on scroll */}
-      <motion.div
-        aria-hidden
-        initial={false}
-        animate={{ height: scrolled ? 4 : 0 }}
-        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-        className="fixed inset-x-0 top-0 z-[55] bg-[color:var(--nicwin-red)]"
-      />
+      <TopBar />
 
       <motion.header
         initial={{ y: -40, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        style={{ top: scrolled ? 4 : 0 }}
+        style={{ top: 28 }}
         className={cn(
           "fixed inset-x-0 z-50 transition-[background,box-shadow,color] duration-500",
           scrolled
@@ -40,20 +34,20 @@ export function Nav() {
         )}
         onMouseLeave={() => setMega(false)}
       >
-        <div className="mx-auto flex max-w-[1440px] items-center justify-between px-6 py-4 md:px-10">
+        <div className="mx-auto flex max-w-[1440px] items-center justify-between px-6 py-3 md:px-10">
           <Link to="/" className="group flex items-center gap-3" aria-label="Nicwin — Home">
             <span
               className={cn(
-                "flex h-11 items-center justify-center rounded-md px-2 transition-colors",
+                "flex h-16 items-center justify-center rounded-md px-2 transition-colors",
                 scrolled ? "bg-transparent" : "bg-white/95 shadow-sm",
               )}
             >
               <img
                 src={nicwinLogo.url}
                 alt="Nicwin Windows & Door Systems"
-                className="h-9 w-auto md:h-10"
-                width={110}
-                height={44}
+                className="h-12 w-auto md:h-14"
+                width={150}
+                height={56}
               />
             </span>
             <span className={cn("sr-only", inkText)}>Nicwin</span>
