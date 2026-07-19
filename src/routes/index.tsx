@@ -450,7 +450,7 @@ function Home() {
           <Reveal><div className="eyebrow">Recent projects</div></Reveal>
           <Reveal delay={1}>
             <h2 className="mt-4 max-w-3xl font-display text-4xl leading-[1.05] text-[color:var(--ink)] md:text-[clamp(2.5rem,5vw,4.5rem)]">
-              Homes we've already built for.
+              Projects we're already a part of.
             </h2>
           </Reveal>
           <Reveal delay={2}>
