@@ -260,12 +260,12 @@ export function ProductCategoryPage({
         <div className="mx-auto max-w-[1200px] px-6 md:px-10">
           <Reveal>
             <div className="text-xs uppercase tracking-[0.3em] text-champagne">
-              Technical confidence
+              Tech details
             </div>
           </Reveal>
           <Reveal delay={1}>
             <h2 className="mt-4 font-display text-5xl text-offwhite md:text-6xl">
-              The details that let you stop worrying.
+              The specs, in one place.
             </h2>
           </Reveal>
           <Stagger className="mt-16 grid grid-cols-2 gap-px overflow-hidden rounded-3xl border border-white/8 bg-white/5 md:grid-cols-4">
