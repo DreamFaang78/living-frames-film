@@ -13,13 +13,16 @@ export function HeroJointSection() {
           className="md:col-span-4 md:pt-6"
         >
           <div className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[color:var(--nicwin-red)]">
-            Built at the corner
+            Engineered for better performance
           </div>
           <h2 className="mt-4 font-[family-name:var(--font-display)] text-4xl leading-[1.05] text-[color:var(--ink)] md:text-5xl">
-            Most windows break at the corner. Ours don't.
+            Built Strong at Every Corner.
           </h2>
           <p className="mt-6 max-w-md text-base leading-relaxed text-[color:var(--ink)]/70">
-            Cut at 45 degrees. Heat-welded into one solid piece. Sealed to hold up through ten years of monsoon rain.
+            Every NICWIN Window &amp; Door System features precision Fusion Welded Joints that create stronger frames, superior weather protection, and lasting durability. Designed for flawless performance, season after season.
+          </p>
+          <p className="mt-6 font-[family-name:var(--font-display)] text-lg italic text-[color:var(--nicwin-blue)]">
+            Always Looking For The Better.
           </p>
         </motion.header>
 
