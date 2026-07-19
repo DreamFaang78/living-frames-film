@@ -34,15 +34,16 @@ export function Nav() {
       >
         <div className="mx-auto flex max-w-[1440px] items-center justify-between px-6 py-3 md:px-10">
           <Link to="/" className="group flex items-center gap-3" aria-label="Nicwin — Home">
-            <span className="flex h-20 items-center justify-center rounded-md px-2 md:h-24">
+            <span className="flex h-28 items-center justify-center rounded-md px-2 md:h-36">
               <img
                 src={nicwinLogo.url}
                 alt="Nicwin Windows & Door Systems"
-                className="h-16 w-auto md:h-20"
-                width={220}
-                height={80}
+                className="h-24 w-auto md:h-32"
+                width={340}
+                height={128}
               />
             </span>
+
             <span className={cn("sr-only", inkText)}>Nicwin</span>
           </Link>
 
