@@ -24,38 +24,38 @@ export const Route = createFileRoute("/about")({
 const values = [
   {
     title: "Mission",
-    body: "Elevate the everyday Indian home with fenestration that is quiet, safe, and beautiful — without asking anyone to compromise.",
+    body: "Make Indian homes quieter, safer, and more beautiful — with windows and doors people can actually afford.",
   },
   {
     title: "Vision",
-    body: "To be the name Indian architects reach for when the drawing needs frames that finally match the ambition.",
+    body: "Be the first name Indian architects and homeowners think of when they want windows that do the job right.",
   },
   {
     title: "Values",
-    body: "Precision over polish. Honesty over hype. The customer's ten-year experience over the ten-minute sale.",
+    body: "Do the work properly. Say what we mean. Look after the customer for years, not just till the sale.",
   },
   {
-    title: "Philosophy",
-    body: "The best window is one you stop noticing — because heat, dust, and noise have already been shown the door.",
+    title: "How we think",
+    body: "The best window is the one you forget about — because it keeps out the heat, dust, and noise on its own.",
   },
 ];
 
 const pillars = [
   {
-    title: "Customer-Centric",
-    body: "Every project starts with a conversation, not a catalogue. We ask about your morning light before we quote your frame.",
+    title: "Customer first",
+    body: "We start with a chat, not a price list. We ask about your home before we talk about frames.",
   },
   {
-    title: "Sustainability",
-    body: "Lead-free uPVC. Recyclable aluminium. Energy performance measured, not marketed.",
+    title: "Better for the planet",
+    body: "Lead-free uPVC. Recyclable aluminium. Real energy savings — we can prove them.",
   },
   {
-    title: "Quality",
-    body: "Multi-stage QC on every profile, every weld, every gasket. If it doesn't pass here, it doesn't reach your home.",
+    title: "Quality checks",
+    body: "We check every profile, every weld, every seal. If it doesn't pass here, it doesn't reach your home.",
   },
   {
-    title: "Craftsmanship",
-    body: "In-house fabrication in Deoghar. Twenty craftspeople who touch every unit before it ships.",
+    title: "Made by hand",
+    body: "Built in our Deoghar factory. Twenty people who check every unit before it leaves.",
   },
 ];
 
