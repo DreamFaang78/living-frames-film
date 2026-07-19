@@ -23,7 +23,7 @@ export function Footer() {
               </span>
             </div>
             <p className="mt-6 max-w-md text-pretty text-lg text-white/75">
-              Engineered for monsoons. Designed for modern Indian life.
+              Built for Indian weather. Made for the way we live today.
               <br />
               <span className="italic text-white">Always looking for the better.</span>
             </p>

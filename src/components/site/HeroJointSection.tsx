@@ -13,14 +13,14 @@ export function HeroJointSection() {
           className="md:col-span-4 md:pt-6"
         >
           <div className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[color:var(--nicwin-red)]">
-            Engineered at the corner
+            Built at the corner
           </div>
           <h2 className="mt-4 font-[family-name:var(--font-display)] text-4xl leading-[1.05] text-[color:var(--ink)] md:text-5xl">
-            The joint is where windows fail. Ours doesn&rsquo;t.
+            Most windows break at the corner. Ours don&rsquo;t.
           </h2>
           <p className="mt-6 max-w-md text-base leading-relaxed text-[color:var(--ink)]/70">
-            Mitred at forty-five, thermally welded, sealed for a decade of monsoons.
-            Look closely — this is the detail most brands hope you never notice.
+            Cut at 45 degrees. Heat-welded into one solid piece. Sealed to hold up
+            through ten years of monsoon rain.
           </p>
         </motion.header>
 
@@ -34,7 +34,7 @@ export function HeroJointSection() {
           <div className="relative h-[60vh] min-h-[420px] w-full overflow-hidden rounded-2xl bg-[#f4f5f2] ring-1 ring-black/5">
             <img
               src={cornerJoint.url}
-              alt="Close-up of a white uPVC window frame corner — mitred at forty-five degrees and thermally welded."
+              alt="Close-up of a white uPVC window frame corner — cut at 45 degrees and heat-welded."
               className="h-full w-full object-cover"
               loading="lazy"
             />
