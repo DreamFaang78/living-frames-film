@@ -114,8 +114,8 @@ function ProductsLanding() {
 
       <FinalCTA
         eyebrow="Not sure where to start?"
-        headline="Tell us the room. We'll suggest the frame."
-        secondary={{ label: "Get a quote", to: "/contact" }}
+        headline="Tell us the room. We'll suggest the right window."
+        secondary={{ label: "Get a price", to: "/contact" }}
       />
 
     </>
