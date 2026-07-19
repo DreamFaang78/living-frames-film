@@ -457,7 +457,7 @@ function Home() {
       <section className="relative overflow-hidden bg-[color:var(--paper)] py-32 md:py-40">
         <div className="mx-auto max-w-[1200px] px-6 text-center md:px-10">
           <Reveal>
-            <div className="eyebrow">The next chapter</div>
+            <div className="eyebrow">Let's get started</div>
           </Reveal>
           <Reveal delay={1}>
             <h2 className="mt-6 max-w-3xl mx-auto text-balance font-display text-5xl leading-[0.98] text-[color:var(--ink)] md:text-[clamp(3rem,7vw,6.5rem)]">
@@ -466,13 +466,13 @@ function Home() {
           </Reveal>
           <Reveal delay={2}>
             <p className="mt-8 mx-auto max-w-xl text-lg text-[color:var(--ink-soft)]">
-              Two minutes on WhatsApp. A visit at your convenience. A quieter house within weeks.
+              Send us a WhatsApp. We'll come measure your windows. A quieter home in a few weeks.
             </p>
           </Reveal>
           <Reveal delay={3}>
             <div className="mt-12 flex flex-wrap justify-center gap-3">
-              <CTAExternal href={SITE.whatsappUrl}>Start the conversation</CTAExternal>
-              <CTALink to="/contact" variant="ink-ghost">Book a site visit</CTALink>
+              <CTAExternal href={SITE.whatsappUrl}>Chat on WhatsApp</CTAExternal>
+              <CTALink to="/contact" variant="ink-ghost">Book a home visit</CTALink>
             </div>
           </Reveal>
         </div>
