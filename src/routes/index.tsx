@@ -224,18 +224,18 @@ function Home() {
         <div className="mx-auto grid max-w-[1200px] grid-cols-1 items-center gap-12 px-6 md:grid-cols-[1.15fr_1fr] md:gap-16 md:px-10">
           <div>
             <Reveal>
-              <div className="eyebrow">The honest bit</div>
+              <div className="eyebrow">The plain truth</div>
             </Reveal>
             <Reveal delay={1}>
               <h2 className="mt-6 text-balance font-display text-4xl leading-[1.05] text-[color:var(--ink)] md:text-[clamp(2.5rem,4.5vw,4.25rem)]">
-                45°C summers. Lashing monsoons. Dust that gets into everything. <span className="text-[color:var(--nicwin-red)]">Wooden frames don't survive any of it.</span>
+                45°C summers. Heavy monsoons. Dust everywhere. <span className="text-[color:var(--nicwin-red)]">Wooden frames just don't last.</span>
               </h2>
             </Reveal>
             <Reveal delay={2}>
               <p className="mt-8 max-w-xl text-pretty text-lg text-[color:var(--ink-soft)]">
-                Warped sashes. Swollen jambs. Paint peeling by year three.
-                You didn't move house so a window could keep asking for attention.
-                We build the ones that stop asking.
+                They warp. They swell. The paint peels in three years.
+                You didn't buy a home so you could keep repairing windows.
+                We make the ones you can forget about.
               </p>
             </Reveal>
           </div>
