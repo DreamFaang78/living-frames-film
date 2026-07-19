@@ -146,11 +146,11 @@ export function ProductCategoryPage({
       <section className="py-32">
         <div className="mx-auto max-w-[1200px] px-6 md:px-10">
           <Reveal>
-            <div className="text-xs uppercase tracking-[0.3em] text-champagne">Performance</div>
+            <div className="text-xs uppercase tracking-[0.3em] text-champagne">How it performs</div>
           </Reveal>
           <Reveal delay={1}>
             <h2 className="mt-4 max-w-3xl font-display text-5xl text-offwhite md:text-6xl">
-              Numbers that translate to nights of quiet.
+              Numbers that mean a quieter home.
             </h2>
           </Reveal>
           <Stagger className="mt-16 grid gap-8 md:grid-cols-2">
