@@ -19,20 +19,20 @@ export const Route = createFileRoute("/products/upvc/doors")({
       material="uPVC"
       variant="teal"
       kicker="uPVC · Doors"
-      headline="Openings that feel considered."
-      intro="Doors decide the mood of a room. Nicwin's uPVC door range is engineered for the way Indians actually live — verandah to living, kitchen to utility, master bedroom to garden — with weather seals that keep the outside where it belongs."
+      headline="Five uPVC door types."
+      intro="A door sets the mood of a room. Our uPVC doors are made for how Indians actually live — verandah to living room, kitchen to utility, bedroom to garden — with seals that keep rain and dust out."
       types={[
-        { name: "French", benefit: "Ceremony, in door form.", detail: "A pair of glazed sashes that swing wide to a courtyard or terrace. Reinforced hinges, concealed multi-point locking, astragal weather seal." },
-        { name: "Sliding", benefit: "The wall that disappears.", detail: "Two-track and three-track systems for wide openings. Stainless roller carriages, interlocking rain flashing, effortless glide." },
-        { name: "Tilt & Turn", benefit: "One door. Two moods.", detail: "Tilt for gentle ventilation, turn for full opening. Ideal for balconies where a full door swing meets a coffee table." },
-        { name: "Tilt & Slide", benefit: "Wide openings without the swing.", detail: "First tilt for airflow, then slide sideways. Perfect where an inswing door would eat living-room floor plan." },
-        { name: "Casement", benefit: "A single, honest hinge.", detail: "Full-height single sash with multi-point locking. The everyday utility door, done properly." },
+        { name: "French", benefit: "The classic double door.", detail: "Two glass panels that swing open to a garden or terrace. Strong hinges, multi-point lock, weather seal." },
+        { name: "Sliding", benefit: "The disappearing wall.", detail: "2-track and 3-track systems for wide openings. Stainless steel wheels, rain flashing, smooth glide." },
+        { name: "Tilt & Turn", benefit: "One door. Two ways to open.", detail: "Tilt for gentle airflow. Turn to open fully. Great for balconies where a swinging door would hit the furniture." },
+        { name: "Tilt & Slide", benefit: "Wide opening without a swing.", detail: "First tilt for airflow, then slide sideways. Great where a swing door would take up living-room space." },
+        { name: "Casement", benefit: "A single, simple hinged door.", detail: "Full-height single door with multi-point lock. The everyday door, done right." },
       ]}
       benefits={[
-        { label: "Thermal", value: 88, copy: "Sealed against summer heat and monsoon damp alike." },
-        { label: "Acoustic", value: 84, copy: "Laminated PVB glass options for road-facing rooms." },
-        { label: "Weather", value: 94, copy: "Astragal seals + drainage channels stop wind-driven rain." },
-        { label: "Security", value: 90, copy: "5-point locking, steel-reinforced sash, tested hardware." },
+        { label: "Heat", value: 88, copy: "Sealed against summer heat and monsoon damp." },
+        { label: "Sound", value: 84, copy: "Laminated glass options for rooms facing the road." },
+        { label: "Weather", value: 94, copy: "Seals and drainage stop wind-driven rain." },
+        { label: "Security", value: 90, copy: "5-point lock, steel inside the frame, tested handles." },
       ]}
       spec={[
         { k: "70mm", v: "Frame depth" },
