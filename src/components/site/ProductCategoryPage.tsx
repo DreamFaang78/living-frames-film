@@ -284,14 +284,14 @@ export function ProductCategoryPage({
         <div className="mx-auto flex min-h-[50vh] max-w-[1000px] flex-col items-center justify-center px-6 py-20 text-center">
           <Reveal>
             <h2 className="font-display text-5xl text-offwhite md:text-7xl">
-              Ready to see {material.toLowerCase()} in your home?
+              Want to see {material.toLowerCase()} in your home?
             </h2>
           </Reveal>
           <Reveal delay={1}>
             <div className="mt-10 flex flex-wrap justify-center gap-3">
-              <CTAExternal href={SITE.whatsappUrl}>Talk to us on WhatsApp</CTAExternal>
+              <CTAExternal href={SITE.whatsappUrl}>Chat on WhatsApp</CTAExternal>
               <CTALink to="/contact" variant="ghost">
-                Request a site visit
+                Book a home visit
               </CTALink>
             </div>
           </Reveal>
