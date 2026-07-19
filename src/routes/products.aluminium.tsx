@@ -76,8 +76,8 @@ function AluLanding() {
 
       <section className="py-16 text-center">
         <div className="mx-auto flex max-w-xl flex-col items-center gap-4 px-6">
-          <CTAExternal href={SITE.whatsappUrl}>Talk to us on WhatsApp</CTAExternal>
-          <CTALink to="/contact" variant="ghost">Request a catalogue</CTALink>
+          <CTAExternal href={SITE.whatsappUrl}>Chat on WhatsApp</CTAExternal>
+          <CTALink to="/contact" variant="ghost">Ask for the catalogue</CTALink>
         </div>
       </section>
     </>
