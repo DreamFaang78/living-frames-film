@@ -32,13 +32,13 @@ export function Nav() {
         )}
         onMouseLeave={() => setMega(false)}
       >
-        <div className="mx-auto flex max-w-[1440px] items-center justify-between px-6 py-3 md:px-10">
-          <Link to="/" className="group flex items-center gap-3" aria-label="Nicwin — Home">
-            <span className="flex h-28 items-center justify-center rounded-md px-2 md:h-36">
+        <div className="mx-auto flex max-w-[1440px] items-center justify-between px-6 py-0 md:px-10">
+          <Link to="/" className="group flex items-center gap-3 -my-2" aria-label="Nicwin — Home">
+            <span className="flex items-center justify-center">
               <img
                 src={nicwinLogo.url}
                 alt="Nicwin Windows & Door Systems"
-                className="h-24 w-auto md:h-32"
+                className="h-24 w-auto object-contain md:h-32"
                 width={340}
                 height={128}
               />
@@ -46,6 +46,7 @@ export function Nav() {
 
             <span className={cn("sr-only", inkText)}>Nicwin</span>
           </Link>
+
 
           <nav className="hidden items-center gap-1 md:flex">
             {NAV.map((item) => {
