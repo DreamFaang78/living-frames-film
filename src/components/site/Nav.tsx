@@ -14,8 +14,8 @@ export function Nav() {
   const { scrollY } = useScroll();
   useMotionValueEvent(scrollY, "change", (v) => setScrolled(v > 40));
 
-  const inkText = scrolled ? "text-[color:var(--ink,#14161A)]" : "text-white";
-  const inkTextSoft = scrolled ? "text-[color:#14161A]/75 hover:text-[color:var(--nicwin-red)]" : "text-white/85 hover:text-white";
+  const inkText = "text-[color:var(--ink,#14161A)]";
+  const inkTextSoft = "text-[color:#14161A]/75 hover:text-[color:var(--nicwin-red)]";
 
   return (
     <>
@@ -27,21 +27,14 @@ export function Nav() {
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         style={{ top: 28 }}
         className={cn(
-          "fixed inset-x-0 z-50 transition-[background,box-shadow,color] duration-500",
-          scrolled
-            ? "bg-white/95 backdrop-blur-xl shadow-[0_1px_0_rgba(20,22,26,0.08)]"
-            : "bg-transparent",
+          "fixed inset-x-0 z-50 bg-white/95 backdrop-blur-xl transition-shadow duration-500",
+          scrolled ? "shadow-[0_1px_0_rgba(20,22,26,0.08)]" : "shadow-none",
         )}
         onMouseLeave={() => setMega(false)}
       >
         <div className="mx-auto flex max-w-[1440px] items-center justify-between px-6 py-3 md:px-10">
           <Link to="/" className="group flex items-center gap-3" aria-label="Nicwin — Home">
-            <span
-              className={cn(
-                "flex h-16 items-center justify-center rounded-md px-2 transition-colors",
-                scrolled ? "bg-transparent" : "bg-white/95 shadow-sm",
-              )}
-            >
+            <span className="flex h-16 items-center justify-center rounded-md px-2">
               <img
                 src={nicwinLogo.url}
                 alt="Nicwin Windows & Door Systems"
@@ -87,7 +80,7 @@ export function Nav() {
           </div>
 
           <button
-            className={cn("rounded-full p-2 md:hidden", scrolled ? "text-[color:#14161A]" : "text-white")}
+            className="rounded-full p-2 text-[color:#14161A] md:hidden"
             aria-label="Open menu"
             onClick={() => setMobile((v) => !v)}
           >
@@ -102,43 +95,30 @@ export function Nav() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-              className={cn(
-                "border-t",
-                scrolled ? "bg-white/95 border-[rgba(20,22,26,0.08)]" : "glass border-white/5",
-              )}
+              className="border-t border-[rgba(20,22,26,0.08)] bg-white/95"
             >
               <div className="mx-auto grid max-w-[1440px] gap-6 px-10 py-8 md:grid-cols-3">
                 {MEGA.map((col) => (
                   <Link
                     key={col.heading}
                     to={col.to}
-                    className={cn(
-                      "group relative overflow-hidden rounded-2xl border p-6 transition-all",
-                      scrolled
-                        ? "border-[rgba(20,22,26,0.08)] bg-[color:var(--paper-dim)] hover:border-[color:var(--nicwin-red)]/50"
-                        : "border-white/5 bg-[color:var(--ink)] hover:border-[color:var(--nicwin-red)]/50",
-                    )}
+                    className="group relative overflow-hidden rounded-2xl border border-[rgba(20,22,26,0.08)] bg-[color:var(--paper-dim)] p-6 transition-all hover:border-[color:var(--nicwin-red)]/50"
                   >
                     <div className="relative">
                       <div className="mb-1 text-[10px] uppercase tracking-[0.25em] text-[color:var(--nicwin-red)]">
                         Explore
                       </div>
-                      <h3 className={cn("font-display text-3xl", scrolled ? "text-[color:#14161A]" : "text-white")}>
+                      <h3 className="font-display text-3xl text-[color:#14161A]">
                         {col.heading}
                       </h3>
-                      <p className={cn("mt-1 text-sm", scrolled ? "text-[color:#14161A]/70" : "text-white/70")}>
+                      <p className="mt-1 text-sm text-[color:#14161A]/70">
                         {col.tagline}
                       </p>
                       <div className="mt-4 flex flex-wrap gap-2">
                         {col.children.map((c) => (
                           <span
                             key={c.label}
-                            className={cn(
-                              "rounded-full border px-3 py-1 text-xs",
-                              scrolled
-                                ? "border-[rgba(20,22,26,0.15)] text-[color:#14161A]/75"
-                                : "border-white/15 text-white/75",
-                            )}
+                            className="rounded-full border border-[rgba(20,22,26,0.15)] px-3 py-1 text-xs text-[color:#14161A]/75"
                           >
                             {c.label}
                           </span>
