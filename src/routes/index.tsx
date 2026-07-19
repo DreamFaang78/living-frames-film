@@ -252,8 +252,8 @@ function Home() {
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
               <figcaption className="absolute bottom-0 left-0 right-0 flex items-center justify-between px-5 py-4 text-[11px] font-semibold uppercase tracking-[0.22em] text-white/90">
-                <span>Weathered wood · Real footage</span>
-                <span className="text-white/60">Exhibit A</span>
+                <span>Old wooden frame · Real footage</span>
+                <span className="text-white/60">See the difference</span>
               </figcaption>
             </figure>
           </Reveal>
