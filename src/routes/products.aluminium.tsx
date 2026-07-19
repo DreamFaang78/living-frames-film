@@ -39,13 +39,14 @@ function AluLanding() {
             <h1 className="mt-4 text-balance font-display text-6xl leading-[0.95] text-offwhite md:text-[7.5rem]">
               Thin frames.
               <br />
-              <span className="italic text-champagne">Widest views.</span>
+              <span className="italic text-champagne">Big view.</span>
             </h1>
           </Reveal>
           <Reveal delay={2}>
             <p className="mt-8 max-w-2xl text-lg text-offwhite/80">
-              Slimline extrusions with thermal breaks and marine-grade hardware. The
-              contemporary Indian home's default answer to "how much glass can we get?"
+              Slim aluminium frames with thermal break and marine-grade hardware.
+              The easy answer for modern Indian homes that want as much glass as
+              possible.
             </p>
           </Reveal>
         </div>
