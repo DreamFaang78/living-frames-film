@@ -12,13 +12,13 @@ export function Footer() {
         <div className="grid gap-14 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
             <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center rounded-lg bg-white px-3 py-2 shadow-sm">
+              <span className="inline-flex items-center justify-center rounded-xl bg-white px-5 py-3 shadow-sm">
                 <img
                   src={nicwinLogo.url}
                   alt="Nicwin Windows & Door Systems"
-                  className="h-12 w-auto"
-                  width={140}
-                  height={56}
+                  className="h-24 w-auto md:h-28"
+                  width={320}
+                  height={128}
                 />
               </span>
             </div>
