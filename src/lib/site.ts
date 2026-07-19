@@ -47,33 +47,39 @@ export const NAV = [
 
 export const MEGA = [
   {
-    heading: "uPVC",
-    tagline: "No leaks. No noise. Built to last.",
-    to: "/products/upvc",
+    heading: "Windows & Doors",
+    tagline: "Frames built for Indian weather.",
+    to: "/products",
     children: [
-      { to: "/products/upvc/windows", label: "Windows" },
-      { to: "/products/upvc/doors", label: "Doors" },
-      { to: "/products/upvc/colors", label: "Colours" },
+      { to: "/products/upvc", label: "uPVC Windows & Doors" },
+      { to: "/products/aluminium", label: "Aluminium Windows & Doors" },
+      { to: "/products/steel", label: "Steel Doors" },
+      { to: "/products#wpc-doors", label: "WPC Doors" },
     ],
   },
   {
-    heading: "Aluminium",
-    tagline: "Thin frames. Widest views.",
-    to: "/products/aluminium",
+    heading: "Mesh & Screens",
+    tagline: "Keep mosquitoes out. Keep the view in.",
+    to: "/products#pleated-mesh",
     children: [
-      { to: "/products/aluminium/windows", label: "Windows" },
-      { to: "/products/aluminium/doors", label: "Doors" },
-      { to: "/products/aluminium/colors", label: "Colours" },
+      { to: "/products#pleated-mesh", label: "Pleated Mesh" },
     ],
   },
   {
-    heading: "Steel",
-    tagline: "Strong at the door. Strong for years.",
-    to: "/products/steel",
+    heading: "Glass Solutions",
+    tagline: "Light through. Nothing in the way.",
+    to: "/products#glass-partition",
     children: [
-      { to: "/products/steel", label: "Security Solid" },
-      { to: "/products/steel", label: "Designer Panel" },
-      { to: "/products/steel", label: "Glass Insert" },
+      { to: "/products#glass-partition", label: "Glass Partition" },
+      { to: "/products#glass-railing", label: "Glass Railing" },
+    ],
+  },
+  {
+    heading: "Facade & Cladding",
+    tagline: "A cleaner face for the building.",
+    to: "/products#acp-sheet",
+    children: [
+      { to: "/products#acp-sheet", label: "ACP Sheet" },
     ],
   },
 ] as const;
