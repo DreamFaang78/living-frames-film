@@ -25,11 +25,11 @@ const products: Product[] = [
   {
     name: "Tilt & Turn uPVC Window",
     material: "uPVC",
-    tagline: "Two openings. One frame. Total control.",
+    tagline: "Two ways to open. One window.",
     details: [
-      "Dual-mode tilt for ventilation, turn for cleaning",
-      "Multi-chamber profile · twin gasket seal",
-      "Available in white, laminate wood, anthracite",
+      "Tilt open for fresh air. Turn to open fully for cleaning.",
+      "Sealed frame with two rubber gaskets",
+      "Available in white, wood look, and grey",
     ],
     img: tiltTurn,
     to: "/products/upvc/windows",
@@ -38,11 +38,11 @@ const products: Product[] = [
   {
     name: "Aluminium System Windows",
     material: "Aluminium",
-    tagline: "Slim sightlines. Widest possible views.",
+    tagline: "Thin frame. Big view.",
     details: [
-      "Thermally broken profile · 2.4W/m²K U-value",
-      "Floor-to-ceiling spans up to 3.2m",
-      "Powder-coated matte black, bronze, champagne",
+      "Slim frame with thermal break — 2.4 W/m²K",
+      "Floor-to-ceiling sizes up to 3.2m wide",
+      "Matte black, bronze, or champagne finish",
     ],
     img: aluminium,
     to: "/products/aluminium/windows",
@@ -51,11 +51,11 @@ const products: Product[] = [
   {
     name: "French uPVC Doors",
     material: "uPVC",
-    tagline: "The entrance that greets the courtyard.",
+    tagline: "The classic double door.",
     details: [
-      "Double-leaf swing · toughened 6mm+6mm glass",
-      "Multi-point locking · stainless steel hardware",
-      "Sizes to 2400×2100 mm · anthracite standard",
+      "Two panels that swing open · 6mm+6mm toughened glass",
+      "Multi-point lock with stainless steel handles",
+      "Sizes up to 2400×2100 mm · anthracite grey",
     ],
     img: french,
     to: "/products/upvc/doors",
@@ -64,11 +64,11 @@ const products: Product[] = [
   {
     name: "Slide & Fold uPVC Doors",
     material: "uPVC",
-    tagline: "Fold the wall away. Bring the outside in.",
+    tagline: "Fold the wall away.",
     details: [
-      "3 to 6 panel configurations",
-      "Bottom-rolling stainless bogies · 25-year track",
-      "Wood-laminate finish · Golden Oak shown",
+      "3 to 6 panels — pick the number you need",
+      "Rolls on stainless steel wheels · 25-year track",
+      "Wood-look finish · shown in Golden Oak",
     ],
     img: slideFold,
     to: "/products/upvc/doors",
@@ -77,24 +77,24 @@ const products: Product[] = [
   {
     name: "Casement uPVC Door",
     material: "uPVC",
-    tagline: "The classic. Refined.",
+    tagline: "The simple, strong everyday door.",
     details: [
-      "Single-leaf side-hung · 3-hinge reinforcement",
-      "70mm frame · steel core throughout",
-      "Pure White · anti-yellowing UV grade",
+      "Single door on 3 heavy-duty hinges",
+      "70mm frame with steel inside",
+      "Pure White · doesn't yellow in the sun",
     ],
     img: casement,
     to: "/products/upvc/doors",
     aspect: "square",
   },
   {
-    name: "uPVC Casement Window · Bay",
+    name: "uPVC Bay Casement Window",
     material: "uPVC",
-    tagline: "Eco-friendly. Effortlessly light.",
+    tagline: "More light. More space.",
     details: [
-      "3-panel bay configuration",
-      "Argon-filled double glazing",
-      "Lead-free calcium-zinc formulation",
+      "3-panel bay window",
+      "Double glass with argon gas — quieter and cooler",
+      "Lead-free — safe for the family",
     ],
     img: upvcEco,
     to: "/products/upvc/windows",
@@ -103,11 +103,11 @@ const products: Product[] = [
   {
     name: "uPVC Fixed Picture Window",
     material: "uPVC",
-    tagline: "Frame the sky. Nothing else.",
+    tagline: "Frames the view. That's it.",
     details: [
-      "Non-operable · maximum light",
-      "Ideal for stairwells and living rooms",
-      "6mm toughened glass standard",
+      "Doesn't open — just lets in maximum light",
+      "Great for stairwells and living rooms",
+      "6mm toughened glass as standard",
     ],
     img: upvcSecure,
     to: "/products/upvc/windows",
@@ -116,14 +116,12 @@ const products: Product[] = [
   {
     name: "uPVC Sliding Window · 3-Track",
     material: "uPVC",
-    tagline: "Built for the long monsoon.",
+    tagline: "Built for heavy monsoons.",
     details: [
-      "3-track profile · integrated mesh option",
-      "Stainless steel rollers · self-lubricating",
-      "Weep-drainage channels for heavy rain",
+      "3-track frame · mosquito mesh option",
+      "Stainless steel wheels — smooth for years",
+      "Rain drainage channels — no water sitting inside",
     ],
-    // Use a clean product photo. The legacy `upvcDurable` asset has a baked-in
-    // yellow-green overlay from the old marketing site — don't reuse it.
     img: tiltTurn,
     to: "/products/upvc/windows",
     aspect: "landscape",
@@ -147,7 +145,7 @@ export function ProductShowcase() {
           <div className="max-w-2xl">
             <Reveal>
               <div className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[color:var(--nicwin-red)]">
-                The catalogue
+                Our products
               </div>
             </Reveal>
             <Reveal delay={1}>
@@ -157,8 +155,8 @@ export function ProductShowcase() {
             </Reveal>
             <Reveal delay={2}>
               <p className="mt-6 max-w-xl text-[color:var(--ink-soft)]">
-                A curated view of the windows and doors we build most often. Sizes,
-                configurations and finishes are always tailored to your opening.
+                The windows and doors we make most often. Every size, shape, and
+                colour is made to fit your window opening.
               </p>
             </Reveal>
           </div>
