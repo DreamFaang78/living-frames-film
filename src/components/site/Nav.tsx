@@ -99,35 +99,36 @@ export function Nav() {
               transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
               className="border-t border-[rgba(20,22,26,0.08)] bg-white/95"
             >
-              <div className="mx-auto grid max-w-[1440px] gap-6 px-10 py-8 md:grid-cols-3">
+              <div className="mx-auto grid max-w-[1440px] gap-6 px-10 py-8 md:grid-cols-4">
                 {MEGA.map((col) => (
-                  <Link
+                  <div
                     key={col.heading}
-                    to={col.to}
                     className="group relative overflow-hidden rounded-2xl border border-[rgba(20,22,26,0.08)] bg-[color:var(--paper-dim)] p-6 transition-all hover:border-[color:var(--nicwin-red)]/50"
                   >
-                    <div className="relative">
-                      <div className="mb-1 text-[10px] uppercase tracking-[0.25em] text-[color:var(--nicwin-red)]">
-                        Explore
-                      </div>
-                      <h3 className="font-display text-3xl text-[color:#14161A]">
-                        {col.heading}
-                      </h3>
-                      <p className="mt-1 text-sm text-[color:#14161A]/70">
-                        {col.tagline}
-                      </p>
-                      <div className="mt-4 flex flex-wrap gap-2">
-                        {col.children.map((c) => (
-                          <span
-                            key={c.label}
-                            className="rounded-full border border-[rgba(20,22,26,0.15)] px-3 py-1 text-xs text-[color:#14161A]/75"
+                    <div className="mb-1 text-[10px] uppercase tracking-[0.25em] text-[color:var(--nicwin-red)]">
+                      Explore
+                    </div>
+                    <h3 className="font-display text-2xl text-[color:#14161A]">
+                      {col.heading}
+                    </h3>
+                    <p className="mt-1 text-xs text-[color:#14161A]/70">
+                      {col.tagline}
+                    </p>
+                    <ul className="mt-4 space-y-1.5">
+                      {col.children.map((c) => (
+                        <li key={c.label}>
+                          <Link
+                            to={c.to}
+                            hash={c.hash ?? undefined}
+                            onClick={() => setMega(false)}
+                            className="block text-sm text-[color:#14161A]/85 transition-colors hover:text-[color:var(--nicwin-red)]"
                           >
                             {c.label}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </Link>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 ))}
               </div>
             </motion.div>
