@@ -79,9 +79,9 @@ function Why() {
           </Reveal>
           <Reveal delay={1}>
             <h1 className="text-balance font-display text-6xl leading-[0.95] text-offwhite md:text-[7.5rem]">
-              Four promises. Kept
+              Four promises.
               <br />
-              <span className="italic text-champagne">every single day.</span>
+              <span className="italic text-champagne">Kept every day.</span>
             </h1>
           </Reveal>
         </div>
