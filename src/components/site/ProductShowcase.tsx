@@ -180,12 +180,12 @@ export function ProductShowcase() {
               className="group flex h-full flex-col overflow-hidden rounded-2xl border border-[color:var(--line)] bg-[color:var(--paper)] shadow-[0_10px_30px_-20px_rgba(14,59,115,0.25)] transition-shadow duration-500 hover:shadow-[0_30px_70px_-30px_rgba(14,59,115,0.35)]"
             >
               <Link to={p.to} className="block overflow-hidden bg-[color:var(--paper-warm)]">
-                <div className={`${aspectClass[p.aspect]} w-full overflow-hidden`}>
+                <div className="aspect-[4/3] w-full overflow-hidden">
                   <img
                     src={p.img.url}
                     alt={p.name}
                     loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
+                    className="h-full w-full object-cover object-center transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
                   />
                 </div>
               </Link>
