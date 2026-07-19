@@ -17,6 +17,9 @@ import slideFold from "@/assets/products/slide-fold.png.asset.json";
 import casement from "@/assets/products/casement-door.jpg.asset.json";
 import aluminium from "@/assets/products/aluminium-system.png.asset.json";
 import upvcPushIn from "@/assets/nicwin_upvc_pushin.mp4.asset.json";
+import matUpvc from "@/assets/material-upvc.jpeg.asset.json";
+import matAluminium from "@/assets/material-aluminium.jpeg.asset.json";
+import matSteel from "@/assets/material-steel.jpeg.asset.json";
 
 const HOME_SLIDES: CarouselSlide[] = [
   { src: luxuryInterior.url, alt: "Aluminium floor-to-ceiling window in a living room", productType: "Aluminium Floor-to-Ceiling Window", place: "Home · Ranchi" },
