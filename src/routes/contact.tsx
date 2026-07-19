@@ -80,12 +80,12 @@ function Contact() {
           </Reveal>
           <Reveal delay={1}>
             <h1 className="mt-3 font-display text-6xl text-offwhite md:text-8xl">
-              Let's talk about your house.
+              Let's talk about your home.
             </h1>
           </Reveal>
           <Reveal delay={2}>
             <p className="mt-4 max-w-xl text-offwhite/75">
-              Two minutes on WhatsApp is usually the fastest way. We answer during {SITE.hours}.
+              WhatsApp is usually the fastest. We reply during {SITE.hours}.
             </p>
           </Reveal>
         </div>
