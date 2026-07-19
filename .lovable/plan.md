@@ -1,63 +1,47 @@
+# Nicwin feedback pass — logo, top-bar marquee, homepage carousel
 
-# Mobile Cinematic Scroll Layer — Nicwin
+Three targeted changes. Tagline copy stays exactly "Always looking for the better." — no wording edits.
 
-Goal: on phones, scrolling nicwinsystems.com should feel like walking through rooms of a house — each section a portal, each product a reveal. Desktop stays as-is; all new motion is gated behind a mobile media query via `gsap.matchMedia()` and `prefers-reduced-motion`.
+## 1. Header logo — bigger, confident
 
-## Scope (mobile only, ≤ 768px)
+`src/components/site/Nav.tsx`
+- Bump logo image from `h-9 md:h-10` to `h-12 md:h-14` (~40% larger).
+- Raise the logo wrapper height (`h-11` → `h-14`) so it stays vertically centered, and tighten header padding (`py-4` → `py-3`) so the header bar height stays essentially the same.
+- Update width/height attrs proportionally (110×44 → 150×56) to prevent layout shift.
 
-1. **Lenis touch tuning** — enable smooth touch scroll (`smoothTouch: true`, lerp 0.09, gestureOrientation vertical), disable overscroll bounce, hook `ScrollTrigger.update` to Lenis' `scroll` event via `scrollerProxy`.
+## 2. Restore sliding tagline in the top bar
 
-2. **Hero → Marquee "door opening" handoff**
-   - Pin hero for +80vh on mobile.
-   - As user scrolls, the existing doors video plays scrubbed (currentTime tied to scroll progress from 0 → fully open).
-   - Headline splits (SplitText fallback: manual span wrap) and letters lift + blur-out; subline slides down; a soft white "light bloom" wipes upward revealing the marquee.
+New persistent top strip on every page (distinct from the lower brand marquee).
 
-3. **Portal section transitions** (between each of the 7 scenes)
-   - A full-bleed white/blue radial "iris" mask closes to a 20px dot, section swaps, then irises back open. Implemented with a fixed `<div>` clip-path circle driven by ScrollTrigger.
-   - Haptic feedback on supported devices: `navigator.vibrate(8)` at each portal snap.
+`src/components/site/TopBar.tsx` (new)
+- Thin red bar (`bg-[color:var(--nicwin-red)]`, height ~28px), white uppercase text, letter-spaced, small type.
+- Seamless CSS marquee: duplicate the content twice inside a `flex w-max` track and animate `transform: translateX(-50%)` linearly over ~35s. No jump on loop.
+- Content repeats: `Always looking for the better.` · `Made in Deoghar, Jharkhand · Delivered across India` · `WhatsApp +91 79090 39070` — separated by a small red-on-white dot.
+- Pause on hover/touch via `group-hover:[animation-play-state:paused]` and `active:[animation-play-state:paused]`.
+- Respects `prefers-reduced-motion` (animation disabled, content centered static).
 
-4. **Product cards — tactile stack**
-   - On mobile, ProductShowcase becomes a vertical stack where each card enters with a spring: scale 0.9 → 1, y 60 → 0, subtle 3D tilt (rotateX 8 → 0) based on entry velocity (`ScrollTrigger.getVelocity()`).
-   - Image inside each card gets a slow parallax (`yPercent: -12`) tied to card's own ScrollTrigger.
-   - Sticky "category label" chip that morphs between uPVC / Aluminium / Steel as the user scrolls past each block.
+`src/components/site/Nav.tsx`
+- Render `<TopBar />` above the header. Shift the sticky header's `top` offset from `0 / 4` to `28 / 28` so the header sits under the top strip. The existing "red strip on scroll" motion becomes redundant with a permanent red bar — remove that inner motion.div to avoid a double red band.
+- Ensure `z-index` layering: TopBar `z-[60]`, header `z-50`.
 
-5. **Stat bar count-up on enter** — trigger CountUp with `ScrollTrigger.batch` so numbers animate only when the row is visibly in view; add a soft red underline draw (`scaleX 0 → 1`) beneath each number.
+Route pages that add top padding to clear the fixed header (hero sections using `pt-*`) already account for header height via the hero being `100dvh` absolute — verify no visual regression on `/about`, `/contact`, `/products` (they use standard section padding, unaffected by the extra 28px).
 
-6. **"Atmosphere" ambient layer**
-   - A single fixed canvas behind content with 30-particle drift (dust motes, GPU-cheap). Color shifts hue based on active section (warm gold near hero, cool blue near products, deep blue near footer) using `useMotionValue` interpolated by scroll progress.
-   - Auto-disabled on `prefers-reduced-motion` and low-end devices (`navigator.hardwareConcurrency < 4`).
+## 3. Auto-sliding window carousel on the home page
 
-7. **Scroll-driven progress rail**
-   - Thin vertical red line pinned to right edge with 7 tick marks (one per scene). Active tick swells + shows scene name on scroll pause (debounced).
+Reuse the existing `AutoCarousel` component (already used on Gallery — same captioned, pause-on-interaction, reduced-motion-aware behavior; add prev/next arrows are already built in).
 
-8. **Micro-interactions**
-   - CTA buttons: press ripple + `vibrate(6)`.
-   - Nav: hides on scroll down, slides back on scroll up (Framer `useScroll` + `useTransform` on y).
-   - Section headings: gradient text sweep (blue → red) triggered once when 60% in view.
+`src/routes/index.tsx`
+- Add a new "Recent installations" section positioned after `ProductShowcase` and before the Gallery CTA block.
+- Populate with 5 slides using existing product assets (`luxury-interior`, `french-doors`, `tilt-turn`, `slide-fold`, `casement-door`) with real captions (product type + place — e.g. "Tilt & Turn uPVC · Private residence, Ranchi").
+- Wrap in a max-w container, aspect-video framing, soft drop shadow, section heading "Recently delivered across India" and a short subline.
+- `intervalMs={4500}` for the cinematic 4-5s cadence the client asked for.
 
-9. **Reduced motion + perf guardrails**
-   - `gsap.matchMedia` conditions: `{ isMobile: "(max-width: 768px)", reduceMotion: "(prefers-reduced-motion: reduce)" }`.
-   - When `reduceMotion` matches: no portals, no scrub, no particles — plain fades only.
-   - All ScrollTriggers reverted via `mm.revert()` on route change (integrate with TanStack Router `useRouter().subscribe('onBeforeNavigate', …)`).
+## 4. Motion polish (the "wow" bar)
 
-## Technical notes
+- Marquee uses linear easing, GPU transform, seamless loop (duplicated content + 50% translate), no jitter.
+- Carousel already uses Framer Motion crossfade — verify `AnimatePresence` mode is `wait` isn't blocking auto-advance; if slides feel abrupt, extend transition to 0.9s ease.
+- Add subtle `mask-image` fade at the left/right edges of the top-bar marquee so text softly fades in/out instead of hard-clipping at the viewport edges.
 
-- Add `@gsap/react` `useGSAP` hook usage inside a new `src/components/site/MobileCinematics.tsx` mounted once from `__root.tsx`.
-- Reuse existing `SmoothScroll.tsx` (Lenis) — extend, don't duplicate.
-- New files:
-  - `src/components/site/MobileCinematics.tsx` (orchestrator)
-  - `src/components/site/PortalTransition.tsx` (iris mask)
-  - `src/components/site/AmbientCanvas.tsx` (particles + hue)
-  - `src/components/site/SceneRail.tsx` (right-edge progress)
-  - `src/hooks/useMobileMotion.ts` (matchMedia + reducedMotion gate)
-- Desktop code paths untouched. Verify with Playwright at 390×844 (iPhone 14) that hero doesn't jump, portals fire between all 7 sections, and no CLS above 0.05.
+## Out of scope for this pass
 
-## Out of scope
-
-- No new copy, no new imagery, no product data changes.
-- No changes to Contact form logic, routing, or CMS structure.
-- Desktop hero and layouts remain exactly as approved.
-
-## Deliverable
-
-A single build prompt the user can paste into Lovable to execute the above. Approving this plan will produce and implement it.
+Finish-colors correction, factory/showroom media, mobile scroll polish, contact-info additional edits — deferred to next round per the client's explicit "close this round out cleanly" note.
