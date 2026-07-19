@@ -138,12 +138,12 @@ function About() {
         <div className="mx-auto max-w-[1440px] px-6 md:px-10">
           <Reveal>
             <div className="text-xs uppercase tracking-[0.3em] text-[color:var(--nicwin-red)]">
-              What we hold ourselves to
+              What we stand for
             </div>
           </Reveal>
           <Reveal delay={1}>
             <h2 className="mt-4 max-w-3xl font-display text-5xl text-[color:var(--ink)] md:text-6xl">
-              Four short sentences, kept out loud.
+              Four simple things we take seriously.
             </h2>
 
           </Reveal>
