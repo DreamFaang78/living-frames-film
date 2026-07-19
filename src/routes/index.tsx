@@ -328,7 +328,7 @@ function Home() {
           <Reveal><div className="eyebrow">Why Nicwin</div></Reveal>
           <Reveal delay={1}>
             <h2 className="mt-4 max-w-3xl text-balance font-display text-4xl leading-[1.05] text-[color:var(--ink)] md:text-[clamp(2.5rem,5vw,5rem)]">
-              Four quiet promises, kept every day.
+              Four things we get right, every job.
             </h2>
           </Reveal>
 
