@@ -1,65 +1,89 @@
 ## Goal
-Rewrite every user-visible line of copy on the site in plain, everyday English. Same structure, same design, same motion — only the words change. Keep numbers, specs, testimonials, and section rhythm intact.
 
-## Rule applied everywhere
-- Every sentence readable in one pass by a Tier 2/3 buyer with basic-intermediate English.
-- Aim for <12–15 words per sentence. Break long ones into two short ones.
-- Simpler word wins: "strong" over "robust", "keeps out" over "resists", "lasts long" over "durable".
-- No wordplay, no metaphors that need decoding, no inversions.
-- Benefit-first, active voice.
-- Keep short and confident — simpler, not flatter.
+Move from a flat 3-material product structure (uPVC / Aluminium / Steel) to 4 groups covering 8 categories, exposed both in the header mega-menu and the /products page.
 
-## Files to rewrite (copy only, no logic/layout changes)
+## New taxonomy
 
-Homepage & shared:
-- `src/routes/index.tsx` — hero subline, marquee items, stats labels, "Honest bit" problem section, product category cards ("Sealed. Silent. Sumptuous.", "The first hello. The last word.", etc.), joint section headline + body, finishes intro, catalogue intro ("A curated view…"), testimonials intro, gallery/carousel captions, CTA blocks.
-- `src/components/site/TopBar.tsx` — marquee tagline strings.
-- `src/components/site/Marquee.tsx` — marquee copy if any strings live here.
-- `src/components/site/HeroJointSection.tsx` — "Most windows break at the corner. Ours don't." + body.
-- `src/components/site/ProductShowcase.tsx` — every card title, caption, spec blurb, bullet.
-- `src/components/site/AutoCarousel.tsx` — default captions if hardcoded.
-- `src/components/site/FinalCTA.tsx` — headline + subline + button label copy.
-- `src/components/site/Footer.tsx` — tagline, column headers, address blurb copy.
-- `src/components/site/VideoHero.tsx` — any built-in copy props/defaults.
+1. **Windows & Doors** — uPVC Windows & Doors, Aluminium Windows & Doors, Steel Doors, WPC Doors
+2. **Mesh & Screens** — Pleated Mesh
+3. **Glass Solutions** — Glass Partition, Glass Railing
+4. **Facade & Cladding** — ACP Sheet
 
-Pages:
-- `src/routes/about.tsx` — hero, story paragraphs, values headers/bodies, stat labels.
-- `src/routes/why-nicwin.tsx` — the four pillars (Climate, Acoustic, Security, Craft) — headlines + bodies simplified; keep pillar names but rewrite one-liners.
-- `src/routes/gallery.tsx` — intro + every caption.
-- `src/routes/contact.tsx` — hero, form labels/help text, address block copy, hours note.
-- `src/routes/products.tsx` — intro + the three material cards.
+## Card treatment tiers
 
-Product category pages (all pass through `ProductCategoryPage`):
-- `src/routes/products.upvc.tsx`, `.upvc.windows.tsx`, `.upvc.doors.tsx`, `.upvc.colors.tsx`
-- `.aluminium.tsx`, `.aluminium.windows.tsx`, `.aluminium.doors.tsx`, `.aluminium.colors.tsx`
-- `.steel.tsx`
-- Rewrite each: `kicker`, `headline`, `intro`, every `types[].name/benefit/detail`, every `benefits[].label/copy`, `colorHeading`, and any wordy `spec` values. Keep hex codes, dimensions, U-values, glass thickness, lock types, mm/°C/dB numbers untouched.
-- `src/components/site/ProductCategoryPage.tsx` — simplify any hardcoded section labels ("Formats", "Performance", "Finishes", CTA text) if they lean literary.
+- **Full card** (hero image, headline, body copy, bullet specs, CTA): uPVC, Aluminium, Steel. WPC uses full card once real photos exist; until then, light card.
+- **Light card** (single hero image — real / AI-generated / icon-led — headline + 1–2 sentence description, single CTA, no bullet list): Pleated Mesh, Glass Partition, Glass Railing, ACP Sheet, and WPC (interim).
 
-SEO / meta:
-- `src/routes/__root.tsx` and every route's `head()` — title + description in plain words (keep keywords, drop poetic phrasing).
-- `src/lib/site.ts` — `SITE.tagline`, `SITE.description`, any nav labels that are wordy.
+All copy stays in the plain-language style already used site-wide.
 
-## Explicit rewrite examples (locked in)
-- "Sealed. Silent. Sumptuous." → "No leaks. No noise. Built to last."
-- "The first hello. The last word." → "Strong at the door. Strong for years."
-- "Thin frames. Widest views." → keep.
-- "The joint is where windows fail. Ours doesn't." → "Most windows break at the corner. Ours don't."
-- "Multi-chamber profiles and thermal breaks tuned for 45°C summers…" → "Built for 45°C summers and heavy monsoon rain. Keeps the heat out — so your AC bill goes down."
-- "Twin gaskets, laminated glass, precise sash tolerances…" → "Double sealing and strong glass keep outside noise out — traffic, loudspeakers, festival sound. Your home stays quiet."
-- "Every product. Every detail. Nothing hidden." → keep.
-- "A curated view of the windows and doors we build most often." → "The windows and doors people ask for most."
-- Site tagline "Always looking for the better." → keep (already simple, brand line).
+## Changes
 
-## What is NOT changed
-- Numbers, dimensions, U-values, dB, mm, °C, years, counts.
-- Testimonial quotes (customer voice stays as-is).
-- Design, layout, motion, images, videos, components, routes, data model.
-- Brand name, tagline, contact details, addresses.
+### 1. `src/lib/site.ts` — new `MEGA` shape
 
-## Process
-1. Read each file above, rewrite strings in place using `line_replace` (parallel where files are independent).
-2. Keep JSX structure identical — only string literals and template contents change.
-3. After the pass, spot-check the homepage and one product category page in the preview to confirm nothing broke and tone reads clear.
+Replace the current 3-heading MEGA with 4 groups. Each group has `heading`, optional `tagline`, and `children: { to, label, tier: "full" | "light" }[]`. Preserve existing `/products/upvc`, `/products/aluminium`, `/products/steel` routes; add new placeholder targets that all point to `/products#<slug>` (in-page anchors on the Products page) until dedicated routes are built:
 
-No code, dependency, or schema changes.
+- `/products#wpc-doors`
+- `/products#pleated-mesh`
+- `/products#glass-partition`
+- `/products#glass-railing`
+- `/products#acp-sheet`
+
+Keeps navigation working without creating 5 half-empty route files.
+
+### 2. `src/components/site/Nav.tsx` — grouped mega-menu
+
+Update the desktop mega panel to render 4 columns (one per group) with each group's items listed underneath a group label. Mobile menu gets a collapsible "Products" section listing the 4 groups with items nested. Uses the new `MEGA` structure directly.
+
+### 3. `src/routes/products.tsx` — 4 sections, 8 cards
+
+Replace the current single 3-column universes grid with 4 stacked sections, each with its own group header (kicker + short line) matching the existing "One obsession. Three materials." rhythm:
+
+```
+Hero (unchanged)
+├── Section: Windows & Doors
+│    grid: uPVC (full) · Aluminium (full) · Steel Doors (full) · WPC Doors (light)
+├── Section: Mesh & Screens
+│    grid: Pleated Mesh (light)
+├── Section: Glass Solutions
+│    grid: Glass Partition (light) · Glass Railing (light)
+├── Section: Facade & Cladding
+│    grid: ACP Sheet (light)
+FinalCTA (unchanged)
+```
+
+Each section wrapped in `<section id="{slug}">` so mega-menu anchors resolve. Full and light cards share visual language (rounded frame, same aspect ratio, plain-text hierarchy) — light cards simply omit the bullet spec list and use a shorter body.
+
+### 4. New card components
+
+Add two small presentational components colocated in `src/components/site/`:
+
+- `ProductGroupCard.tsx` — full-tier card (image top, kicker, headline, 1–2 line body, 3-bullet spec list, CTA).
+- `ProductLightCard.tsx` — light-tier card (image top, kicker, headline, 1–2 sentence body, single CTA).
+
+Both accept `{ to, kicker, title, body, imageUrl, cta }` and (for full) `specs: string[]`. Both use `aspect-[4/3]` image containers matching the homepage material cards for grid consistency.
+
+### 5. Imagery
+
+Reuse existing assets where they fit:
+- uPVC → `material-upvc.jpeg`
+- Aluminium → `material-aluminium.jpeg`
+- Steel → `material-steel.jpeg`
+
+For the 5 categories without photography (WPC, Pleated Mesh, Glass Partition, Glass Railing, ACP Sheet), generate 5 fast-tier placeholder images (clean lifestyle / product-forward, white-first palette, matching the site's photographic tone) via `imagegen--generate_image` and store them under `src/assets/products/` as `.asset.json` pointers. No icon-only fallback — a single real-feel image per card keeps the grid consistent.
+
+### 6. Copy (plain language, short)
+
+Draft lines for the 5 new cards, e.g.:
+- **WPC Doors** — "Water-proof. Termite-proof. Looks like wood without the trouble."
+- **Pleated Mesh** — "Keeps mosquitoes out. Folds away when you don't need it."
+- **Glass Partition** — "Split a room without losing the light."
+- **Glass Railing** — "See-through safety for balconies and stairs."
+- **ACP Sheet** — "Clean, modern facades that hold up in Indian weather."
+
+Final wording confirmed during implementation; tone matches existing homepage copy.
+
+## Out of scope
+
+- No new dedicated route pages for the 5 new categories yet (anchors on `/products` are the interim landing). Easy to promote to real routes later without touching Nav.
+- Existing `/products/upvc`, `/products/aluminium`, `/products/steel` subtrees and their child routes are untouched.
+- Homepage "Three materials" section stays as-is — this restructure is scoped to header nav + `/products`.

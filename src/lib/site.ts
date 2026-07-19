@@ -47,33 +47,43 @@ export const NAV = [
 
 export const MEGA = [
   {
-    heading: "uPVC",
-    tagline: "No leaks. No noise. Built to last.",
-    to: "/products/upvc",
+    heading: "Windows & Doors",
+    tagline: "Frames built for Indian weather.",
+    to: "/products",
+    hash: "windows-doors",
     children: [
-      { to: "/products/upvc/windows", label: "Windows" },
-      { to: "/products/upvc/doors", label: "Doors" },
-      { to: "/products/upvc/colors", label: "Colours" },
+      { to: "/products/upvc", hash: undefined, label: "uPVC Windows & Doors" },
+      { to: "/products/aluminium", hash: undefined, label: "Aluminium Windows & Doors" },
+      { to: "/products/steel", hash: undefined, label: "Steel Doors" },
+      { to: "/products", hash: "wpc-doors", label: "WPC Doors" },
     ],
   },
   {
-    heading: "Aluminium",
-    tagline: "Thin frames. Widest views.",
-    to: "/products/aluminium",
+    heading: "Mesh & Screens",
+    tagline: "Keep mosquitoes out. Keep the view in.",
+    to: "/products",
+    hash: "pleated-mesh",
     children: [
-      { to: "/products/aluminium/windows", label: "Windows" },
-      { to: "/products/aluminium/doors", label: "Doors" },
-      { to: "/products/aluminium/colors", label: "Colours" },
+      { to: "/products", hash: "pleated-mesh", label: "Pleated Mesh" },
     ],
   },
   {
-    heading: "Steel",
-    tagline: "Strong at the door. Strong for years.",
-    to: "/products/steel",
+    heading: "Glass Solutions",
+    tagline: "Light through. Nothing in the way.",
+    to: "/products",
+    hash: "glass-partition",
     children: [
-      { to: "/products/steel", label: "Security Solid" },
-      { to: "/products/steel", label: "Designer Panel" },
-      { to: "/products/steel", label: "Glass Insert" },
+      { to: "/products", hash: "glass-partition", label: "Glass Partition" },
+      { to: "/products", hash: "glass-railing", label: "Glass Railing" },
+    ],
+  },
+  {
+    heading: "Facade & Cladding",
+    tagline: "A cleaner face for the building.",
+    to: "/products",
+    hash: "acp-sheet",
+    children: [
+      { to: "/products", hash: "acp-sheet", label: "ACP Sheet" },
     ],
   },
 ] as const;
