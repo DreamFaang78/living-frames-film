@@ -77,7 +77,7 @@ export function ProductCategoryPage({
           </Reveal>
           <Reveal delay={1}>
             <h2 className="mt-4 max-w-3xl font-display text-5xl text-offwhite md:text-6xl">
-              Every type earns its place.
+              Every type has its own job.
             </h2>
           </Reveal>
 
