@@ -16,10 +16,10 @@ export function HeroJointSection() {
             Built at the corner
           </div>
           <h2 className="mt-4 font-[family-name:var(--font-display)] text-4xl leading-[1.05] text-[color:var(--ink)] md:text-5xl">
-            45°C Summers. Heavy Monsoons. Endless Dust.
+            Most windows break at the corner. Ours don't.
           </h2>
           <p className="mt-6 max-w-md text-base leading-relaxed text-[color:var(--ink)]/70">
-            NICWIN uPVC Windows Are Built For All Of It.
+            Cut at 45 degrees. Heat-welded into one solid piece. Sealed to hold up through ten years of monsoon rain.
           </p>
         </motion.header>
 
