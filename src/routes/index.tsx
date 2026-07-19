@@ -266,16 +266,16 @@ function Home() {
         <div className="mx-auto max-w-[1440px] px-6 md:px-10">
           <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
             <div>
-              <Reveal><div className="eyebrow">Three universes</div></Reveal>
+              <Reveal><div className="eyebrow">Three materials</div></Reveal>
               <Reveal delay={1}>
                 <h2 className="mt-4 max-w-3xl text-balance font-display text-4xl leading-[1.05] text-[color:var(--ink)] md:text-[clamp(2.5rem,5vw,5rem)]">
-                  One obsession. Three materials.
+                  Pick the one that fits your home.
                 </h2>
               </Reveal>
             </div>
             <Reveal delay={2}>
               <Link to="/products" className="story-link text-sm font-semibold text-[color:var(--nicwin-blue)]">
-                See the full range →
+                See everything we make →
               </Link>
             </Reveal>
           </div>
