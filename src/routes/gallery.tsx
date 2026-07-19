@@ -125,12 +125,12 @@ function Gallery() {
           </Reveal>
           <Reveal delay={1}>
             <h1 className="mt-3 font-display text-6xl text-offwhite md:text-8xl">
-              Homes we've quieted.
+              Homes we've made quieter.
             </h1>
           </Reveal>
           <Reveal delay={2}>
             <p className="mt-4 max-w-xl text-offwhite/75">
-              Every image below names the exact product, material and location — so you
+              Every photo shows the exact product, material, and place — so you
               can see what you'll actually get.
             </p>
           </Reveal>
@@ -142,12 +142,12 @@ function Gallery() {
         <div className="mx-auto max-w-[1200px] px-6 md:px-10">
           <Reveal>
             <div className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[color:var(--nicwin-red)]">
-              Featured installations
+              Recent work
             </div>
           </Reveal>
           <Reveal delay={1}>
             <h2 className="mt-3 mb-10 font-display text-3xl text-[color:var(--ink)] md:text-4xl">
-              A slow slideshow of recent work.
+              A slideshow of recent installations.
             </h2>
           </Reveal>
           <AutoCarousel slides={slides} />
