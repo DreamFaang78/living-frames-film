@@ -401,10 +401,10 @@ function Home() {
       {/* 8 · TESTIMONIALS */}
       <section className="bg-[color:var(--paper)] py-24 md:py-32">
         <div className="mx-auto max-w-[1440px] px-6 md:px-10">
-          <Reveal><div className="eyebrow">In their homes</div></Reveal>
+          <Reveal><div className="eyebrow">What people say</div></Reveal>
           <Reveal delay={1}>
             <h2 className="mt-4 max-w-3xl font-display text-4xl leading-[1.05] text-[color:var(--ink)] md:text-[clamp(2.5rem,5vw,4.5rem)]">
-              Quiet is the loudest review.
+              A quieter house is the best review.
             </h2>
           </Reveal>
           <Stagger className="mt-16 grid gap-6 md:grid-cols-3">
