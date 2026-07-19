@@ -14,8 +14,8 @@ export function Nav() {
   const { scrollY } = useScroll();
   useMotionValueEvent(scrollY, "change", (v) => setScrolled(v > 40));
 
-  const inkText = scrolled ? "text-[color:var(--ink,#14161A)]" : "text-white";
-  const inkTextSoft = scrolled ? "text-[color:#14161A]/75 hover:text-[color:var(--nicwin-red)]" : "text-white/85 hover:text-white";
+  const inkText = "text-[color:var(--ink,#14161A)]";
+  const inkTextSoft = "text-[color:#14161A]/75 hover:text-[color:var(--nicwin-red)]";
 
   return (
     <>
@@ -27,21 +27,14 @@ export function Nav() {
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         style={{ top: 28 }}
         className={cn(
-          "fixed inset-x-0 z-50 transition-[background,box-shadow,color] duration-500",
-          scrolled
-            ? "bg-white/95 backdrop-blur-xl shadow-[0_1px_0_rgba(20,22,26,0.08)]"
-            : "bg-transparent",
+          "fixed inset-x-0 z-50 bg-white/95 backdrop-blur-xl transition-shadow duration-500",
+          scrolled ? "shadow-[0_1px_0_rgba(20,22,26,0.08)]" : "shadow-none",
         )}
         onMouseLeave={() => setMega(false)}
       >
         <div className="mx-auto flex max-w-[1440px] items-center justify-between px-6 py-3 md:px-10">
           <Link to="/" className="group flex items-center gap-3" aria-label="Nicwin — Home">
-            <span
-              className={cn(
-                "flex h-16 items-center justify-center rounded-md px-2 transition-colors",
-                scrolled ? "bg-transparent" : "bg-white/95 shadow-sm",
-              )}
-            >
+            <span className="flex h-16 items-center justify-center rounded-md px-2">
               <img
                 src={nicwinLogo.url}
                 alt="Nicwin Windows & Door Systems"
