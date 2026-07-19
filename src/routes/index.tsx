@@ -17,6 +17,9 @@ import slideFold from "@/assets/products/slide-fold.png.asset.json";
 import casement from "@/assets/products/casement-door.jpg.asset.json";
 import aluminium from "@/assets/products/aluminium-system.png.asset.json";
 import upvcPushIn from "@/assets/nicwin_upvc_pushin.mp4.asset.json";
+import matUpvc from "@/assets/material-upvc.jpeg.asset.json";
+import matAluminium from "@/assets/material-aluminium.jpeg.asset.json";
+import matSteel from "@/assets/material-steel.jpeg.asset.json";
 
 const HOME_SLIDES: CarouselSlide[] = [
   { src: luxuryInterior.url, alt: "Aluminium floor-to-ceiling window in a living room", productType: "Aluminium Floor-to-Ceiling Window", place: "Home · Ranchi" },
@@ -62,6 +65,8 @@ const universes = [
     title: "No leaks. No noise.",
     line: "Sealed frames with two rubber gaskets. Keeps rain out. Keeps street sound out. Lets the light in.",
     to: "/products/upvc",
+    img: matUpvc.url,
+    imgAlt: "White uPVC casement window on a modern villa at sunset with corner joint detail",
   },
   {
     key: "aluminium",
@@ -69,6 +74,8 @@ const universes = [
     title: "Thin frames. Big view.",
     line: "Slim metal frames so you see more sky and less window. Handles heavy rain without a fuss.",
     to: "/products/aluminium",
+    img: matAluminium.url,
+    imgAlt: "Slim black aluminium sliding doors framing a poolside sunset view",
   },
   {
     key: "steel",
@@ -76,6 +83,8 @@ const universes = [
     title: "Strong at the door.",
     line: "Multi-point locks and reinforced steel. Feels solid the moment you touch the handle.",
     to: "/products/steel",
+    img: matSteel.url,
+    imgAlt: "Matte black steel pivot entry door of a luxury home at dusk",
   },
 ];
 
@@ -290,24 +299,28 @@ function Home() {
               >
                 <Link
                   to={u.to}
-                  className="group block h-full overflow-hidden rounded-3xl border border-[color:var(--line)] bg-[color:var(--paper)] p-8 transition-shadow duration-500 hover:shadow-[0_30px_80px_-30px_rgba(14,59,115,0.25)]"
+                  className="group flex h-full flex-col overflow-hidden rounded-3xl border border-[color:var(--line)] bg-[color:var(--paper)] transition-shadow duration-500 hover:shadow-[0_30px_80px_-30px_rgba(14,59,115,0.25)]"
                 >
-                  <div className="flex h-full flex-col justify-between gap-16">
-                    <div className="flex items-center justify-between">
-                      <span className="rounded-full border border-[color:var(--line)] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.24em] text-[color:var(--nicwin-blue)]">
-                        {u.kicker}
-                      </span>
-                      <span className="h-2 w-2 rounded-full bg-[color:var(--nicwin-red)] transition-transform duration-500 group-hover:scale-150" />
-                    </div>
-                    <div>
-                      <h3 className="text-balance font-display text-3xl text-[color:var(--ink)] md:text-4xl">
-                        {u.title}
-                      </h3>
-                      <p className="mt-4 text-[color:var(--ink-soft)]">{u.line}</p>
-                      <div className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-[color:var(--nicwin-red)]">
-                        Explore {u.kicker}
-                        <span className="transition-transform duration-500 group-hover:translate-x-1">→</span>
-                      </div>
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <img
+                      src={u.img}
+                      alt={u.imgAlt}
+                      loading="lazy"
+                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
+                    />
+                    <span className="absolute left-4 top-4 rounded-full border border-white/70 bg-white/85 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.24em] text-[color:var(--nicwin-blue)] backdrop-blur">
+                      {u.kicker}
+                    </span>
+                    <span className="absolute right-4 top-4 h-2 w-2 rounded-full bg-[color:var(--nicwin-red)] transition-transform duration-500 group-hover:scale-150" />
+                  </div>
+                  <div className="flex flex-1 flex-col p-8">
+                    <h3 className="text-balance font-display text-3xl text-[color:var(--ink)] md:text-4xl">
+                      {u.title}
+                    </h3>
+                    <p className="mt-4 text-[color:var(--ink-soft)]">{u.line}</p>
+                    <div className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-[color:var(--nicwin-red)]">
+                      Explore {u.kicker}
+                      <span className="transition-transform duration-500 group-hover:translate-x-1">→</span>
                     </div>
                   </div>
                 </Link>
