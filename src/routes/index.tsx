@@ -221,24 +221,45 @@ function Home() {
 
       {/* 4 · PROBLEM STRIP — make them feel understood */}
       <section className="border-b border-[color:var(--line)] bg-[color:var(--paper)] py-24 md:py-32">
-        <div className="mx-auto max-w-[1200px] px-6 md:px-10">
-          <Reveal>
-            <div className="eyebrow">The honest bit</div>
-          </Reveal>
-          <Reveal delay={1}>
-            <h2 className="mt-6 max-w-4xl text-balance font-display text-4xl leading-[1.05] text-[color:var(--ink)] md:text-[clamp(2.5rem,5vw,4.5rem)]">
-              45°C summers. Lashing monsoons. Dust that gets into everything. <span className="text-[color:var(--nicwin-red)]">Wooden frames don't survive any of it.</span>
-            </h2>
-          </Reveal>
+        <div className="mx-auto grid max-w-[1200px] grid-cols-1 items-center gap-12 px-6 md:grid-cols-[1.15fr_1fr] md:gap-16 md:px-10">
+          <div>
+            <Reveal>
+              <div className="eyebrow">The honest bit</div>
+            </Reveal>
+            <Reveal delay={1}>
+              <h2 className="mt-6 text-balance font-display text-4xl leading-[1.05] text-[color:var(--ink)] md:text-[clamp(2.5rem,4.5vw,4.25rem)]">
+                45°C summers. Lashing monsoons. Dust that gets into everything. <span className="text-[color:var(--nicwin-red)]">Wooden frames don't survive any of it.</span>
+              </h2>
+            </Reveal>
+            <Reveal delay={2}>
+              <p className="mt-8 max-w-xl text-pretty text-lg text-[color:var(--ink-soft)]">
+                Warped sashes. Swollen jambs. Paint peeling by year three.
+                You didn't move house so a window could keep asking for attention.
+                We build the ones that stop asking.
+              </p>
+            </Reveal>
+          </div>
           <Reveal delay={2}>
-            <p className="mt-8 max-w-2xl text-pretty text-lg text-[color:var(--ink-soft)]">
-              Warped sashes. Swollen jambs. Paint peeling by year three.
-              You didn't move house so a window could keep asking for attention.
-              We build the ones that stop asking.
-            </p>
+            <figure className="relative overflow-hidden rounded-2xl border border-[color:var(--line)] bg-black shadow-[0_30px_80px_-40px_rgba(10,10,11,0.4)]">
+              <video
+                src={woodenFrameVideo.url}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                className="aspect-[4/5] w-full object-cover md:aspect-[3/4]"
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
+              <figcaption className="absolute bottom-0 left-0 right-0 flex items-center justify-between px-5 py-4 text-[11px] font-semibold uppercase tracking-[0.22em] text-white/90">
+                <span>Weathered wood · Real footage</span>
+                <span className="text-white/60">Exhibit A</span>
+              </figcaption>
+            </figure>
           </Reveal>
         </div>
       </section>
+
 
       {/* 5 · PRODUCT CATEGORIES */}
       <section className="relative bg-[color:var(--paper-warm)] py-24 md:py-32">
