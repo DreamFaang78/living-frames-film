@@ -8,6 +8,7 @@ import { Marquee } from "@/components/site/Marquee";
 import { HeroJointSection } from "@/components/site/HeroJointSection";
 import { ProductShowcase } from "@/components/site/ProductShowcase";
 import { AutoCarousel, type CarouselSlide } from "@/components/site/AutoCarousel";
+import { RecentProjects } from "@/components/site/RecentProjects";
 import { SITE } from "@/lib/site";
 import heroVideo from "@/assets/nicwin_hero_window.mp4.asset.json";
 import tiltTurn from "@/assets/products/tilt-turn-sunset.jpeg.asset.json";
