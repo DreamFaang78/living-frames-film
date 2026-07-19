@@ -28,10 +28,10 @@ function NotFoundComponent() {
       <div className="relative z-10 max-w-md text-center">
         <div className="font-display text-[10rem] leading-none text-[color:var(--nicwin-red)]">404</div>
         <h2 className="mt-2 font-display text-2xl text-[color:var(--ink)]">
-          This corner of the house isn't built yet.
+          That page isn't here.
         </h2>
         <p className="mt-3 text-sm text-[color:var(--ink-soft)]">
-          Let's walk you back to the front door.
+          Let's get you back to the home page.
         </p>
         <div className="mt-8">
           <Link
