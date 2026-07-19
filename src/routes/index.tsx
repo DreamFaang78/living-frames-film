@@ -301,23 +301,25 @@ function Home() {
                   to={u.to}
                   className="group flex h-full flex-col overflow-hidden rounded-3xl border border-[color:var(--line)] bg-[color:var(--paper)] transition-shadow duration-500 hover:shadow-[0_30px_80px_-30px_rgba(14,59,115,0.25)]"
                 >
-                  <div className="relative aspect-[4/3] overflow-hidden">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-[color:var(--paper-2,#f3f3f1)]">
                     <img
                       src={u.img}
                       alt={u.imgAlt}
                       loading="lazy"
-                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
+                      className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-[1200ms] ease-out group-hover:scale-105"
                     />
                     <span className="absolute left-4 top-4 rounded-full border border-white/70 bg-white/85 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.24em] text-[color:var(--nicwin-blue)] backdrop-blur">
                       {u.kicker}
                     </span>
                     <span className="absolute right-4 top-4 h-2 w-2 rounded-full bg-[color:var(--nicwin-red)] transition-transform duration-500 group-hover:scale-150" />
                   </div>
-                  <div className="flex flex-1 flex-col p-8">
-                    <h3 className="text-balance font-display text-3xl text-[color:var(--ink)] md:text-4xl">
+                  <div className="flex flex-1 flex-col p-7 md:p-8">
+                    <h3 className="text-balance font-display text-2xl leading-[1.15] text-[color:var(--ink)] md:text-[1.75rem]">
                       {u.title}
                     </h3>
-                    <p className="mt-4 text-[color:var(--ink-soft)]">{u.line}</p>
+                    <p className="mt-5 text-[15px] leading-relaxed text-[color:var(--ink-soft)] md:mt-6">
+                      {u.line}
+                    </p>
                     <div className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-[color:var(--nicwin-red)]">
                       Explore {u.kicker}
                       <span className="transition-transform duration-500 group-hover:translate-x-1">→</span>
