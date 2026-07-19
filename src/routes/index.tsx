@@ -7,8 +7,28 @@ import { VideoHero } from "@/components/site/VideoHero";
 import { Marquee } from "@/components/site/Marquee";
 import { HeroJointSection } from "@/components/site/HeroJointSection";
 import { ProductShowcase } from "@/components/site/ProductShowcase";
+import { AutoCarousel, type CarouselSlide } from "@/components/site/AutoCarousel";
 import { SITE } from "@/lib/site";
 import heroVideo from "@/assets/nicwin_hero_window.mp4.asset.json";
+import tiltTurn from "@/assets/products/tilt-turn.png.asset.json";
+import luxuryInterior from "@/assets/products/luxury-interior.png.asset.json";
+import french from "@/assets/products/french-doors.png.asset.json";
+import slideFold from "@/assets/products/slide-fold.png.asset.json";
+import casement from "@/assets/products/casement-door.jpg.asset.json";
+import aluminium from "@/assets/products/aluminium-system.png.asset.json";
+
+const HOME_SLIDES: CarouselSlide[] = [
+  { src: luxuryInterior.url, alt: "Aluminium floor-to-ceiling window in a luxury living room", productType: "Aluminium Floor-to-Ceiling Window", place: "Private residence · Ranchi" },
+  { src: tiltTurn.url, alt: "uPVC tilt & turn window", productType: "uPVC Tilt & Turn Window", place: "Courtyard house · Deoghar" },
+  { src: french.url, alt: "uPVC French doors opening to a garden", productType: "uPVC French Doors", place: "Riverside villa · Bhagalpur" },
+  { src: slideFold.url, alt: "uPVC slide-and-fold doors", productType: "uPVC Slide & Fold Doors", place: "Weekend retreat · Giridih" },
+  { src: casement.url, alt: "uPVC casement door in warm interior light", productType: "uPVC Casement Door", place: "Family bungalow · Jamui" },
+  { src: aluminium.url, alt: "Aluminium sliding system installation", productType: "Aluminium System Sliding Door", place: "Monsoon apartment · Deoghar" },
+];
+
+function HomeCarousel() {
+  return <AutoCarousel slides={HOME_SLIDES} intervalMs={4500} />;
+}
 
 export const Route = createFileRoute("/")({
   head: () => ({
