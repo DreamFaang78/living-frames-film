@@ -72,17 +72,16 @@ function About() {
           </Reveal>
           <Reveal delay={1}>
             <h1 className="text-balance font-display text-6xl leading-[0.95] text-[var(--ink)] md:text-[8rem]">
-              We make the frames
+              We make the windows
               <br />
-              <span className="italic text-[var(--nicwin-blue-deep)]">that frame your life.</span>
+              <span className="italic text-[var(--nicwin-blue-deep)]">your home deserves.</span>
             </h1>
           </Reveal>
           <Reveal delay={2}>
             <p className="mt-8 max-w-2xl text-lg text-[var(--ink-soft)]">
-              High-quality uPVC and aluminium doors and windows that combine modern
-              design, durability, and affordability — built in a fully automated
-              15,000 sq ft plant in Deoghar, Jharkhand, and delivered to homes
-              across India.
+              Strong uPVC and aluminium windows and doors — modern, long-lasting,
+              and reasonably priced. Made in our 15,000 sq ft factory in Deoghar,
+              Jharkhand. Delivered to homes across India.
             </p>
           </Reveal>
         </div>
