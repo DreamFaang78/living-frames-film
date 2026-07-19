@@ -436,12 +436,12 @@ function Home() {
               <Reveal><div className="eyebrow">Recently delivered</div></Reveal>
               <Reveal delay={1}>
                 <h2 className="mt-4 max-w-2xl font-display text-4xl leading-[1.05] text-[color:var(--ink)] md:text-[clamp(2.25rem,4.5vw,4rem)]">
-                  Homes across India. Made one frame at a time.
+                  Homes across India. Made one at a time.
                 </h2>
               </Reveal>
             </div>
             <Reveal delay={2}>
-              <CTALink to="/gallery" variant="ink-ghost">Browse the gallery</CTALink>
+              <CTALink to="/gallery" variant="ink-ghost">See the gallery</CTALink>
             </Reveal>
           </div>
 
