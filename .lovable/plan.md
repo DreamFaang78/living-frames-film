@@ -1,89 +1,68 @@
-## Goal
+# Recent Projects Slideshow
 
-Move from a flat 3-material product structure (uPVC / Aluminium / Steel) to 4 groups covering 8 categories, exposed both in the header mega-menu and the /products page.
+Add a new full-width slideshow section on the homepage, placed directly after the Testimonials section and before the Gallery, built to scale as more real project photos come in.
 
-## New taxonomy
+## Assets
 
-1. **Windows & Doors** — uPVC Windows & Doors, Aluminium Windows & Doors, Steel Doors, WPC Doors
-2. **Mesh & Screens** — Pleated Mesh
-3. **Glass Solutions** — Glass Partition, Glass Railing
-4. **Facade & Cladding** — ACP Sheet
+Upload the two provided project photos as Lovable Assets (CDN pointers, not repo binaries):
+- `src/assets/projects/dsu-university-deoghar.jpg.asset.json`
+- `src/assets/projects/hotel-jeesa-deoghar.jpg.asset.json`
 
-## Card treatment tiers
+Source images already carry the DSU/Hotel Jeesa/Nicwin lockup baked in, but we will re-render the text overlay in HTML so it stays crisp, responsive, and editable — the raw building photo underneath is what we keep. If needed we crop the left third of the source (which is flat sky/background) so the overlay text sits over clean space on desktop and the building remains the hero on mobile.
 
-- **Full card** (hero image, headline, body copy, bullet specs, CTA): uPVC, Aluminium, Steel. WPC uses full card once real photos exist; until then, light card.
-- **Light card** (single hero image — real / AI-generated / icon-led — headline + 1–2 sentence description, single CTA, no bullet list): Pleated Mesh, Glass Partition, Glass Railing, ACP Sheet, and WPC (interim).
+## Data
 
-All copy stays in the plain-language style already used site-wide.
+New file `src/lib/projects.ts` — a single `RECENT_PROJECTS` array. Each entry:
 
-## Changes
-
-### 1. `src/lib/site.ts` — new `MEGA` shape
-
-Replace the current 3-heading MEGA with 4 groups. Each group has `heading`, optional `tagline`, and `children: { to, label, tier: "full" | "light" }[]`. Preserve existing `/products/upvc`, `/products/aluminium`, `/products/steel` routes; add new placeholder targets that all point to `/products#<slug>` (in-page anchors on the Products page) until dedicated routes are built:
-
-- `/products#wpc-doors`
-- `/products#pleated-mesh`
-- `/products#glass-partition`
-- `/products#glass-railing`
-- `/products#acp-sheet`
-
-Keeps navigation working without creating 5 half-empty route files.
-
-### 2. `src/components/site/Nav.tsx` — grouped mega-menu
-
-Update the desktop mega panel to render 4 columns (one per group) with each group's items listed underneath a group label. Mobile menu gets a collapsible "Products" section listing the 4 groups with items nested. Uses the new `MEGA` structure directly.
-
-### 3. `src/routes/products.tsx` — 4 sections, 8 cards
-
-Replace the current single 3-column universes grid with 4 stacked sections, each with its own group header (kicker + short line) matching the existing "One obsession. Three materials." rhythm:
-
-```
-Hero (unchanged)
-├── Section: Windows & Doors
-│    grid: uPVC (full) · Aluminium (full) · Steel Doors (full) · WPC Doors (light)
-├── Section: Mesh & Screens
-│    grid: Pleated Mesh (light)
-├── Section: Glass Solutions
-│    grid: Glass Partition (light) · Glass Railing (light)
-├── Section: Facade & Cladding
-│    grid: ACP Sheet (light)
-FinalCTA (unchanged)
+```ts
+{
+  id: string;
+  name: string;       // "DSU University Project"
+  location: string;   // "Deoghar"
+  caption?: string;   // short one-liner, optional
+  image: string;      // CDN url from .asset.json
+}
 ```
 
-Each section wrapped in `<section id="{slug}">` so mega-menu anchors resolve. Full and light cards share visual language (rounded frame, same aspect ratio, plain-text hierarchy) — light cards simply omit the bullet spec list and use a shorter body.
+Seeded with the two real projects and the two optional captions from the brief. Adding a third project later = one entry in this array, no layout work.
 
-### 4. New card components
+## Component
 
-Add two small presentational components colocated in `src/components/site/`:
+New `src/components/site/RecentProjects.tsx`:
 
-- `ProductGroupCard.tsx` — full-tier card (image top, kicker, headline, 1–2 line body, 3-bullet spec list, CTA).
-- `ProductLightCard.tsx` — light-tier card (image top, kicker, headline, 1–2 sentence body, single CTA).
+- Full-bleed slide, single project at a time, `aspect-[16/9]` on desktop, `aspect-[4/5]` on mobile so the building stays readable in portrait.
+- Framer Motion `AnimatePresence` crossfade between slides (opacity + subtle 1.02 → 1 scale on the incoming image for a cinematic feel, no hard cuts).
+- Auto-advance every 5.5s via `setInterval`, cleared on unmount.
+- Pause on hover (desktop) and on touchstart/focus (mobile/keyboard).
+- Prev / Next arrow buttons pinned to the vertical middle of the slide, white icon on a translucent ink pill, visible on desktop, larger tap targets on mobile.
+- Dot indicators centered below the slide: one dot per project, active dot widens into a short bar (`w-8` vs `w-2`), so the control reads correctly with 2 dots today and 12 dots later without redesign.
+- Keyboard support: `←` / `→` when the slideshow is focused.
+- `prefers-reduced-motion`: disable auto-advance and use instant fade.
 
-Both accept `{ to, kicker, title, body, imageUrl, cta }` and (for full) `specs: string[]`. Both use `aspect-[4/3]` image containers matching the homepage material cards for grid consistency.
+### Overlay layout (matches the source-image lockup)
 
-### 5. Imagery
+Positioned bottom-left on desktop, bottom-center on mobile, inside a soft dark-to-transparent gradient scrim so text stays legible over both the bright DSU shot and the dusk Hotel Jeesa shot:
 
-Reuse existing assets where they fit:
-- uPVC → `material-upvc.jpeg`
-- Aluminium → `material-aluminium.jpeg`
-- Steel → `material-steel.jpeg`
+- Eyebrow-free — the section eyebrow lives above the slideshow, not on each slide.
+- Project name in **Nicwin red** (`--nicwin-red`), display font, large.
+- Location in **Nicwin blue** (`--nicwin-blue`), smaller, tracked.
+- Thin red divider.
+- "WORK DONE BY" micro-label in white + the existing Nicwin logo lockup (reuse the same logo asset already used in the nav/footer).
+- Optional caption line in white/85 opacity below the lockup, hidden on very narrow screens if it would wrap awkwardly.
 
-For the 5 categories without photography (WPC, Pleated Mesh, Glass Partition, Glass Railing, ACP Sheet), generate 5 fast-tier placeholder images (clean lifestyle / product-forward, white-first palette, matching the site's photographic tone) via `imagegen--generate_image` and store them under `src/assets/products/` as `.asset.json` pointers. No icon-only fallback — a single real-feel image per card keeps the grid consistent.
+## Section wrapper on the homepage
 
-### 6. Copy (plain language, short)
+New block in `src/routes/index.tsx`, inserted after Testimonials and before Gallery:
 
-Draft lines for the 5 new cards, e.g.:
-- **WPC Doors** — "Water-proof. Termite-proof. Looks like wood without the trouble."
-- **Pleated Mesh** — "Keeps mosquitoes out. Folds away when you don't need it."
-- **Glass Partition** — "Split a room without losing the light."
-- **Glass Railing** — "See-through safety for balconies and stairs."
-- **ACP Sheet** — "Clean, modern facades that hold up in Indian weather."
+- Eyebrow: `RECENT PROJECTS`
+- Heading: `Homes we've already built for.`
+- Subheading: `A look at the buildings, homes, and businesses Nicwin has already completed.`
+- Then `<RecentProjects />`.
 
-Final wording confirmed during implementation; tone matches existing homepage copy.
+Copy stays in the plain, simple style already established across the site.
 
-## Out of scope
+## Scope guardrails
 
-- No new dedicated route pages for the 5 new categories yet (anchors on `/products` are the interim landing). Easy to promote to real routes later without touching Nav.
-- Existing `/products/upvc`, `/products/aluminium`, `/products/steel` subtrees and their child routes are untouched.
-- Homepage "Three materials" section stays as-is — this restructure is scoped to header nav + `/products`.
+- Homepage-only change plus one new component, one new data file, two new asset pointers. No route changes, no nav changes, no business logic.
+- Hero, product cards, testimonials, and every other section stay exactly as they are.
+- Contrast is verified against both photos at desktop and mobile crops before shipping, per the contrast-check discipline already applied earlier on this project.
