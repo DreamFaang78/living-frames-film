@@ -95,43 +95,37 @@ function About() {
             <div>
               <div className="text-xs uppercase tracking-[0.3em] text-champagne">Our story</div>
               <h2 className="mt-4 font-display text-4xl text-offwhite md:text-5xl">
-                Founded on 20+ years of craft. Built in a fully automated plant.
+                Started with 20+ years in the industry. Built in our own modern factory.
               </h2>
             </div>
           </Reveal>
           <Reveal delay={1}>
             <div className="space-y-5 text-lg leading-relaxed text-offwhite/75">
               <p>
-                At Nicwin Window &amp; Door Systems, we are committed to delivering
-                high-quality uPVC and aluminium doors and windows that combine modern
-                design, durability, and affordability.
+                At Nicwin, we make strong uPVC and aluminium windows and doors
+                that look modern, last long, and don't cost the earth.
               </p>
               <p>
-                Founded by an industry professional with over 20 years of experience,
-                Nicwin was established with a vision to bring premium-quality products
-                to customers at reasonable prices — making modern window and door
-                solutions accessible to everyone. Starting from the founder's native
-                place, the company has grown with a strong focus on trust, quality,
-                and customer satisfaction.
+                Our founder spent over 20 years in this industry before starting
+                Nicwin. The idea was simple: give customers premium quality at a
+                fair price, so good windows aren't just for expensive homes.
+                We started from the founder's hometown and grew by keeping our
+                promise on quality and after-sales.
               </p>
               <p>
-                Our fully automated manufacturing plant, spread across approximately
-                15,000 square feet, is equipped with advanced technology to ensure
-                precision, consistency, and superior product quality. We maintain the
-                highest standards at every stage of production while continuously
-                innovating to meet modern architectural and lifestyle needs. From this
-                single plant in Jharkhand, we deliver to homes across India.
+                Our factory in Deoghar is about 15,000 square feet and fully
+                automated. Machines do the cutting and welding — that means
+                every frame is straight, every corner is strong, and quality is
+                the same every single time. From this one factory, we deliver
+                across India.
               </p>
               <p>
-                At Nicwin, we focus not only on stylish and contemporary designs but
-                also on strength, performance, and long-lasting reliability. With a
-                commitment to continuous improvement and uncompromising quality, we
-                create products that enhance both the beauty and functionality of
-                every space.
+                We care about how the window looks, but also about how it holds
+                up in ten years. That's why we keep testing, keep improving,
+                and don't ship anything we wouldn't put in our own home.
               </p>
               <p className="italic text-champagne">
-                "Always looking for the better." Not a tagline — the only rule on
-                the workshop wall.
+                "Always looking for the better." The only rule on the workshop wall.
               </p>
             </div>
           </Reveal>
