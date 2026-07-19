@@ -18,7 +18,7 @@ export function FinalCTA({
   eyebrow,
   headline,
   sub,
-  primaryLabel = "Talk to us on WhatsApp",
+  primaryLabel = "Chat on WhatsApp",
   secondary,
 }: Props) {
   return (

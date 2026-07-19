@@ -39,13 +39,14 @@ function AluLanding() {
             <h1 className="mt-4 text-balance font-display text-6xl leading-[0.95] text-offwhite md:text-[7.5rem]">
               Thin frames.
               <br />
-              <span className="italic text-champagne">Widest views.</span>
+              <span className="italic text-champagne">Big view.</span>
             </h1>
           </Reveal>
           <Reveal delay={2}>
             <p className="mt-8 max-w-2xl text-lg text-offwhite/80">
-              Slimline extrusions with thermal breaks and marine-grade hardware. The
-              contemporary Indian home's default answer to "how much glass can we get?"
+              Slim aluminium frames with thermal break and marine-grade hardware.
+              The easy answer for modern Indian homes that want as much glass as
+              possible.
             </p>
           </Reveal>
         </div>
@@ -75,8 +76,8 @@ function AluLanding() {
 
       <section className="py-16 text-center">
         <div className="mx-auto flex max-w-xl flex-col items-center gap-4 px-6">
-          <CTAExternal href={SITE.whatsappUrl}>Talk to us on WhatsApp</CTAExternal>
-          <CTALink to="/contact" variant="ghost">Request a catalogue</CTALink>
+          <CTAExternal href={SITE.whatsappUrl}>Chat on WhatsApp</CTAExternal>
+          <CTALink to="/contact" variant="ghost">Ask for the catalogue</CTALink>
         </div>
       </section>
     </>

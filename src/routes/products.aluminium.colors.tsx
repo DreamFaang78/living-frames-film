@@ -19,18 +19,18 @@ export const Route = createFileRoute("/products/aluminium/colors")({
       material="Aluminium"
       variant="night"
       kicker="Aluminium · Finishes"
-      headline="Five finishes. All architect-approved."
-      intro="Aluminium's finish is what people actually see. We curated five — one warm, three neutral, and one classic — all powder-coated, all UV-stable, all specified by architects working on serious Indian projects."
+      headline="Five colours. Picked by architects."
+      intro="The colour is what people actually see. We picked five — one warm, three neutrals, and one classic — all powder-coated and long-lasting in Indian weather."
       types={[
-        { name: "Gold Champagne", benefit: "Warm metal, quietly.", detail: "A soft champagne-gold that reads as brass at a distance. Perfect against sandstone and warm wood interiors." },
-        { name: "Neutral trio", benefit: "Black, Brown, Diamond Grey.", detail: "The specifier's shortlist. Deep matte black for contemporary lines, warm brown for teak interiors, diamond grey for anything modern." },
-        { name: "White", benefit: "The reflection specialist.", detail: "Pure powder-coated white. Reflects heat, brightens rooms, and reads clean against any facade." },
+        { name: "Gold Champagne", benefit: "Warm metal, softly.", detail: "A soft champagne-gold that looks like brass from a distance. Great with sandstone and warm wood interiors." },
+        { name: "Neutrals", benefit: "Black, Brown, Diamond Grey.", detail: "The go-to choices. Deep matte black for modern homes, warm brown for teak interiors, diamond grey for anything modern." },
+        { name: "White", benefit: "The bright option.", detail: "Powder-coated pure white. Reflects heat, brightens rooms, looks clean on any wall." },
       ]}
       benefits={[
-        { label: "UV Stability", value: 94, copy: "Powder-coat tested against Indian summers." },
-        { label: "Colour retention", value: 92, copy: "Ten years of held colour — no chalking, no fade." },
-        { label: "Scratch resistance", value: 88, copy: "Hard-cured finish rated for coastal and dusty environments." },
-        { label: "Match consistency", value: 90, copy: "Batch-controlled coatings for perfect frame-to-frame match." },
+        { label: "Sun resistance", value: 94, copy: "Powder-coat tested against Indian summers." },
+        { label: "Colour lasting", value: 92, copy: "Ten years without fading." },
+        { label: "Scratch resistance", value: 88, copy: "Hard finish, good for coastal and dusty places." },
+        { label: "Colour match", value: 90, copy: "Every batch matches perfectly — frame to frame." },
       ]}
       colorHeading="The five"
       colors={[

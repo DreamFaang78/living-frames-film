@@ -25,24 +25,24 @@ const universes = [
   {
     to: "/products/upvc",
     kicker: "uPVC",
-    title: "Sealed. Silent. Sumptuous.",
-    line: "6 window types. 5 door types. 7 finishes.",
+    title: "No leaks. No noise.",
+    line: "6 window types. 5 door types. 7 colours.",
     variant: "cool-light" as const,
     tone: "light" as const,
   },
   {
     to: "/products/aluminium",
     kicker: "Aluminium",
-    title: "Thin frames. Widest views.",
-    line: "5 windows. 5 doors. 5 finishes.",
+    title: "Thin frames. Big view.",
+    line: "5 windows. 5 doors. 5 colours.",
     variant: "night" as const,
     tone: "dark" as const,
   },
   {
     to: "/products/steel",
     kicker: "Steel",
-    title: "The first hello. The last word.",
-    line: "Security solid to designer panel.",
+    title: "Strong at the door.",
+    line: "From strong security doors to designer panels.",
     variant: "warm-light" as const,
     tone: "light" as const,
   },
@@ -59,13 +59,13 @@ function ProductsLanding() {
       <CinematicScene variant="night" className="min-h-[65svh]">
         <div className="mx-auto flex min-h-[65svh] max-w-[1440px] flex-col justify-end px-6 pb-24 pt-40 md:px-10">
           <Reveal>
-            <div className="text-xs uppercase tracking-[0.3em] text-champagne">The range</div>
+            <div className="text-xs uppercase tracking-[0.3em] text-champagne">Our range</div>
           </Reveal>
           <Reveal delay={1}>
             <h1 className="mt-4 text-balance font-display text-6xl leading-[0.95] text-offwhite md:text-[8rem]">
-              Three universes.
+              Three materials.
               <br />
-              <span className="italic text-champagne">One obsession.</span>
+              <span className="italic text-champagne">One promise.</span>
             </h1>
           </Reveal>
         </div>
@@ -114,8 +114,8 @@ function ProductsLanding() {
 
       <FinalCTA
         eyebrow="Not sure where to start?"
-        headline="Tell us the room. We'll suggest the frame."
-        secondary={{ label: "Get a quote", to: "/contact" }}
+        headline="Tell us the room. We'll suggest the right window."
+        secondary={{ label: "Get a price", to: "/contact" }}
       />
 
     </>

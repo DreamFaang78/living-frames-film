@@ -24,38 +24,38 @@ export const Route = createFileRoute("/about")({
 const values = [
   {
     title: "Mission",
-    body: "Elevate the everyday Indian home with fenestration that is quiet, safe, and beautiful — without asking anyone to compromise.",
+    body: "Make Indian homes quieter, safer, and more beautiful — with windows and doors people can actually afford.",
   },
   {
     title: "Vision",
-    body: "To be the name Indian architects reach for when the drawing needs frames that finally match the ambition.",
+    body: "Be the first name Indian architects and homeowners think of when they want windows that do the job right.",
   },
   {
     title: "Values",
-    body: "Precision over polish. Honesty over hype. The customer's ten-year experience over the ten-minute sale.",
+    body: "Do the work properly. Say what we mean. Look after the customer for years, not just till the sale.",
   },
   {
-    title: "Philosophy",
-    body: "The best window is one you stop noticing — because heat, dust, and noise have already been shown the door.",
+    title: "How we think",
+    body: "The best window is the one you forget about — because it keeps out the heat, dust, and noise on its own.",
   },
 ];
 
 const pillars = [
   {
-    title: "Customer-Centric",
-    body: "Every project starts with a conversation, not a catalogue. We ask about your morning light before we quote your frame.",
+    title: "Customer first",
+    body: "We start with a chat, not a price list. We ask about your home before we talk about frames.",
   },
   {
-    title: "Sustainability",
-    body: "Lead-free uPVC. Recyclable aluminium. Energy performance measured, not marketed.",
+    title: "Better for the planet",
+    body: "Lead-free uPVC. Recyclable aluminium. Real energy savings — we can prove them.",
   },
   {
-    title: "Quality",
-    body: "Multi-stage QC on every profile, every weld, every gasket. If it doesn't pass here, it doesn't reach your home.",
+    title: "Quality checks",
+    body: "We check every profile, every weld, every seal. If it doesn't pass here, it doesn't reach your home.",
   },
   {
-    title: "Craftsmanship",
-    body: "In-house fabrication in Deoghar. Twenty craftspeople who touch every unit before it ships.",
+    title: "Made by hand",
+    body: "Built in our Deoghar factory. Twenty people who check every unit before it leaves.",
   },
 ];
 
@@ -72,17 +72,16 @@ function About() {
           </Reveal>
           <Reveal delay={1}>
             <h1 className="text-balance font-display text-6xl leading-[0.95] text-[var(--ink)] md:text-[8rem]">
-              We make the frames
+              We make the windows
               <br />
-              <span className="italic text-[var(--nicwin-blue-deep)]">that frame your life.</span>
+              <span className="italic text-[var(--nicwin-blue-deep)]">your home deserves.</span>
             </h1>
           </Reveal>
           <Reveal delay={2}>
             <p className="mt-8 max-w-2xl text-lg text-[var(--ink-soft)]">
-              High-quality uPVC and aluminium doors and windows that combine modern
-              design, durability, and affordability — built in a fully automated
-              15,000 sq ft plant in Deoghar, Jharkhand, and delivered to homes
-              across India.
+              Strong uPVC and aluminium windows and doors — modern, long-lasting,
+              and reasonably priced. Made in our 15,000 sq ft factory in Deoghar,
+              Jharkhand. Delivered to homes across India.
             </p>
           </Reveal>
         </div>
@@ -96,43 +95,37 @@ function About() {
             <div>
               <div className="text-xs uppercase tracking-[0.3em] text-champagne">Our story</div>
               <h2 className="mt-4 font-display text-4xl text-offwhite md:text-5xl">
-                Founded on 20+ years of craft. Built in a fully automated plant.
+                Started with 20+ years in the industry. Built in our own modern factory.
               </h2>
             </div>
           </Reveal>
           <Reveal delay={1}>
             <div className="space-y-5 text-lg leading-relaxed text-offwhite/75">
               <p>
-                At Nicwin Window &amp; Door Systems, we are committed to delivering
-                high-quality uPVC and aluminium doors and windows that combine modern
-                design, durability, and affordability.
+                At Nicwin, we make strong uPVC and aluminium windows and doors
+                that look modern, last long, and don't cost the earth.
               </p>
               <p>
-                Founded by an industry professional with over 20 years of experience,
-                Nicwin was established with a vision to bring premium-quality products
-                to customers at reasonable prices — making modern window and door
-                solutions accessible to everyone. Starting from the founder's native
-                place, the company has grown with a strong focus on trust, quality,
-                and customer satisfaction.
+                Our founder spent over 20 years in this industry before starting
+                Nicwin. The idea was simple: give customers premium quality at a
+                fair price, so good windows aren't just for expensive homes.
+                We started from the founder's hometown and grew by keeping our
+                promise on quality and after-sales.
               </p>
               <p>
-                Our fully automated manufacturing plant, spread across approximately
-                15,000 square feet, is equipped with advanced technology to ensure
-                precision, consistency, and superior product quality. We maintain the
-                highest standards at every stage of production while continuously
-                innovating to meet modern architectural and lifestyle needs. From this
-                single plant in Jharkhand, we deliver to homes across India.
+                Our factory in Deoghar is about 15,000 square feet and fully
+                automated. Machines do the cutting and welding — that means
+                every frame is straight, every corner is strong, and quality is
+                the same every single time. From this one factory, we deliver
+                across India.
               </p>
               <p>
-                At Nicwin, we focus not only on stylish and contemporary designs but
-                also on strength, performance, and long-lasting reliability. With a
-                commitment to continuous improvement and uncompromising quality, we
-                create products that enhance both the beauty and functionality of
-                every space.
+                We care about how the window looks, but also about how it holds
+                up in ten years. That's why we keep testing, keep improving,
+                and don't ship anything we wouldn't put in our own home.
               </p>
               <p className="italic text-champagne">
-                "Always looking for the better." Not a tagline — the only rule on
-                the workshop wall.
+                "Always looking for the better." The only rule on the workshop wall.
               </p>
             </div>
           </Reveal>
@@ -145,12 +138,12 @@ function About() {
         <div className="mx-auto max-w-[1440px] px-6 md:px-10">
           <Reveal>
             <div className="text-xs uppercase tracking-[0.3em] text-[color:var(--nicwin-red)]">
-              What we hold ourselves to
+              What we stand for
             </div>
           </Reveal>
           <Reveal delay={1}>
             <h2 className="mt-4 max-w-3xl font-display text-5xl text-[color:var(--ink)] md:text-6xl">
-              Four short sentences, kept out loud.
+              Four simple things we take seriously.
             </h2>
 
           </Reveal>
@@ -175,11 +168,11 @@ function About() {
         <div aria-hidden className="absolute inset-0 mesh-charcoal opacity-40" />
         <div className="relative mx-auto max-w-[1200px] px-6 md:px-10">
           <Reveal>
-            <div className="text-xs uppercase tracking-[0.3em] text-champagne">Our pillars</div>
+            <div className="text-xs uppercase tracking-[0.3em] text-champagne">How we work</div>
           </Reveal>
           <Reveal delay={1}>
             <h2 className="mt-4 max-w-3xl font-display text-5xl text-offwhite md:text-6xl">
-              How the work actually gets done.
+              How we actually get the job done.
             </h2>
           </Reveal>
           <Stagger className="mt-16 grid gap-8 md:grid-cols-2">
@@ -204,23 +197,23 @@ function About() {
         <div className="mx-auto max-w-[1200px] px-6 md:px-10">
           <Reveal>
             <div className="text-xs uppercase tracking-[0.3em] text-champagne">
-              See it in person
+              Come and see us
             </div>
           </Reveal>
           <Reveal delay={1}>
             <h2 className="mt-3 max-w-3xl font-display text-4xl text-offwhite md:text-5xl">
-              Factory & Experience Center — Deoghar.
+              Our factory and showroom in Deoghar.
             </h2>
           </Reveal>
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             {[
               {
                 label: "Factory — Deoghar",
-                body: "Nayachitkat, Rikhiya Dumma Border Road. In-house fabrication floor with QC bay.",
+                body: "Nayachitkat, Rikhiya Dumma Border Road. See the frames being made and checked.",
               },
               {
                 label: "Experience Center & Showroom — Deoghar",
-                body: "Sparsh Complex, Deoghar College Road, Tiwari Chowk. Walk through live installations.",
+                body: "Sparsh Complex, Deoghar College Road, Tiwari Chowk. Touch and open real windows and doors.",
               },
             ].map((slot) => (
               <div
@@ -228,12 +221,12 @@ function About() {
                 className="relative flex aspect-[4/3] flex-col justify-end overflow-hidden rounded-2xl border border-dashed border-white/25 bg-charcoal/60 p-8"
               >
                 <div className="absolute left-4 top-4 rounded-full border border-champagne/40 bg-black/50 px-3 py-1 text-[10px] uppercase tracking-[0.22em] text-champagne">
-                  Coming soon · awaiting client media
+                  Photos coming soon
                 </div>
                 <div className="font-display text-2xl text-offwhite">{slot.label}</div>
                 <p className="mt-2 max-w-md text-sm text-offwhite/60">{slot.body}</p>
                 <div className="mt-4 text-[11px] uppercase tracking-[0.22em] text-offwhite/40">
-                  Real photos & walkthrough video will be added here.
+                  Real photos and a video tour will go here.
                 </div>
               </div>
             ))}
@@ -244,8 +237,8 @@ function About() {
 
 
       <FinalCTA
-        headline="Come see the workshop."
-        sub="Deoghar factory. Deoghar Experience Center & Showroom. And a WhatsApp always open."
+        headline="Come and see for yourself."
+        sub="Factory and showroom in Deoghar. Or just message us on WhatsApp."
         secondary={{ label: "Plan a visit", to: "/contact" }}
       />
 

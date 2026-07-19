@@ -19,21 +19,21 @@ export const Route = createFileRoute("/products/upvc/windows")({
       material="uPVC"
       variant="teal"
       kicker="uPVC · Windows"
-      headline="Six ways to invite the light in."
-      intro="Every Nicwin uPVC window is a decision about air, sound, and view — not a decision about a hole in the wall. Six formats, each designed for a specific rhythm of Indian life, from the tight kitchen to the open puja room."
+      headline="Six window types. Pick what fits."
+      intro="Every Nicwin uPVC window is picked to suit a specific room — kitchen, bedroom, puja room, or living room. Six shapes to choose from."
       types={[
-        { name: "Casement", benefit: "The classic sash. Perfected.", detail: "Full opening for maximum ventilation. Multi-point locking, EPDM twin-seal, effortless single-hand operation." },
-        { name: "Fixed", benefit: "A framed view. Nothing else.", detail: "Zero thermal loss, maximum daylight, minimal frame profile. Ideal above staircases and as picture windows facing a courtyard." },
-        { name: "Sliding", benefit: "Space that doesn't ask for space.", detail: "Two, three or four track configurations. Anti-lift roller carriages, interlock rain flashing, silky glide over 50,000+ cycles." },
-        { name: "French", benefit: "Two sashes. One grand gesture.", detail: "A pair of casements that meet without a mullion. Astragal seal, concealed hinges, matching floor-to-ceiling scale for double-height rooms." },
-        { name: "Tilt & Turn", benefit: "Ventilate on rainy days. Clean on sunny ones.", detail: "European tilt for secure top ventilation. Full turn for cleaning both sides from inside — a small mercy for high floors." },
-        { name: "Top Hung", benefit: "Rain out. Air in.", detail: "Awning-style top hinge. Perfect for bathrooms and kitchens — leave open during a shower, the water still goes down the wall, not in." },
+        { name: "Casement", benefit: "The classic side-opening window.", detail: "Opens fully for maximum fresh air. Multi-point lock. Two rubber seals. Easy to open with one hand." },
+        { name: "Fixed", benefit: "For light. Doesn't open.", detail: "Maximum daylight, minimum frame. Great above staircases or facing a garden." },
+        { name: "Sliding", benefit: "Saves space. Slides sideways.", detail: "2, 3 or 4 track options. Stainless steel wheels. Rain drainage. Smooth for 50,000+ uses." },
+        { name: "French", benefit: "Two windows that open together.", detail: "A pair of side-hung windows without a bar in the middle. Great for tall openings." },
+        { name: "Tilt & Turn", benefit: "Tilt for air. Turn to open fully.", detail: "Tilt open at the top for gentle air even in rain. Turn fully to clean both sides from inside." },
+        { name: "Top Hung", benefit: "Air in. Rain out.", detail: "Hinged at the top. Perfect for bathrooms and kitchens — leave it open in the shower without rain coming in." },
       ]}
       benefits={[
-        { label: "Thermal", value: 90, copy: "Multi-chamber profile + optional DGU dramatically cuts heat gain." },
-        { label: "Acoustic", value: 88, copy: "Twin gaskets + laminated PVB glass drop road noise by up to 38 dB." },
-        { label: "Weather", value: 95, copy: "Wind-driven rain tested to IS-4351 class A. Zero seepage." },
-        { label: "Security", value: 85, copy: "Multi-point locking, steel-reinforced sash, forged handles." },
+        { label: "Heat", value: 90, copy: "Insulated frame plus double glass keeps a lot of heat out." },
+        { label: "Sound", value: 88, copy: "Two seals and thick glass cut road noise by up to 38 dB." },
+        { label: "Weather", value: 95, copy: "Tested against heavy wind-driven rain. No leaks." },
+        { label: "Security", value: 85, copy: "Multi-point lock, steel inside the frame, strong handles." },
       ]}
       colors={undefined}
       spec={[

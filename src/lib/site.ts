@@ -3,7 +3,7 @@ export const SITE = {
   fullName: "Nicwin Windows & Door Systems",
   tagline: "Always looking for the better.",
   description:
-    "Engineered for Indian climate. Designed for modern Indian life. Premium uPVC, Aluminium and Steel windows and doors — made in Deoghar, Jharkhand, delivered across India.",
+    "Strong uPVC, Aluminium and Steel windows and doors. Built for Indian weather. Made in Deoghar, Jharkhand. Delivered across India.",
   whatsappUrl: "https://wa.me/917909039070",
   email: "nicwinsystems@gmail.com",
   phones: [
@@ -48,7 +48,7 @@ export const NAV = [
 export const MEGA = [
   {
     heading: "uPVC",
-    tagline: "Silent, sealed, quietly luxurious.",
+    tagline: "No leaks. No noise. Built to last.",
     to: "/products/upvc",
     children: [
       { to: "/products/upvc/windows", label: "Windows" },
@@ -58,7 +58,7 @@ export const MEGA = [
   },
   {
     heading: "Aluminium",
-    tagline: "Slim frames. Wide views. Modern lines.",
+    tagline: "Thin frames. Widest views.",
     to: "/products/aluminium",
     children: [
       { to: "/products/aluminium/windows", label: "Windows" },
@@ -68,7 +68,7 @@ export const MEGA = [
   },
   {
     heading: "Steel",
-    tagline: "The first thing your home says. And the last.",
+    tagline: "Strong at the door. Strong for years.",
     to: "/products/steel",
     children: [
       { to: "/products/steel", label: "Security Solid" },

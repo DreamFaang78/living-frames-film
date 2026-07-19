@@ -1,8 +1,8 @@
 const ITEMS = [
   "Always looking for the better.",
-  "Made in Deoghar, Jharkhand · Delivered across India",
+  "Made in Deoghar · Delivered across India",
   "WhatsApp +91 79090 39070",
-  "Premium uPVC · Aluminium · Steel",
+  "uPVC · Aluminium · Steel",
 ];
 
 export function TopBar() {

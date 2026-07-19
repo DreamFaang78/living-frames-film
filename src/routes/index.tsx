@@ -19,12 +19,12 @@ import aluminium from "@/assets/products/aluminium-system.png.asset.json";
 import woodenFrameVideo from "@/assets/wooden-frame-weathered.mp4.asset.json";
 
 const HOME_SLIDES: CarouselSlide[] = [
-  { src: luxuryInterior.url, alt: "Aluminium floor-to-ceiling window in a luxury living room", productType: "Aluminium Floor-to-Ceiling Window", place: "Private residence · Ranchi" },
-  { src: tiltTurn.url, alt: "uPVC tilt & turn window", productType: "uPVC Tilt & Turn Window", place: "Courtyard house · Deoghar" },
-  { src: french.url, alt: "uPVC French doors opening to a garden", productType: "uPVC French Doors", place: "Riverside villa · Bhagalpur" },
-  { src: slideFold.url, alt: "uPVC slide-and-fold doors", productType: "uPVC Slide & Fold Doors", place: "Weekend retreat · Giridih" },
-  { src: casement.url, alt: "uPVC casement door in warm interior light", productType: "uPVC Casement Door", place: "Family bungalow · Jamui" },
-  { src: aluminium.url, alt: "Aluminium sliding system installation", productType: "Aluminium System Sliding Door", place: "Monsoon apartment · Deoghar" },
+  { src: luxuryInterior.url, alt: "Aluminium floor-to-ceiling window in a living room", productType: "Aluminium Floor-to-Ceiling Window", place: "Home · Ranchi" },
+  { src: tiltTurn.url, alt: "uPVC tilt and turn window", productType: "uPVC Tilt & Turn Window", place: "Home · Deoghar" },
+  { src: french.url, alt: "uPVC French doors opening to a garden", productType: "uPVC French Doors", place: "Home · Bhagalpur" },
+  { src: slideFold.url, alt: "uPVC slide and fold doors", productType: "uPVC Slide & Fold Doors", place: "Home · Giridih" },
+  { src: casement.url, alt: "uPVC casement door in warm interior light", productType: "uPVC Casement Door", place: "Home · Jamui" },
+  { src: aluminium.url, alt: "Aluminium sliding door installation", productType: "Aluminium Sliding Door", place: "Apartment · Deoghar" },
 ];
 
 function HomeCarousel() {
@@ -38,7 +38,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Premium uPVC, Aluminium and Steel windows and doors. Engineered for Indian monsoons. Designed for silence, light and strength.",
+          "Strong uPVC, Aluminium and Steel windows and doors. Built for Indian weather. Made in Deoghar, Jharkhand. Delivered across India.",
       },
       { property: "og:title", content: "Nicwin — Always looking for the better." },
       { property: "og:description", content: SITE.description },
@@ -49,32 +49,32 @@ export const Route = createFileRoute("/")({
 });
 
 const stats = [
-  { n: 5, suffix: "+", label: "Years focused practice" },
-  { n: 70, suffix: "+", label: "Homes quietly elevated" },
-  { n: 35, suffix: "+", label: "Repeat families" },
-  { n: 20, suffix: "+", label: "In-house craftspeople" },
+  { n: 5, suffix: "+", label: "Years in the business" },
+  { n: 70, suffix: "+", label: "Homes fitted" },
+  { n: 35, suffix: "+", label: "Families who came back" },
+  { n: 20, suffix: "+", label: "People on our team" },
 ];
 
 const universes = [
   {
     key: "upvc",
     kicker: "uPVC",
-    title: "Sealed. Silent. Sumptuous.",
-    line: "Multi-chamber profiles. Twin gaskets. Sound stays outside — light walks in.",
+    title: "No leaks. No noise.",
+    line: "Sealed frames with two rubber gaskets. Keeps rain out. Keeps street sound out. Lets the light in.",
     to: "/products/upvc",
   },
   {
     key: "aluminium",
     kicker: "Aluminium",
-    title: "Thin frames. Widest views.",
-    line: "Slim sightlines and thermal breaks. Modern lines that hold up to lashing rain.",
+    title: "Thin frames. Big view.",
+    line: "Slim metal frames so you see more sky and less window. Handles heavy rain without a fuss.",
     to: "/products/aluminium",
   },
   {
     key: "steel",
     kicker: "Steel",
-    title: "The first hello. The last word.",
-    line: "Multi-point locks, reinforced sections, forged hardware. Solid the moment you touch it.",
+    title: "Strong at the door.",
+    line: "Multi-point locks and reinforced steel. Feels solid the moment you touch the handle.",
     to: "/products/steel",
   },
 ];
@@ -82,23 +82,23 @@ const universes = [
 const pillars = [
   {
     n: "01",
-    title: "Climate Mastery",
-    body: "Multi-chamber profiles and thermal breaks tuned for 45°C summers and lashing monsoons. The heat you keep out is the AC bill you don't pay.",
+    title: "Built for Indian weather",
+    body: "Frames that hold up in 45°C summers and heavy monsoons. Less heat comes in. Your AC works less. Your bill drops.",
   },
   {
     n: "02",
-    title: "Acoustic Sanctuary",
-    body: "Twin gaskets, laminated glass, precise sash tolerances. Traffic, festival speakers, temple bells — softened to the edge of memory.",
+    title: "Keeps the noise out",
+    body: "Two rubber gaskets and thick glass. Traffic, loudspeakers, temple bells — much quieter inside.",
   },
   {
     n: "03",
-    title: "Security Without Compromise",
-    body: "Multi-point locking, steel-reinforced sections, forged hardware. Beautiful is only beautiful when it also feels safe.",
+    title: "Safe and secure",
+    body: "Multi-point locks. Reinforced steel inside the frame. Strong hardware. Your family sleeps easier.",
   },
   {
     n: "04",
-    title: "Craft That Lasts Generations",
-    body: "In-house fabrication in Deoghar. German-inspired engineering. The door that greets your grandchild the way it greeted you.",
+    title: "Made to last",
+    body: "Built in our own Deoghar factory. Machine-cut. Heat-welded. Still working the same way ten years on.",
   },
 ];
 
@@ -113,17 +113,17 @@ const swatches = [
 
 const testimonials = [
   {
-    q: "The house has become quieter than the road outside. My mother sleeps through Diwali now.",
+    q: "The house is quieter than the road outside. My mother sleeps through Diwali now.",
     who: "Anirudh S.",
     city: "Deoghar",
   },
   {
-    q: "First monsoon in twelve years with no wet windowsill. That is the whole review.",
+    q: "First monsoon in twelve years with no wet windowsill. That's the whole review.",
     who: "Mrinal & Preeti",
     city: "Ranchi",
   },
   {
-    q: "The sliding door glides like a piano key. Guests notice before they notice the sofa.",
+    q: "The sliding door moves so smoothly. Guests notice it before they notice the sofa.",
     who: "Rakesh M.",
     city: "Jamui",
   },
@@ -147,7 +147,7 @@ function Home() {
             className="mb-8 inline-flex items-center gap-3 rounded-full border border-white/25 bg-black/35 px-4 py-1.5 text-[11px] uppercase tracking-[0.3em] text-white backdrop-blur-md"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--nicwin-red)] shadow-[0_0_12px_rgba(227,30,36,0.9)]" />
-            Nicwin · Deoghar, Jharkhand
+            Made in Deoghar · Delivered across India
           </motion.div>
 
           <motion.h1
@@ -156,9 +156,9 @@ function Home() {
             transition={{ delay: 1.4, duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
             className="text-balance font-display leading-[0.95] text-white text-[clamp(2.5rem,9vw,6.25rem)] [text-shadow:0_2px_24px_rgba(0,0,0,0.55)]"
           >
-            We don't compromise
+            We don't cut corners
             <br />
-            <span className="italic">with quality.</span>
+            <span className="italic">on quality.</span>
           </motion.h1>
 
           <motion.p
@@ -167,8 +167,8 @@ function Home() {
             transition={{ delay: 2.05, duration: 1 }}
             className="mx-auto mt-8 max-w-xl text-pretty text-[15px] leading-relaxed text-white/95 md:max-w-2xl md:text-lg [text-shadow:0_1px_12px_rgba(0,0,0,0.55)]"
           >
-            uPVC · Aluminium · Steel — engineered for Indian homes that demand
-            light, silence and strength.
+            uPVC · Aluminium · Steel windows and doors. Built for Indian
+            homes. Strong, quiet, and easy to live with.
           </motion.p>
 
           <motion.div
@@ -224,18 +224,18 @@ function Home() {
         <div className="mx-auto grid max-w-[1200px] grid-cols-1 items-center gap-12 px-6 md:grid-cols-[1.15fr_1fr] md:gap-16 md:px-10">
           <div>
             <Reveal>
-              <div className="eyebrow">The honest bit</div>
+              <div className="eyebrow">The plain truth</div>
             </Reveal>
             <Reveal delay={1}>
               <h2 className="mt-6 text-balance font-display text-4xl leading-[1.05] text-[color:var(--ink)] md:text-[clamp(2.5rem,4.5vw,4.25rem)]">
-                45°C summers. Lashing monsoons. Dust that gets into everything. <span className="text-[color:var(--nicwin-red)]">Wooden frames don't survive any of it.</span>
+                45°C summers. Heavy monsoons. Dust everywhere. <span className="text-[color:var(--nicwin-red)]">Wooden frames just don't last.</span>
               </h2>
             </Reveal>
             <Reveal delay={2}>
               <p className="mt-8 max-w-xl text-pretty text-lg text-[color:var(--ink-soft)]">
-                Warped sashes. Swollen jambs. Paint peeling by year three.
-                You didn't move house so a window could keep asking for attention.
-                We build the ones that stop asking.
+                They warp. They swell. The paint peels in three years.
+                You didn't buy a home so you could keep repairing windows.
+                We make the ones you can forget about.
               </p>
             </Reveal>
           </div>
@@ -252,8 +252,8 @@ function Home() {
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
               <figcaption className="absolute bottom-0 left-0 right-0 flex items-center justify-between px-5 py-4 text-[11px] font-semibold uppercase tracking-[0.22em] text-white/90">
-                <span>Weathered wood · Real footage</span>
-                <span className="text-white/60">Exhibit A</span>
+                <span>Old wooden frame · Real footage</span>
+                <span className="text-white/60">See the difference</span>
               </figcaption>
             </figure>
           </Reveal>
@@ -266,16 +266,16 @@ function Home() {
         <div className="mx-auto max-w-[1440px] px-6 md:px-10">
           <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
             <div>
-              <Reveal><div className="eyebrow">Three universes</div></Reveal>
+              <Reveal><div className="eyebrow">Three materials</div></Reveal>
               <Reveal delay={1}>
                 <h2 className="mt-4 max-w-3xl text-balance font-display text-4xl leading-[1.05] text-[color:var(--ink)] md:text-[clamp(2.5rem,5vw,5rem)]">
-                  One obsession. Three materials.
+                  Pick the one that fits your home.
                 </h2>
               </Reveal>
             </div>
             <Reveal delay={2}>
               <Link to="/products" className="story-link text-sm font-semibold text-[color:var(--nicwin-blue)]">
-                See the full range →
+                See everything we make →
               </Link>
             </Reveal>
           </div>
@@ -328,7 +328,7 @@ function Home() {
           <Reveal><div className="eyebrow">Why Nicwin</div></Reveal>
           <Reveal delay={1}>
             <h2 className="mt-4 max-w-3xl text-balance font-display text-4xl leading-[1.05] text-[color:var(--ink)] md:text-[clamp(2.5rem,5vw,5rem)]">
-              Four quiet promises, kept every day.
+              Four things we get right, every job.
             </h2>
           </Reveal>
 
@@ -358,21 +358,21 @@ function Home() {
         <div className="mx-auto max-w-[1440px] px-6 md:px-10">
           <div className="grid gap-10 md:grid-cols-[1fr_1.4fr] md:gap-20">
             <div>
-              <Reveal><div className="eyebrow">Finishes</div></Reveal>
+              <Reveal><div className="eyebrow">Colours</div></Reveal>
               <Reveal delay={1}>
                 <h2 className="mt-4 text-balance font-display text-4xl leading-[1.05] text-[color:var(--ink)] md:text-[clamp(2.25rem,4vw,3.75rem)]">
-                  A colour for every home. A finish for every mood.
+                  A colour to match every home.
                 </h2>
               </Reveal>
               <Reveal delay={2}>
                 <p className="mt-6 text-[color:var(--ink-soft)]">
-                  Wood laminates, powder coats, foil finishes. Match the timber
-                  you loved. Or the future you're building.
+                  Wood-look laminates. Powder-coated metal. Foil finishes.
+                  Pick the wood you love. Or a clean modern look.
                 </p>
               </Reveal>
               <Reveal delay={3}>
                 <div className="mt-8">
-                  <CTALink to="/products/upvc/colors" variant="ink-ghost">See all finishes</CTALink>
+                  <CTALink to="/products/upvc/colors" variant="ink-ghost">See all colours</CTALink>
                 </div>
               </Reveal>
             </div>
@@ -401,10 +401,10 @@ function Home() {
       {/* 8 · TESTIMONIALS */}
       <section className="bg-[color:var(--paper)] py-24 md:py-32">
         <div className="mx-auto max-w-[1440px] px-6 md:px-10">
-          <Reveal><div className="eyebrow">In their homes</div></Reveal>
+          <Reveal><div className="eyebrow">What people say</div></Reveal>
           <Reveal delay={1}>
             <h2 className="mt-4 max-w-3xl font-display text-4xl leading-[1.05] text-[color:var(--ink)] md:text-[clamp(2.5rem,5vw,4.5rem)]">
-              Quiet is the loudest review.
+              A quieter house is the best review.
             </h2>
           </Reveal>
           <Stagger className="mt-16 grid gap-6 md:grid-cols-3">
@@ -436,12 +436,12 @@ function Home() {
               <Reveal><div className="eyebrow">Recently delivered</div></Reveal>
               <Reveal delay={1}>
                 <h2 className="mt-4 max-w-2xl font-display text-4xl leading-[1.05] text-[color:var(--ink)] md:text-[clamp(2.25rem,4.5vw,4rem)]">
-                  Homes across India. Made one frame at a time.
+                  Homes across India. Made one at a time.
                 </h2>
               </Reveal>
             </div>
             <Reveal delay={2}>
-              <CTALink to="/gallery" variant="ink-ghost">Browse the gallery</CTALink>
+              <CTALink to="/gallery" variant="ink-ghost">See the gallery</CTALink>
             </Reveal>
           </div>
 
@@ -457,7 +457,7 @@ function Home() {
       <section className="relative overflow-hidden bg-[color:var(--paper)] py-32 md:py-40">
         <div className="mx-auto max-w-[1200px] px-6 text-center md:px-10">
           <Reveal>
-            <div className="eyebrow">The next chapter</div>
+            <div className="eyebrow">Let's get started</div>
           </Reveal>
           <Reveal delay={1}>
             <h2 className="mt-6 max-w-3xl mx-auto text-balance font-display text-5xl leading-[0.98] text-[color:var(--ink)] md:text-[clamp(3rem,7vw,6.5rem)]">
@@ -466,13 +466,13 @@ function Home() {
           </Reveal>
           <Reveal delay={2}>
             <p className="mt-8 mx-auto max-w-xl text-lg text-[color:var(--ink-soft)]">
-              Two minutes on WhatsApp. A visit at your convenience. A quieter house within weeks.
+              Send us a WhatsApp. We'll come measure your windows. A quieter home in a few weeks.
             </p>
           </Reveal>
           <Reveal delay={3}>
             <div className="mt-12 flex flex-wrap justify-center gap-3">
-              <CTAExternal href={SITE.whatsappUrl}>Start the conversation</CTAExternal>
-              <CTALink to="/contact" variant="ink-ghost">Book a site visit</CTALink>
+              <CTAExternal href={SITE.whatsappUrl}>Chat on WhatsApp</CTAExternal>
+              <CTALink to="/contact" variant="ink-ghost">Book a home visit</CTALink>
             </div>
           </Reveal>
         </div>

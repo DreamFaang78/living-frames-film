@@ -77,7 +77,7 @@ export function ProductCategoryPage({
           </Reveal>
           <Reveal delay={1}>
             <h2 className="mt-4 max-w-3xl font-display text-5xl text-offwhite md:text-6xl">
-              Every type earns its place.
+              Every type has its own job.
             </h2>
           </Reveal>
 
@@ -131,7 +131,7 @@ export function ProductCategoryPage({
                     <p className="mt-4 max-w-md text-offwhite/75">{types[selected].detail}</p>
                     <div className="mt-8">
                       <CTAExternal href={SITE.whatsappUrl}>
-                        Enquire · {types[selected].name}
+                        Ask about {types[selected].name}
                       </CTAExternal>
                     </div>
                   </div>
@@ -146,11 +146,11 @@ export function ProductCategoryPage({
       <section className="py-32">
         <div className="mx-auto max-w-[1200px] px-6 md:px-10">
           <Reveal>
-            <div className="text-xs uppercase tracking-[0.3em] text-champagne">Performance</div>
+            <div className="text-xs uppercase tracking-[0.3em] text-champagne">How it performs</div>
           </Reveal>
           <Reveal delay={1}>
             <h2 className="mt-4 max-w-3xl font-display text-5xl text-offwhite md:text-6xl">
-              Numbers that translate to nights of quiet.
+              Numbers that mean a quieter home.
             </h2>
           </Reveal>
           <Stagger className="mt-16 grid gap-8 md:grid-cols-2">
@@ -186,12 +186,12 @@ export function ProductCategoryPage({
                   {colorHeading ?? "Colours"}
                 </div>
                 <h2 className="mt-4 font-display text-5xl text-offwhite md:text-6xl">
-                  Pick the finish. Watch it settle in.
+                  Pick a colour. See how it looks.
                 </h2>
                 <p className="mt-6 max-w-md text-offwhite/70">
-                  Every {material} profile is available in a curated palette designed for
-                  Indian interiors — warm woods for traditional homes, deep neutrals for
-                  contemporary lines.
+                  Every {material} frame comes in a set of colours picked for
+                  Indian homes — warm wood looks for classic interiors, deep
+                  neutrals for modern ones.
                 </p>
                 <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3">
                   {colors.map((c) => (
@@ -260,12 +260,12 @@ export function ProductCategoryPage({
         <div className="mx-auto max-w-[1200px] px-6 md:px-10">
           <Reveal>
             <div className="text-xs uppercase tracking-[0.3em] text-champagne">
-              Technical confidence
+              Tech details
             </div>
           </Reveal>
           <Reveal delay={1}>
             <h2 className="mt-4 font-display text-5xl text-offwhite md:text-6xl">
-              The details that let you stop worrying.
+              The specs, in one place.
             </h2>
           </Reveal>
           <Stagger className="mt-16 grid grid-cols-2 gap-px overflow-hidden rounded-3xl border border-white/8 bg-white/5 md:grid-cols-4">
@@ -284,14 +284,14 @@ export function ProductCategoryPage({
         <div className="mx-auto flex min-h-[50vh] max-w-[1000px] flex-col items-center justify-center px-6 py-20 text-center">
           <Reveal>
             <h2 className="font-display text-5xl text-offwhite md:text-7xl">
-              Ready to see {material.toLowerCase()} in your home?
+              Want to see {material.toLowerCase()} in your home?
             </h2>
           </Reveal>
           <Reveal delay={1}>
             <div className="mt-10 flex flex-wrap justify-center gap-3">
-              <CTAExternal href={SITE.whatsappUrl}>Talk to us on WhatsApp</CTAExternal>
+              <CTAExternal href={SITE.whatsappUrl}>Chat on WhatsApp</CTAExternal>
               <CTALink to="/contact" variant="ghost">
-                Request a site visit
+                Book a home visit
               </CTALink>
             </div>
           </Reveal>

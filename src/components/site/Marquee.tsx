@@ -3,7 +3,7 @@ const ITEMS = [
   "Aluminium Doors",
   "Steel Doors",
   "Made in Jharkhand",
-  "Engineered for Monsoon",
+  "Built for Indian weather",
   "Always looking for the better",
 ];
 

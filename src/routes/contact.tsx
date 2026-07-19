@@ -80,12 +80,12 @@ function Contact() {
           </Reveal>
           <Reveal delay={1}>
             <h1 className="mt-3 font-display text-6xl text-offwhite md:text-8xl">
-              Let's talk about your house.
+              Let's talk about your home.
             </h1>
           </Reveal>
           <Reveal delay={2}>
             <p className="mt-4 max-w-xl text-offwhite/75">
-              Two minutes on WhatsApp is usually the fastest way. We answer during {SITE.hours}.
+              WhatsApp is usually the fastest. We reply during {SITE.hours}.
             </p>
           </Reveal>
         </div>
@@ -103,13 +103,13 @@ function Contact() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0 }}
                 >
-                  <div className="text-xs uppercase tracking-[0.3em] text-champagne">Received</div>
+                  <div className="text-xs uppercase tracking-[0.3em] text-champagne">Got it</div>
                   <h2 className="mt-3 font-display text-4xl text-offwhite">
                     Thank you, {form.name.split(" ")[0]}.
                   </h2>
                   <p className="mt-3 text-offwhite/75">
-                    We'll reach you shortly. For the fastest reply, ping us on WhatsApp with
-                    your city and product interest.
+                    We'll get back to you soon. For a faster reply, message us
+                    on WhatsApp with your city and what you're looking for.
                   </p>
                   <div className="mt-8">
                     <CTAExternal href={SITE.whatsappUrl}>Continue on WhatsApp</CTAExternal>
@@ -215,14 +215,14 @@ function Contact() {
                       type="submit"
                       className="rounded-full bg-champagne px-6 py-3 text-sm font-semibold text-charcoal hover:bg-champagne-soft"
                     >
-                      Send enquiry
+                      Send message
                     </button>
                     <span className="text-xs text-offwhite/50">or</span>
                     <a
                       href={SITE.whatsappUrl}
                       className="text-sm text-champagne hover:underline"
                     >
-                      Skip form, WhatsApp us →
+                      Skip the form, WhatsApp us →
                     </a>
                   </div>
                 </motion.form>
