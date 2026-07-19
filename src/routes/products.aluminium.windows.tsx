@@ -19,20 +19,20 @@ export const Route = createFileRoute("/products/aluminium/windows")({
       material="Aluminium"
       variant="night"
       kicker="Aluminium · Windows"
-      headline="Frames that get out of the way."
-      intro="When the view is the point, the frame should apologise for existing. Nicwin aluminium windows are engineered around minimum sightlines — thermally broken, marine-grade, monsoon-ready — so the daylight does the talking."
+      headline="Thin frames. Big view."
+      intro="When the view is the point, the frame should stay out of the way. Nicwin aluminium windows have the thinnest possible frame — with thermal break, marine-grade seals, and monsoon-ready drainage."
       types={[
-        { name: "Casement", benefit: "Slimmest sightline. Widest breath.", detail: "European-hinge casement with multi-point locking. 60mm sightline; up to 2.4m sash height on request." },
-        { name: "Sliding", benefit: "Effortless glide, decade after decade.", detail: "Two, three, four track systems on stainless roller carriages. Rain flashing and interlock seals designed for monsoon India." },
-        { name: "Tilt & Turn", benefit: "Ventilate securely. Clean from inside.", detail: "European hardware with tilt-first, then turn action. Ideal for upper floors and balcony-facing rooms." },
-        { name: "Fixed", benefit: "A picture, framed in metal.", detail: "Ultra-slim fixed lite for gable ends, stairwells and picture openings. Maximum glass, minimum frame." },
-        { name: "French", benefit: "Two sashes, one gesture.", detail: "Meeting-stile French pair with concealed hinges. Reads like a doorway; opens like a room." },
+        { name: "Casement", benefit: "Thinnest frame. Widest opening.", detail: "Side-hung with multi-point lock. 60mm frame width. Up to 2.4m tall on request." },
+        { name: "Sliding", benefit: "Smooth glide for years.", detail: "2, 3, or 4-track systems on stainless steel wheels. Rain flashing and seals for Indian monsoons." },
+        { name: "Tilt & Turn", benefit: "Ventilate safely. Clean from inside.", detail: "Tilt open at top for airflow. Turn to fully open. Great for upper floors and balcony rooms." },
+        { name: "Fixed", benefit: "A picture in a metal frame.", detail: "Ultra-thin fixed panel for gable ends, stairwells, and picture windows. More glass. Less frame." },
+        { name: "French", benefit: "Two panels. One clean look.", detail: "Two panels that meet with concealed hinges. Reads like a doorway, opens like a room." },
       ]}
       benefits={[
-        { label: "Slim sightline", value: 96, copy: "60mm typical — more glass, less frame." },
-        { label: "Thermal break", value: 82, copy: "Polyamide thermal isolators cut heat transfer significantly." },
-        { label: "Weather", value: 92, copy: "Marine-grade gaskets and drainage. Zero seepage tested." },
-        { label: "Security", value: 88, copy: "Multi-point locking, hardened stainless hardware." },
+        { label: "Slim frame", value: 96, copy: "60mm typical — more glass, less frame." },
+        { label: "Thermal break", value: 82, copy: "Plastic insulator inside the frame cuts heat transfer." },
+        { label: "Weather", value: 92, copy: "Marine-grade seals and drainage. Tested — no leaks." },
+        { label: "Security", value: 88, copy: "Multi-point lock, hardened stainless steel hardware." },
       ]}
       colors={undefined}
       spec={[
