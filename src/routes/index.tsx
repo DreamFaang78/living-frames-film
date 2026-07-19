@@ -8,6 +8,7 @@ import { Marquee } from "@/components/site/Marquee";
 import { HeroJointSection } from "@/components/site/HeroJointSection";
 import { ProductShowcase } from "@/components/site/ProductShowcase";
 import { AutoCarousel, type CarouselSlide } from "@/components/site/AutoCarousel";
+import { RecentProjects } from "@/components/site/RecentProjects";
 import { SITE } from "@/lib/site";
 import heroVideo from "@/assets/nicwin_hero_window.mp4.asset.json";
 import tiltTurn from "@/assets/products/tilt-turn-sunset.jpeg.asset.json";
@@ -443,8 +444,31 @@ function Home() {
         </div>
       </section>
 
+      {/* 8b · RECENT PROJECTS SLIDESHOW */}
+      <section className="border-t border-[color:var(--line)] bg-[color:var(--paper)] py-24 md:py-32">
+        <div className="mx-auto max-w-[1440px] px-6 md:px-10">
+          <Reveal><div className="eyebrow">Recent projects</div></Reveal>
+          <Reveal delay={1}>
+            <h2 className="mt-4 max-w-3xl font-display text-4xl leading-[1.05] text-[color:var(--ink)] md:text-[clamp(2.5rem,5vw,4.5rem)]">
+              Homes we've already built for.
+            </h2>
+          </Reveal>
+          <Reveal delay={2}>
+            <p className="mt-4 max-w-2xl text-lg text-[color:var(--ink-soft)]">
+              A look at the buildings, homes, and businesses Nicwin has already completed.
+            </p>
+          </Reveal>
+          <Reveal delay={2}>
+            <div className="mt-12">
+              <RecentProjects />
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* 9 · GALLERY TEASER + AUTO CAROUSEL */}
       <section className="border-t border-[color:var(--line)] bg-[color:var(--paper-warm)] py-24 md:py-32">
+
         <div className="mx-auto max-w-[1440px] px-6 md:px-10">
           <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
             <div>
