@@ -147,7 +147,7 @@ function Home() {
             className="mb-8 inline-flex items-center gap-3 rounded-full border border-white/25 bg-black/35 px-4 py-1.5 text-[11px] uppercase tracking-[0.3em] text-white backdrop-blur-md"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--nicwin-red)] shadow-[0_0_12px_rgba(227,30,36,0.9)]" />
-            Nicwin · Deoghar, Jharkhand
+            Made in Deoghar · Delivered across India
           </motion.div>
 
           <motion.h1
@@ -156,9 +156,9 @@ function Home() {
             transition={{ delay: 1.4, duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
             className="text-balance font-display leading-[0.95] text-white text-[clamp(2.5rem,9vw,6.25rem)] [text-shadow:0_2px_24px_rgba(0,0,0,0.55)]"
           >
-            We don't compromise
+            We don't cut corners
             <br />
-            <span className="italic">with quality.</span>
+            <span className="italic">on quality.</span>
           </motion.h1>
 
           <motion.p
@@ -167,8 +167,8 @@ function Home() {
             transition={{ delay: 2.05, duration: 1 }}
             className="mx-auto mt-8 max-w-xl text-pretty text-[15px] leading-relaxed text-white/95 md:max-w-2xl md:text-lg [text-shadow:0_1px_12px_rgba(0,0,0,0.55)]"
           >
-            uPVC · Aluminium · Steel — engineered for Indian homes that demand
-            light, silence and strength.
+            uPVC · Aluminium · Steel windows and doors. Built for Indian
+            homes. Strong, quiet, and easy to live with.
           </motion.p>
 
           <motion.div
