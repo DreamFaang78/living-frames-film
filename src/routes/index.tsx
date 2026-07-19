@@ -65,6 +65,8 @@ const universes = [
     title: "No leaks. No noise.",
     line: "Sealed frames with two rubber gaskets. Keeps rain out. Keeps street sound out. Lets the light in.",
     to: "/products/upvc",
+    img: matUpvc.url,
+    imgAlt: "White uPVC casement window on a modern villa at sunset with corner joint detail",
   },
   {
     key: "aluminium",
@@ -72,6 +74,8 @@ const universes = [
     title: "Thin frames. Big view.",
     line: "Slim metal frames so you see more sky and less window. Handles heavy rain without a fuss.",
     to: "/products/aluminium",
+    img: matAluminium.url,
+    imgAlt: "Slim black aluminium sliding doors framing a poolside sunset view",
   },
   {
     key: "steel",
@@ -79,6 +83,8 @@ const universes = [
     title: "Strong at the door.",
     line: "Multi-point locks and reinforced steel. Feels solid the moment you touch the handle.",
     to: "/products/steel",
+    img: matSteel.url,
+    imgAlt: "Matte black steel pivot entry door of a luxury home at dusk",
   },
 ];
 
