@@ -19,12 +19,12 @@ import aluminium from "@/assets/products/aluminium-system.png.asset.json";
 import woodenFrameVideo from "@/assets/wooden-frame-weathered.mp4.asset.json";
 
 const HOME_SLIDES: CarouselSlide[] = [
-  { src: luxuryInterior.url, alt: "Aluminium floor-to-ceiling window in a luxury living room", productType: "Aluminium Floor-to-Ceiling Window", place: "Private residence · Ranchi" },
-  { src: tiltTurn.url, alt: "uPVC tilt & turn window", productType: "uPVC Tilt & Turn Window", place: "Courtyard house · Deoghar" },
-  { src: french.url, alt: "uPVC French doors opening to a garden", productType: "uPVC French Doors", place: "Riverside villa · Bhagalpur" },
-  { src: slideFold.url, alt: "uPVC slide-and-fold doors", productType: "uPVC Slide & Fold Doors", place: "Weekend retreat · Giridih" },
-  { src: casement.url, alt: "uPVC casement door in warm interior light", productType: "uPVC Casement Door", place: "Family bungalow · Jamui" },
-  { src: aluminium.url, alt: "Aluminium sliding system installation", productType: "Aluminium System Sliding Door", place: "Monsoon apartment · Deoghar" },
+  { src: luxuryInterior.url, alt: "Aluminium floor-to-ceiling window in a living room", productType: "Aluminium Floor-to-Ceiling Window", place: "Home · Ranchi" },
+  { src: tiltTurn.url, alt: "uPVC tilt and turn window", productType: "uPVC Tilt & Turn Window", place: "Home · Deoghar" },
+  { src: french.url, alt: "uPVC French doors opening to a garden", productType: "uPVC French Doors", place: "Home · Bhagalpur" },
+  { src: slideFold.url, alt: "uPVC slide and fold doors", productType: "uPVC Slide & Fold Doors", place: "Home · Giridih" },
+  { src: casement.url, alt: "uPVC casement door in warm interior light", productType: "uPVC Casement Door", place: "Home · Jamui" },
+  { src: aluminium.url, alt: "Aluminium sliding door installation", productType: "Aluminium Sliding Door", place: "Apartment · Deoghar" },
 ];
 
 function HomeCarousel() {
@@ -38,7 +38,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Premium uPVC, Aluminium and Steel windows and doors. Engineered for Indian monsoons. Designed for silence, light and strength.",
+          "Strong uPVC, Aluminium and Steel windows and doors. Built for Indian weather. Made in Deoghar, Jharkhand. Delivered across India.",
       },
       { property: "og:title", content: "Nicwin — Always looking for the better." },
       { property: "og:description", content: SITE.description },
@@ -49,32 +49,32 @@ export const Route = createFileRoute("/")({
 });
 
 const stats = [
-  { n: 5, suffix: "+", label: "Years focused practice" },
-  { n: 70, suffix: "+", label: "Homes quietly elevated" },
-  { n: 35, suffix: "+", label: "Repeat families" },
-  { n: 20, suffix: "+", label: "In-house craftspeople" },
+  { n: 5, suffix: "+", label: "Years in the business" },
+  { n: 70, suffix: "+", label: "Homes fitted" },
+  { n: 35, suffix: "+", label: "Families who came back" },
+  { n: 20, suffix: "+", label: "People on our team" },
 ];
 
 const universes = [
   {
     key: "upvc",
     kicker: "uPVC",
-    title: "Sealed. Silent. Sumptuous.",
-    line: "Multi-chamber profiles. Twin gaskets. Sound stays outside — light walks in.",
+    title: "No leaks. No noise.",
+    line: "Sealed frames with two rubber gaskets. Keeps rain out. Keeps street sound out. Lets the light in.",
     to: "/products/upvc",
   },
   {
     key: "aluminium",
     kicker: "Aluminium",
-    title: "Thin frames. Widest views.",
-    line: "Slim sightlines and thermal breaks. Modern lines that hold up to lashing rain.",
+    title: "Thin frames. Big view.",
+    line: "Slim metal frames so you see more sky and less window. Handles heavy rain without a fuss.",
     to: "/products/aluminium",
   },
   {
     key: "steel",
     kicker: "Steel",
-    title: "The first hello. The last word.",
-    line: "Multi-point locks, reinforced sections, forged hardware. Solid the moment you touch it.",
+    title: "Strong at the door.",
+    line: "Multi-point locks and reinforced steel. Feels solid the moment you touch the handle.",
     to: "/products/steel",
   },
 ];
@@ -82,23 +82,23 @@ const universes = [
 const pillars = [
   {
     n: "01",
-    title: "Climate Mastery",
-    body: "Multi-chamber profiles and thermal breaks tuned for 45°C summers and lashing monsoons. The heat you keep out is the AC bill you don't pay.",
+    title: "Built for Indian weather",
+    body: "Frames that hold up in 45°C summers and heavy monsoons. Less heat comes in. Your AC works less. Your bill drops.",
   },
   {
     n: "02",
-    title: "Acoustic Sanctuary",
-    body: "Twin gaskets, laminated glass, precise sash tolerances. Traffic, festival speakers, temple bells — softened to the edge of memory.",
+    title: "Keeps the noise out",
+    body: "Two rubber gaskets and thick glass. Traffic, loudspeakers, temple bells — much quieter inside.",
   },
   {
     n: "03",
-    title: "Security Without Compromise",
-    body: "Multi-point locking, steel-reinforced sections, forged hardware. Beautiful is only beautiful when it also feels safe.",
+    title: "Safe and secure",
+    body: "Multi-point locks. Reinforced steel inside the frame. Strong hardware. Your family sleeps easier.",
   },
   {
     n: "04",
-    title: "Craft That Lasts Generations",
-    body: "In-house fabrication in Deoghar. German-inspired engineering. The door that greets your grandchild the way it greeted you.",
+    title: "Made to last",
+    body: "Built in our own Deoghar factory. Machine-cut. Heat-welded. Still working the same way ten years on.",
   },
 ];
 
@@ -113,17 +113,17 @@ const swatches = [
 
 const testimonials = [
   {
-    q: "The house has become quieter than the road outside. My mother sleeps through Diwali now.",
+    q: "The house is quieter than the road outside. My mother sleeps through Diwali now.",
     who: "Anirudh S.",
     city: "Deoghar",
   },
   {
-    q: "First monsoon in twelve years with no wet windowsill. That is the whole review.",
+    q: "First monsoon in twelve years with no wet windowsill. That's the whole review.",
     who: "Mrinal & Preeti",
     city: "Ranchi",
   },
   {
-    q: "The sliding door glides like a piano key. Guests notice before they notice the sofa.",
+    q: "The sliding door moves so smoothly. Guests notice it before they notice the sofa.",
     who: "Rakesh M.",
     city: "Jamui",
   },
