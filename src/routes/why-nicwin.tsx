@@ -134,8 +134,8 @@ function Why() {
       ))}
 
       <FinalCTA
-        headline="Bring the better home."
-        secondary={{ label: "See the range", to: "/products" }}
+        headline="Ready to make your home better?"
+        secondary={{ label: "See our products", to: "/products" }}
       />
 
     </>
