@@ -228,7 +228,7 @@ function Home() {
             </Reveal>
             <Reveal delay={1}>
               <h2 className="mt-6 text-balance font-display text-4xl leading-[1.05] text-[color:var(--ink)] md:text-[clamp(2.5rem,4.5vw,4.25rem)]">
-                45°C summers. Heavy monsoons. Dust everywhere. <span className="text-[color:var(--nicwin-red)]">Wooden frames just don't last.</span>
+                45°C Summers. Heavy Monsoons. Endless Dust. <span className="text-[color:var(--nicwin-red)]">NICWIN uPVC Windows Are Built For All Of It.</span>
               </h2>
             </Reveal>
             <Reveal delay={2}>
