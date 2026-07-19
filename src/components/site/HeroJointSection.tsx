@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import cornerJoint from "@/assets/corner-joint.jpeg.asset.json";
+import cornerJoint from "@/assets/corner-joint-lakeview.jpeg.asset.json";
 
 export function HeroJointSection() {
   return (
