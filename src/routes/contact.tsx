@@ -215,14 +215,14 @@ function Contact() {
                       type="submit"
                       className="rounded-full bg-champagne px-6 py-3 text-sm font-semibold text-charcoal hover:bg-champagne-soft"
                     >
-                      Send enquiry
+                      Send message
                     </button>
                     <span className="text-xs text-offwhite/50">or</span>
                     <a
                       href={SITE.whatsappUrl}
                       className="text-sm text-champagne hover:underline"
                     >
-                      Skip form, WhatsApp us →
+                      Skip the form, WhatsApp us →
                     </a>
                   </div>
                 </motion.form>
