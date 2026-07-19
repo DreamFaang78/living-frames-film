@@ -168,11 +168,11 @@ function About() {
         <div aria-hidden className="absolute inset-0 mesh-charcoal opacity-40" />
         <div className="relative mx-auto max-w-[1200px] px-6 md:px-10">
           <Reveal>
-            <div className="text-xs uppercase tracking-[0.3em] text-champagne">Our pillars</div>
+            <div className="text-xs uppercase tracking-[0.3em] text-champagne">How we work</div>
           </Reveal>
           <Reveal delay={1}>
             <h2 className="mt-4 max-w-3xl font-display text-5xl text-offwhite md:text-6xl">
-              How the work actually gets done.
+              How we actually get the job done.
             </h2>
           </Reveal>
           <Stagger className="mt-16 grid gap-8 md:grid-cols-2">
