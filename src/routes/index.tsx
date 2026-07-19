@@ -358,21 +358,21 @@ function Home() {
         <div className="mx-auto max-w-[1440px] px-6 md:px-10">
           <div className="grid gap-10 md:grid-cols-[1fr_1.4fr] md:gap-20">
             <div>
-              <Reveal><div className="eyebrow">Finishes</div></Reveal>
+              <Reveal><div className="eyebrow">Colours</div></Reveal>
               <Reveal delay={1}>
                 <h2 className="mt-4 text-balance font-display text-4xl leading-[1.05] text-[color:var(--ink)] md:text-[clamp(2.25rem,4vw,3.75rem)]">
-                  A colour for every home. A finish for every mood.
+                  A colour to match every home.
                 </h2>
               </Reveal>
               <Reveal delay={2}>
                 <p className="mt-6 text-[color:var(--ink-soft)]">
-                  Wood laminates, powder coats, foil finishes. Match the timber
-                  you loved. Or the future you're building.
+                  Wood-look laminates. Powder-coated metal. Foil finishes.
+                  Pick the wood you love. Or a clean modern look.
                 </p>
               </Reveal>
               <Reveal delay={3}>
                 <div className="mt-8">
-                  <CTALink to="/products/upvc/colors" variant="ink-ghost">See all finishes</CTALink>
+                  <CTALink to="/products/upvc/colors" variant="ink-ghost">See all colours</CTALink>
                 </div>
               </Reveal>
             </div>
