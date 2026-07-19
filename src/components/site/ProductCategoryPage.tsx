@@ -186,12 +186,12 @@ export function ProductCategoryPage({
                   {colorHeading ?? "Colours"}
                 </div>
                 <h2 className="mt-4 font-display text-5xl text-offwhite md:text-6xl">
-                  Pick the finish. Watch it settle in.
+                  Pick a colour. See how it looks.
                 </h2>
                 <p className="mt-6 max-w-md text-offwhite/70">
-                  Every {material} profile is available in a curated palette designed for
-                  Indian interiors — warm woods for traditional homes, deep neutrals for
-                  contemporary lines.
+                  Every {material} frame comes in a set of colours picked for
+                  Indian homes — warm wood looks for classic interiors, deep
+                  neutrals for modern ones.
                 </p>
                 <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3">
                   {colors.map((c) => (
