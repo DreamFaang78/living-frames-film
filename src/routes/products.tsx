@@ -59,13 +59,13 @@ function ProductsLanding() {
       <CinematicScene variant="night" className="min-h-[65svh]">
         <div className="mx-auto flex min-h-[65svh] max-w-[1440px] flex-col justify-end px-6 pb-24 pt-40 md:px-10">
           <Reveal>
-            <div className="text-xs uppercase tracking-[0.3em] text-champagne">The range</div>
+            <div className="text-xs uppercase tracking-[0.3em] text-champagne">Our range</div>
           </Reveal>
           <Reveal delay={1}>
             <h1 className="mt-4 text-balance font-display text-6xl leading-[0.95] text-offwhite md:text-[8rem]">
-              Three universes.
+              Three materials.
               <br />
-              <span className="italic text-champagne">One obsession.</span>
+              <span className="italic text-champagne">One promise.</span>
             </h1>
           </Reveal>
         </div>
