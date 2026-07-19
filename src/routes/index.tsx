@@ -10,7 +10,7 @@ import { ProductShowcase } from "@/components/site/ProductShowcase";
 import { AutoCarousel, type CarouselSlide } from "@/components/site/AutoCarousel";
 import { SITE } from "@/lib/site";
 import heroVideo from "@/assets/nicwin_hero_window.mp4.asset.json";
-import tiltTurn from "@/assets/products/tilt-turn.png.asset.json";
+import tiltTurn from "@/assets/products/tilt-turn-sunset.jpeg.asset.json";
 import luxuryInterior from "@/assets/products/luxury-interior.png.asset.json";
 import french from "@/assets/products/french-doors.png.asset.json";
 import slideFold from "@/assets/products/slide-fold.png.asset.json";
