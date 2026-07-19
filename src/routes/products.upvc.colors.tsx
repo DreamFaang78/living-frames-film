@@ -19,18 +19,18 @@ export const Route = createFileRoute("/products/upvc/colors")({
       material="uPVC"
       variant="teal"
       kicker="uPVC · Colours"
-      headline="Seven finishes. All quietly considered."
-      intro="Colour on a uPVC frame is a decade-long decision. We curated seven — three warm woods for traditional interiors, two greys for contemporary lines, and a pair of anchors — because the last thing a great room needs is a loud frame."
+      headline="Seven colours to choose from."
+      intro="Colour on a uPVC frame is a long-term choice. We picked seven — three warm woods for classic interiors, two greys for modern homes, plus black and white."
       types={[
-        { name: "Warm woods", benefit: "Walnut, Mahogany, Golden Oak, Dark Oak.", detail: "Foil-laminated finishes with tactile grain. UV-stable, monsoon-tested, and calibrated to Indian teakwood interiors." },
-        { name: "Neutrals", benefit: "Anthracite Grey and Jet Black.", detail: "The modern architect's default. Reads as metal from a distance. Ages beautifully in South-facing walls." },
-        { name: "Classic", benefit: "Pure White.", detail: "The one that disappears. Reflects heat, brightens dim rooms, still looks new at year ten." },
+        { name: "Warm woods", benefit: "Walnut, Mahogany, Golden Oak, Dark Oak.", detail: "Wood-look finish with real grain feel. Doesn't fade in sun. Tested in Indian weather." },
+        { name: "Greys", benefit: "Anthracite Grey and Jet Black.", detail: "The modern favourite. Looks like metal from a distance. Ages well on south-facing walls." },
+        { name: "Classic", benefit: "Pure White.", detail: "The one that blends in. Reflects heat. Brightens rooms. Still looks new ten years later." },
       ]}
       benefits={[
-        { label: "UV Stability", value: 92, copy: "Foil finishes tested against equivalent Indian summers." },
-        { label: "Colour retention", value: 90, copy: "Ten years without chalking, fading, or peeling." },
-        { label: "Cleanability", value: 95, copy: "Wipe with a damp cloth. That is the maintenance." },
-        { label: "Match consistency", value: 88, copy: "Batch-controlled foils ensure the last frame matches the first." },
+        { label: "Sun resistance", value: 92, copy: "Colours tested against Indian summers." },
+        { label: "Colour lasting", value: 90, copy: "Ten years with no fading or peeling." },
+        { label: "Cleaning", value: 95, copy: "Wipe with a damp cloth. That's all." },
+        { label: "Colour match", value: 88, copy: "Every batch matches the last — the tenth frame looks like the first." },
       ]}
       colorHeading="The seven"
       colors={[
