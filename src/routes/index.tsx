@@ -16,7 +16,7 @@ import french from "@/assets/products/french-doors.png.asset.json";
 import slideFold from "@/assets/products/slide-fold.png.asset.json";
 import casement from "@/assets/products/casement-door.jpg.asset.json";
 import aluminium from "@/assets/products/aluminium-system.png.asset.json";
-import woodenFrameVideo from "@/assets/wooden-frame-weathered.mp4.asset.json";
+import upvcPushIn from "@/assets/nicwin_upvc_pushin.mp4.asset.json";
 
 const HOME_SLIDES: CarouselSlide[] = [
   { src: luxuryInterior.url, alt: "Aluminium floor-to-ceiling window in a living room", productType: "Aluminium Floor-to-Ceiling Window", place: "Home · Ranchi" },
@@ -240,9 +240,9 @@ function Home() {
             </Reveal>
           </div>
           <Reveal delay={2}>
-            <figure className="relative overflow-hidden rounded-2xl border border-[color:var(--line)] bg-black shadow-[0_30px_80px_-40px_rgba(10,10,11,0.4)]">
+            <figure className="relative mx-auto w-full max-w-[520px] overflow-hidden rounded-2xl border border-[color:var(--line)] bg-black shadow-[0_30px_80px_-40px_rgba(10,10,11,0.4)] md:max-w-none">
               <video
-                src={woodenFrameVideo.url}
+                src={upvcPushIn.url}
                 autoPlay
                 muted
                 loop
@@ -252,8 +252,8 @@ function Home() {
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
               <figcaption className="absolute bottom-0 left-0 right-0 flex items-center justify-between px-5 py-4 text-[11px] font-semibold uppercase tracking-[0.22em] text-white/90">
-                <span>Old wooden frame · Real footage</span>
-                <span className="text-white/60">See the difference</span>
+                <span>NICWIN uPVC · Real footage</span>
+                <span className="text-white/60">Built for India</span>
               </figcaption>
             </figure>
           </Reveal>
