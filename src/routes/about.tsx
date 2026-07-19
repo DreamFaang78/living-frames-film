@@ -237,8 +237,8 @@ function About() {
 
 
       <FinalCTA
-        headline="Come see the workshop."
-        sub="Deoghar factory. Deoghar Experience Center & Showroom. And a WhatsApp always open."
+        headline="Come and see for yourself."
+        sub="Factory and showroom in Deoghar. Or just message us on WhatsApp."
         secondary={{ label: "Plan a visit", to: "/contact" }}
       />
 
