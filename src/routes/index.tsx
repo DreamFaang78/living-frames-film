@@ -7,8 +7,28 @@ import { VideoHero } from "@/components/site/VideoHero";
 import { Marquee } from "@/components/site/Marquee";
 import { HeroJointSection } from "@/components/site/HeroJointSection";
 import { ProductShowcase } from "@/components/site/ProductShowcase";
+import { AutoCarousel, type CarouselSlide } from "@/components/site/AutoCarousel";
 import { SITE } from "@/lib/site";
 import heroVideo from "@/assets/nicwin_hero_window.mp4.asset.json";
+import tiltTurn from "@/assets/products/tilt-turn.png.asset.json";
+import luxuryInterior from "@/assets/products/luxury-interior.png.asset.json";
+import french from "@/assets/products/french-doors.png.asset.json";
+import slideFold from "@/assets/products/slide-fold.png.asset.json";
+import casement from "@/assets/products/casement-door.jpg.asset.json";
+import aluminium from "@/assets/products/aluminium-system.png.asset.json";
+
+const HOME_SLIDES: CarouselSlide[] = [
+  { src: luxuryInterior.url, alt: "Aluminium floor-to-ceiling window in a luxury living room", productType: "Aluminium Floor-to-Ceiling Window", place: "Private residence · Ranchi" },
+  { src: tiltTurn.url, alt: "uPVC tilt & turn window", productType: "uPVC Tilt & Turn Window", place: "Courtyard house · Deoghar" },
+  { src: french.url, alt: "uPVC French doors opening to a garden", productType: "uPVC French Doors", place: "Riverside villa · Bhagalpur" },
+  { src: slideFold.url, alt: "uPVC slide-and-fold doors", productType: "uPVC Slide & Fold Doors", place: "Weekend retreat · Giridih" },
+  { src: casement.url, alt: "uPVC casement door in warm interior light", productType: "uPVC Casement Door", place: "Family bungalow · Jamui" },
+  { src: aluminium.url, alt: "Aluminium sliding system installation", productType: "Aluminium System Sliding Door", place: "Monsoon apartment · Deoghar" },
+];
+
+function HomeCarousel() {
+  return <AutoCarousel slides={HOME_SLIDES} intervalMs={4500} />;
+}
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -386,19 +406,27 @@ function Home() {
         </div>
       </section>
 
-      {/* 9 · GALLERY TEASER */}
+      {/* 9 · GALLERY TEASER + AUTO CAROUSEL */}
       <section className="border-t border-[color:var(--line)] bg-[color:var(--paper-warm)] py-24 md:py-32">
-        <div className="mx-auto flex max-w-[1440px] flex-col items-start justify-between gap-8 px-6 md:flex-row md:items-end md:px-10">
-          <div>
-            <Reveal><div className="eyebrow">Recent projects</div></Reveal>
-            <Reveal delay={1}>
-              <h2 className="mt-4 max-w-2xl font-display text-4xl leading-[1.05] text-[color:var(--ink)] md:text-[clamp(2.25rem,4.5vw,4rem)]">
-                Homes across India. Made one frame at a time.
-              </h2>
+        <div className="mx-auto max-w-[1440px] px-6 md:px-10">
+          <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
+            <div>
+              <Reveal><div className="eyebrow">Recently delivered</div></Reveal>
+              <Reveal delay={1}>
+                <h2 className="mt-4 max-w-2xl font-display text-4xl leading-[1.05] text-[color:var(--ink)] md:text-[clamp(2.25rem,4.5vw,4rem)]">
+                  Homes across India. Made one frame at a time.
+                </h2>
+              </Reveal>
+            </div>
+            <Reveal delay={2}>
+              <CTALink to="/gallery" variant="ink-ghost">Browse the gallery</CTALink>
             </Reveal>
           </div>
+
           <Reveal delay={2}>
-            <CTALink to="/gallery" variant="ink-ghost">Browse the gallery</CTALink>
+            <div className="mt-12 overflow-hidden rounded-2xl bg-[color:var(--paper)] shadow-[0_30px_80px_-30px_rgba(14,59,115,0.35)] ring-1 ring-[color:var(--line)]">
+              <HomeCarousel />
+            </div>
           </Reveal>
         </div>
       </section>
