@@ -131,7 +131,7 @@ export function ProductCategoryPage({
                     <p className="mt-4 max-w-md text-offwhite/75">{types[selected].detail}</p>
                     <div className="mt-8">
                       <CTAExternal href={SITE.whatsappUrl}>
-                        Enquire · {types[selected].name}
+                        Ask about {types[selected].name}
                       </CTAExternal>
                     </div>
                   </div>
