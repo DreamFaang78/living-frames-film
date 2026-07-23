@@ -1,68 +1,68 @@
-# Recent Projects Slideshow
+Plan: Homepage "Visit Our Showroom" Section
 
-Add a new full-width slideshow section on the homepage, placed directly after the Testimonials section and before the Gallery, built to scale as more real project photos come in.
+Goal
+Add a modern, trust-building showroom section to the homepage that showcases the real NICWIN Experience Center & Showroom, using the uploaded storefront photo. The section should feel premium, load fast, and match the existing white-first / red-blue brand system.
 
-## Assets
+Placement
+Insert the new section immediately after the `<VideoHero>` and before the `<Marquee>` in `src/routes/index.tsx`. Current order after the hero is: Marquee → HeroJointSection → Stats → Problem → Products → etc. The new section will sit at the top of the page flow as section 2.
 
-Upload the two provided project photos as Lovable Assets (CDN pointers, not repo binaries):
-- `src/assets/projects/dsu-university-deoghar.jpg.asset.json`
-- `src/assets/projects/hotel-jeesa-deoghar.jpg.asset.json`
+Step 1 — Prepare the image asset
+- The uploaded image is `Gemini_Generated_Image_4koope4koope4koo.png` (896 × 1195 px, portrait 3:4).
+- Convert it to WebP using a local image encoder (e.g. `cwebp` or Pillow) with quality tuned for fast loading and no visible loss.
+- Create Lovable Asset pointers for both the WebP and PNG versions:
+  - `src/assets/showroom/showroom-experience-center.webp.asset.json`
+  - `src/assets/showroom/showroom-experience-center.png.asset.json` (fallback)
+- Keep original binaries out of the repo; only the `.asset.json` pointer files live in source.
 
-Source images already carry the DSU/Hotel Jeesa/Nicwin lockup baked in, but we will re-render the text overlay in HTML so it stays crisp, responsive, and editable — the raw building photo underneath is what we keep. If needed we crop the left third of the source (which is flat sky/background) so the overlay text sits over clean space on desktop and the building remains the hero on mobile.
+Step 2 — Build the `ShowroomSection` component
+Create `src/components/site/ShowroomSection.tsx` with:
+- Layout: white (`--paper`) background, generous vertical padding (`py-24 md:py-32`), and a max-width container.
+- Two-column grid on desktop (`md:grid-cols-[1fr_1.05fr]` or `md:grid-cols-2`), single column on mobile.
+- Left side: eyebrow, headline, sub-headline, description, and two CTAs.
+- Right side: the showroom image in a framed container.
 
-## Data
+Content
+- Eyebrow: "Visit us"
+- Headline: "Visit Our Showroom"
+- Sub-headline: "Experience Premium uPVC, Aluminium & Steel Window & Door Solutions"
+- Description: "Step into our modern showroom to explore our premium collection of uPVC, Aluminium, and Steel Window & Door Systems. Experience product quality firsthand, receive expert consultation, and discover customized solutions for residential and commercial projects."
+- CTA 1: "Visit Showroom" — external link to Google Maps using `SITE.showroom.mapQuery` (opens in a new tab).
+- CTA 2: "Contact Us" — internal link to `/contact`.
 
-New file `src/lib/projects.ts` — a single `RECENT_PROJECTS` array. Each entry:
+Image presentation
+- Container: `rounded-2xl` to `rounded-3xl` (16–20 px radius), `overflow-hidden`, subtle shadow (`shadow-soft-blue` or `shadow-2xl`), and a thin border (`--line`).
+- Image: `w-full h-full object-cover` with a smooth `scale-105` hover zoom via `group-hover:scale-105` transition.
+- Use a fixed aspect ratio container (e.g. `aspect-[3/4]` on mobile, `aspect-[4/3]` or `aspect-square` on desktop depending on layout balance) so the image never causes layout shift.
 
-```ts
-{
-  id: string;
-  name: string;       // "DSU University Project"
-  location: string;   // "Deoghar"
-  caption?: string;   // short one-liner, optional
-  image: string;      // CDN url from .asset.json
-}
-```
+Step 3 — Performance & SEO optimization
+Because this project is TanStack Start + Vite (not Next.js), we will replicate Next.js Image optimization using a responsive `<picture>` element:
+- `<source srcSet={showroomWebp.url} type="image/webp" />` for modern browsers.
+- `<img src={showroomPng.url} alt="..." />` as the fallback.
+- Explicit `width={896}` and `height={1195}` attributes on the `<img>`.
+- `loading="lazy"` and `decoding="async"`.
+- `sizes` attribute so the browser picks the right intrinsic width for each viewport.
+- Semantic HTML: wrap the image in `<figure>` with a `<figcaption>` if needed, or use `<section>` with `aria-labelledby`.
+- Alt text: "NICWIN Window & Door Systems modern showroom displaying premium uPVC, aluminium and steel doors and windows."
+- Descriptive asset filename: `showroom-experience-center.webp` / `.png`.
 
-Seeded with the two real projects and the two optional captions from the brief. Adding a third project later = one entry in this array, no layout work.
+Step 4 — Animation
+Use the existing `Reveal` / `Stagger` Framer Motion utilities for subtle fade-in + slide-up:
+- Section wrapper animates on viewport entry.
+- Text content staggers in from the left side.
+- Image container slides/fades in from the right side (or bottom on mobile).
+- Respect `prefers-reduced-motion` via the existing CSS reset.
 
-## Component
+Step 5 — Homepage integration
+- Import `ShowroomSection` in `src/routes/index.tsx`.
+- Insert it right after `<VideoHero>` and before `<Marquee />`.
+- Remove any unused imports added during the edit if necessary.
 
-New `src/components/site/RecentProjects.tsx`:
+Step 6 — Verification
+- Run the dev build/typecheck to confirm the new component and assets compile.
+- Open the preview and check the section at desktop, tablet, and mobile widths.
+- Confirm the image loads, lazy-attributes are present, and no layout shift occurs on load.
 
-- Full-bleed slide, single project at a time, `aspect-[16/9]` on desktop, `aspect-[4/5]` on mobile so the building stays readable in portrait.
-- Framer Motion `AnimatePresence` crossfade between slides (opacity + subtle 1.02 → 1 scale on the incoming image for a cinematic feel, no hard cuts).
-- Auto-advance every 5.5s via `setInterval`, cleared on unmount.
-- Pause on hover (desktop) and on touchstart/focus (mobile/keyboard).
-- Prev / Next arrow buttons pinned to the vertical middle of the slide, white icon on a translucent ink pill, visible on desktop, larger tap targets on mobile.
-- Dot indicators centered below the slide: one dot per project, active dot widens into a short bar (`w-8` vs `w-2`), so the control reads correctly with 2 dots today and 12 dots later without redesign.
-- Keyboard support: `←` / `→` when the slideshow is focused.
-- `prefers-reduced-motion`: disable auto-advance and use instant fade.
-
-### Overlay layout (matches the source-image lockup)
-
-Positioned bottom-left on desktop, bottom-center on mobile, inside a soft dark-to-transparent gradient scrim so text stays legible over both the bright DSU shot and the dusk Hotel Jeesa shot:
-
-- Eyebrow-free — the section eyebrow lives above the slideshow, not on each slide.
-- Project name in **Nicwin red** (`--nicwin-red`), display font, large.
-- Location in **Nicwin blue** (`--nicwin-blue`), smaller, tracked.
-- Thin red divider.
-- "WORK DONE BY" micro-label in white + the existing Nicwin logo lockup (reuse the same logo asset already used in the nav/footer).
-- Optional caption line in white/85 opacity below the lockup, hidden on very narrow screens if it would wrap awkwardly.
-
-## Section wrapper on the homepage
-
-New block in `src/routes/index.tsx`, inserted after Testimonials and before Gallery:
-
-- Eyebrow: `RECENT PROJECTS`
-- Heading: `Homes we've already built for.`
-- Subheading: `A look at the buildings, homes, and businesses Nicwin has already completed.`
-- Then `<RecentProjects />`.
-
-Copy stays in the plain, simple style already established across the site.
-
-## Scope guardrails
-
-- Homepage-only change plus one new component, one new data file, two new asset pointers. No route changes, no nav changes, no business logic.
-- Hero, product cards, testimonials, and every other section stay exactly as they are.
-- Contrast is verified against both photos at desktop and mobile crops before shipping, per the contrast-check discipline already applied earlier on this project.
+Notes / constraints
+- No Next.js `Image` component is available in this TanStack Start project; the `<picture>` + explicit dimensions + Lovable Assets approach achieves the same CLS/Lighthouse goals.
+- Keep the existing brand palette: white base, `--nicwin-red` (#E31E24) for primary CTA, `--nicwin-blue` (#1B5FAE) for accents/links, and `--ink` for text.
+- The section should not duplicate any existing contact/showroom content; it is a hero-level teaser that links to the full contact page and Google Maps.

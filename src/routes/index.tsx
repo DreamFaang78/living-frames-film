@@ -8,6 +8,7 @@ import { Marquee } from "@/components/site/Marquee";
 import { HeroJointSection } from "@/components/site/HeroJointSection";
 import { ProductShowcase } from "@/components/site/ProductShowcase";
 import { RecentProjects } from "@/components/site/RecentProjects";
+import { ShowroomSection } from "@/components/site/ShowroomSection";
 import { SITE } from "@/lib/site";
 import heroVideo from "@/assets/nicwin_hero_window.mp4.asset.json";
 import upvcPushIn from "@/assets/nicwin_upvc_pushin.mp4.asset.json";
@@ -185,8 +186,12 @@ function Home() {
         </motion.div>
       </VideoHero>
 
+      {/* 1b · SHOWROOM — trust anchor right after the hero */}
+      <ShowroomSection />
+
       {/* 2 · MARQUEE — immediate credibility */}
       <Marquee />
+
 
       {/* 2b · WEBGPU CORNER JOINT — one interactive 3D moment */}
       <HeroJointSection />
