@@ -10,6 +10,8 @@ import { ProductShowcase } from "@/components/site/ProductShowcase";
 import { RecentProjects } from "@/components/site/RecentProjects";
 import { ShowroomSection } from "@/components/site/ShowroomSection";
 import { ManufacturingSection } from "@/components/site/ManufacturingSection";
+import { ExperienceCenterSection } from "@/components/site/ExperienceCenterSection";
+
 import { FounderSection } from "@/components/site/FounderSection";
 import { SITE } from "@/lib/site";
 import heroVideo from "@/assets/nicwin_hero_window.mp4.asset.json";
@@ -407,6 +409,11 @@ function Home() {
 
       {/* 7b · MANUFACTURING FACILITY */}
       <ManufacturingSection />
+
+      {/* 7c · EXPERIENCE CENTER */}
+      <ExperienceCenterSection />
+
+
 
       {/* 8 · TESTIMONIALS */}
       <section className="bg-[color:var(--paper)] py-24 md:py-32">

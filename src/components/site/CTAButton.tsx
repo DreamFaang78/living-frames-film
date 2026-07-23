@@ -40,14 +40,16 @@ export function CTAExternal({
 
 export function CTALink({
   to,
+  hash,
   children,
   variant = "gold",
   className,
-}: CommonProps & { to: string }) {
+}: CommonProps & { to: string; hash?: string }) {
   return (
-    <Link to={to} data-magnetic className={cn(base, styles[variant], className)}>
+    <Link to={to} hash={hash} data-magnetic className={cn(base, styles[variant], className)}>
       {children}
       <span className="translate-x-0 transition-transform duration-500 group-hover:translate-x-1">→</span>
     </Link>
   );
 }
+

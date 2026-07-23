@@ -87,9 +87,12 @@ export function ManufacturingSection() {
 
             <Reveal delay={3}>
               <div className="mt-10">
-                <CTALink to="/products">Explore Our Products</CTALink>
+                <CTALink to="/" hash="experience-center">
+                  Explore Our Products
+                </CTALink>
               </div>
             </Reveal>
+
           </div>
         </div>
       </div>
