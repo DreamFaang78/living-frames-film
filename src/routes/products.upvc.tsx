@@ -78,18 +78,42 @@ function UpvcLanding() {
         <Stagger className="mx-auto grid max-w-[1200px] gap-6 px-6 md:grid-cols-3 md:px-10">
           {links.map((l) => (
             <motion.div key={l.to} variants={item}>
-              <Link to={l.to} className="group block">
-                <CinematicScene variant="teal" parallax={false} className="aspect-[4/5] rounded-3xl transition-transform duration-500 group-hover:-translate-y-2">
-                  <div className="flex h-full flex-col justify-between p-8">
-                    <div className="text-xs uppercase tracking-[0.3em] text-champagne">
-                      {l.count}
-                    </div>
-                    <div>
-                      <div className="font-display text-5xl text-offwhite">{l.label}</div>
-                      <div className="mt-4 text-sm text-champagne">Explore →</div>
+              <Link to={l.to} aria-label={`${l.label} — explore`} className="group block">
+                {l.image ? (
+                  <div className="relative aspect-[4/5] overflow-hidden rounded-3xl shadow-[0_20px_60px_-20px_rgba(0,0,0,0.5)] transition-transform duration-500 group-hover:-translate-y-2">
+                    <img
+                      src={l.image.url}
+                      alt={l.alt ?? l.label}
+                      loading="lazy"
+                      decoding="async"
+                      width={800}
+                      height={1000}
+                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-black/30" />
+                    <div className="relative flex h-full flex-col justify-between p-8">
+                      <div className="text-xs uppercase tracking-[0.3em] text-champagne">
+                        {l.count}
+                      </div>
+                      <div>
+                        <div className="font-display text-5xl text-offwhite drop-shadow">{l.label}</div>
+                        <div className="mt-4 text-sm text-champagne">Explore →</div>
+                      </div>
                     </div>
                   </div>
-                </CinematicScene>
+                ) : (
+                  <CinematicScene variant="teal" parallax={false} className="aspect-[4/5] rounded-3xl transition-transform duration-500 group-hover:-translate-y-2">
+                    <div className="flex h-full flex-col justify-between p-8">
+                      <div className="text-xs uppercase tracking-[0.3em] text-champagne">
+                        {l.count}
+                      </div>
+                      <div>
+                        <div className="font-display text-5xl text-offwhite">{l.label}</div>
+                        <div className="mt-4 text-sm text-champagne">Explore →</div>
+                      </div>
+                    </div>
+                  </CinematicScene>
+                )}
               </Link>
             </motion.div>
           ))}
