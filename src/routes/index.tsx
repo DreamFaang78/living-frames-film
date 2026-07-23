@@ -9,6 +9,7 @@ import { HeroJointSection } from "@/components/site/HeroJointSection";
 import { ProductShowcase } from "@/components/site/ProductShowcase";
 import { RecentProjects } from "@/components/site/RecentProjects";
 import { ShowroomSection } from "@/components/site/ShowroomSection";
+import { ManufacturingSection } from "@/components/site/ManufacturingSection";
 import { FounderSection } from "@/components/site/FounderSection";
 import { SITE } from "@/lib/site";
 import heroVideo from "@/assets/nicwin_hero_window.mp4.asset.json";
