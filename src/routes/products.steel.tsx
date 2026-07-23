@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ProductCategoryPage } from "@/components/site/ProductCategoryPage";
+import steelDoor from "@/assets/products/steel-ornamental-door.jpeg.asset.json";
+
 
 export const Route = createFileRoute("/products/steel")({
   head: () => ({
