@@ -410,6 +410,11 @@ function Home() {
       {/* 7b · MANUFACTURING FACILITY */}
       <ManufacturingSection />
 
+      {/* 7c · EXPERIENCE CENTER */}
+      <ExperienceCenterSection />
+
+
+
       {/* 8 · TESTIMONIALS */}
       <section className="bg-[color:var(--paper)] py-24 md:py-32">
 
