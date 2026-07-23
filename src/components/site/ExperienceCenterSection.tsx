@@ -46,7 +46,11 @@ export function ExperienceCenterSection() {
                 height={1200}
                 className="aspect-[4/5] w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105 md:aspect-[3/4]"
               />
+              <figcaption className="pointer-events-none absolute left-4 top-4 rounded-full border border-white/70 bg-white/85 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.24em] text-[color:var(--nicwin-blue)] backdrop-blur">
+                uPVC Windows
+              </figcaption>
             </figure>
+
           </Reveal>
 
           <div>
