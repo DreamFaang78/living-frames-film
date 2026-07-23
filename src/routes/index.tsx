@@ -10,7 +10,7 @@ import { ProductShowcase } from "@/components/site/ProductShowcase";
 import { RecentProjects } from "@/components/site/RecentProjects";
 import { ShowroomSection } from "@/components/site/ShowroomSection";
 import { ManufacturingSection } from "@/components/site/ManufacturingSection";
-import { ExperienceCenterSection } from "@/components/site/ExperienceCenterSection";
+
 
 import { FounderSection } from "@/components/site/FounderSection";
 import { SITE } from "@/lib/site";
@@ -410,8 +410,6 @@ function Home() {
       {/* 7b · MANUFACTURING FACILITY */}
       <ManufacturingSection />
 
-      {/* 7c · EXPERIENCE CENTER */}
-      <ExperienceCenterSection />
 
 
 
