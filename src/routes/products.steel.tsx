@@ -20,7 +20,10 @@ export const Route = createFileRoute("/products/steel")({
     <ProductCategoryPage
       material="Steel"
       variant="gold"
+      showcaseImage={steelDoor.url}
+      showcaseImageAlt="Ornamental steel double door with bronze mandala detailing"
       kicker="Steel · Doors"
+
       headline="The first thing your home says."
       intro="A steel door is a promise everyone on the street can see. Our range is built strong and finished beautifully — five types for every kind of entrance, from apartment door to bungalow gate."
       types={[
