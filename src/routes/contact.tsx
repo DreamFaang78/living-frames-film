@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { CinematicScene } from "@/components/site/CinematicScene";
 import { CTAExternal } from "@/components/site/CTAButton";
+import { FindShowroom } from "@/components/site/FindShowroom";
 import { Reveal } from "@/components/site/Reveal";
 import { SITE } from "@/lib/site";
 import { useState } from "react";
@@ -298,6 +299,8 @@ function Contact() {
           </div>
         </div>
       </section>
+
+      <FindShowroom />
     </>
   );
 }
