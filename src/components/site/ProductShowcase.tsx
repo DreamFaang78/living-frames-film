@@ -128,7 +128,21 @@ const products: Product[] = [
     to: "/products/upvc/windows",
     aspect: "landscape",
   },
+  {
+    name: "Tinted Glass Window",
+    material: "uPVC",
+    tagline: "Cooler rooms. Softer light. More privacy.",
+    details: [
+      "UV & heat reduction — keeps interiors cooler",
+      "Enhanced privacy with a modern, elegant look",
+      "Durable, low-maintenance uPVC frame",
+    ],
+    img: tintedGlass,
+    to: "/products/upvc/windows",
+    aspect: "portrait",
+  },
 ];
+
 
 const aspectClass: Record<Product["aspect"], string> = {
   portrait: "aspect-[4/5]",
