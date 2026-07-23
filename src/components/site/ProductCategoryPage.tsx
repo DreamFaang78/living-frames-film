@@ -124,25 +124,57 @@ export function ProductCategoryPage({
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
               className="sticky top-24 h-fit"
             >
-              <CinematicScene variant={variant} parallax={false} className="aspect-[4/5] rounded-3xl">
-                <div className="flex h-full flex-col justify-between p-8 md:p-10">
-                  <div className="text-xs uppercase tracking-[0.3em] text-champagne">
-                    {material} · {types[selected].name}
+              {showcaseImage ? (
+                <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-gradient-to-b from-[#1a1512] via-[#0e0b09] to-[#050403]">
+                  <div className="absolute inset-0 flex items-center justify-center p-6 md:p-10">
+                    <img
+                      src={showcaseImage}
+                      alt={showcaseImageAlt ?? `${material} ${types[selected].name} door`}
+                      loading="lazy"
+                      decoding="async"
+                      className="max-h-[85%] max-w-[85%] object-contain drop-shadow-[0_40px_50px_rgba(0,0,0,0.65)] transition-transform duration-[1200ms] ease-out hover:scale-[1.02]"
+                    />
                   </div>
-                  <div>
-                    <div className="font-display text-4xl leading-tight text-offwhite md:text-5xl">
-                      {types[selected].benefit}
+                  <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
+                  <div className="absolute inset-0 flex flex-col justify-between p-8 md:p-10">
+                    <div className="text-xs uppercase tracking-[0.3em] text-champagne">
+                      {material} · {types[selected].name}
                     </div>
-                    <p className="mt-4 max-w-md text-offwhite/75">{types[selected].detail}</p>
-                    <div className="mt-8">
-                      <CTAExternal href={SITE.whatsappUrl}>
-                        Ask about {types[selected].name}
-                      </CTAExternal>
+                    <div>
+                      <div className="font-display text-4xl leading-tight text-offwhite md:text-5xl">
+                        {types[selected].benefit}
+                      </div>
+                      <p className="mt-4 max-w-md text-offwhite/85">{types[selected].detail}</p>
+                      <div className="mt-8">
+                        <CTAExternal href={SITE.whatsappUrl}>
+                          Ask about {types[selected].name}
+                        </CTAExternal>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </CinematicScene>
+              ) : (
+                <CinematicScene variant={variant} parallax={false} className="aspect-[4/5] rounded-3xl">
+                  <div className="flex h-full flex-col justify-between p-8 md:p-10">
+                    <div className="text-xs uppercase tracking-[0.3em] text-champagne">
+                      {material} · {types[selected].name}
+                    </div>
+                    <div>
+                      <div className="font-display text-4xl leading-tight text-offwhite md:text-5xl">
+                        {types[selected].benefit}
+                      </div>
+                      <p className="mt-4 max-w-md text-offwhite/75">{types[selected].detail}</p>
+                      <div className="mt-8">
+                        <CTAExternal href={SITE.whatsappUrl}>
+                          Ask about {types[selected].name}
+                        </CTAExternal>
+                      </div>
+                    </div>
+                  </div>
+                </CinematicScene>
+              )}
             </motion.div>
+
           </div>
         </div>
       </section>
