@@ -410,8 +410,6 @@ function Home() {
       {/* 7b · MANUFACTURING FACILITY */}
       <ManufacturingSection />
 
-      {/* 7c · EXPERIENCE CENTER */}
-      <ExperienceCenterSection />
 
 
 
