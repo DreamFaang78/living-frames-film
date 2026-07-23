@@ -1,10 +1,11 @@
 import { Reveal } from "@/components/site/Reveal";
 import { CTAExternal, CTALink } from "@/components/site/CTAButton";
 import { SITE } from "@/lib/site";
+import { MapPin } from "lucide-react";
 import showroomWebp from "@/assets/showroom/showroom-experience-center.webp.asset.json";
 import showroomJpg from "@/assets/showroom/showroom-experience-center.jpg.asset.json";
 
-const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${SITE.showroom.mapQuery}`;
+const MAPS_URL = "https://www.google.com/maps?q=24.5050145,86.6974755&z=17&hl=en";
 
 export function ShowroomSection() {
   return (
@@ -50,7 +51,10 @@ export function ShowroomSection() {
           </Reveal>
           <Reveal delay={5}>
             <div className="mt-10 flex flex-wrap gap-3">
-              <CTAExternal href={MAPS_URL}>Visit Showroom</CTAExternal>
+              <CTAExternal href={MAPS_URL}>
+                <MapPin size={16} aria-hidden />
+                Get Directions
+              </CTAExternal>
               <CTALink to="/contact" variant="ink-ghost">
                 Contact Us
               </CTALink>
