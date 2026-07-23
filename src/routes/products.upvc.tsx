@@ -4,6 +4,8 @@ import { CTAExternal, CTALink } from "@/components/site/CTAButton";
 import { Reveal, Stagger, item } from "@/components/site/Reveal";
 import { SITE } from "@/lib/site";
 import { motion } from "framer-motion";
+import upvcWindowsCard from "@/assets/products/upvc-windows-card.png.asset.json";
+import upvcDoorsCard from "@/assets/products/upvc-doors-card.png.asset.json";
 
 export const Route = createFileRoute("/products/upvc")({
   head: () => ({
@@ -21,10 +23,30 @@ export const Route = createFileRoute("/products/upvc")({
   component: UpvcLanding,
 });
 
-const links = [
-  { to: "/products/upvc/windows" as const, label: "Windows", count: "6 types" },
-  { to: "/products/upvc/doors" as const, label: "Doors", count: "5 types" },
-  { to: "/products/upvc/colors" as const, label: "Colours", count: "7 finishes" },
+type CardLink = {
+  to: "/products/upvc/windows" | "/products/upvc/doors" | "/products/upvc/colors";
+  label: string;
+  count: string;
+  image?: { url: string };
+  alt?: string;
+};
+
+const links: CardLink[] = [
+  {
+    to: "/products/upvc/windows",
+    label: "Windows",
+    count: "6 types",
+    image: upvcWindowsCard,
+    alt: "Premium uPVC window displayed in the NICWIN Experience Center.",
+  },
+  {
+    to: "/products/upvc/doors",
+    label: "Doors",
+    count: "5 types",
+    image: upvcDoorsCard,
+    alt: "Premium uPVC door displayed in the NICWIN Experience Center.",
+  },
+  { to: "/products/upvc/colors", label: "Colours", count: "7 finishes" },
 ];
 
 function UpvcLanding() {
