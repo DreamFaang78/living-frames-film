@@ -10,6 +10,8 @@ import upvcEco from "@/assets/products/upvc-eco.png.asset.json";
 import upvcSecure from "@/assets/products/upvc-secure.png.asset.json";
 // upvc-durability.png intentionally not imported — legacy overlay baked in.
 import tiltTurn from "@/assets/products/tilt-turn-sunset.jpeg.asset.json";
+import tintedGlass from "@/assets/products/tinted-glass-window.webp.asset.json";
+
 
 type Product = {
   name: string;
