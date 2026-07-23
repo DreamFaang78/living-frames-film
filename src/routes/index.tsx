@@ -405,8 +405,12 @@ function Home() {
         </div>
       </section>
 
+      {/* 7b · MANUFACTURING FACILITY */}
+      <ManufacturingSection />
+
       {/* 8 · TESTIMONIALS */}
       <section className="bg-[color:var(--paper)] py-24 md:py-32">
+
         <div className="mx-auto max-w-[1440px] px-6 md:px-10">
           <Reveal><div className="eyebrow">What people say</div></Reveal>
           <Reveal delay={1}>
