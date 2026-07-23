@@ -34,6 +34,8 @@ export function ProductCategoryPage({
   colorHeading,
   variant,
   spec,
+  showcaseImage,
+  showcaseImageAlt,
 }: {
   material: "uPVC" | "Aluminium" | "Steel";
   kicker: string;
@@ -45,7 +47,10 @@ export function ProductCategoryPage({
   colorHeading?: string;
   variant: "teal" | "night" | "gold" | "warm";
   spec: Array<{ k: string; v: string }>;
+  showcaseImage?: string;
+  showcaseImageAlt?: string;
 }) {
+
   const [selected, setSelected] = useState(0);
   const [color, setColor] = useState(colors?.[0]);
 
