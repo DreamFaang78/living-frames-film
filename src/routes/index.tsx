@@ -9,6 +9,7 @@ import { HeroJointSection } from "@/components/site/HeroJointSection";
 import { ProductShowcase } from "@/components/site/ProductShowcase";
 import { RecentProjects } from "@/components/site/RecentProjects";
 import { ShowroomSection } from "@/components/site/ShowroomSection";
+import { ManufacturingSection } from "@/components/site/ManufacturingSection";
 import { FounderSection } from "@/components/site/FounderSection";
 import { SITE } from "@/lib/site";
 import heroVideo from "@/assets/nicwin_hero_window.mp4.asset.json";
@@ -404,8 +405,12 @@ function Home() {
         </div>
       </section>
 
+      {/* 7b · MANUFACTURING FACILITY */}
+      <ManufacturingSection />
+
       {/* 8 · TESTIMONIALS */}
       <section className="bg-[color:var(--paper)] py-24 md:py-32">
+
         <div className="mx-auto max-w-[1440px] px-6 md:px-10">
           <Reveal><div className="eyebrow">What people say</div></Reveal>
           <Reveal delay={1}>
