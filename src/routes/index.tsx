@@ -9,6 +9,7 @@ import { HeroJointSection } from "@/components/site/HeroJointSection";
 import { ProductShowcase } from "@/components/site/ProductShowcase";
 import { RecentProjects } from "@/components/site/RecentProjects";
 import { ShowroomSection } from "@/components/site/ShowroomSection";
+import { FounderSection } from "@/components/site/FounderSection";
 import { SITE } from "@/lib/site";
 import heroVideo from "@/assets/nicwin_hero_window.mp4.asset.json";
 import upvcPushIn from "@/assets/nicwin_upvc_pushin.mp4.asset.json";
@@ -354,6 +355,9 @@ function Home() {
           </Stagger>
         </div>
       </section>
+
+      {/* 6b · MEET THE FOUNDER */}
+      <FounderSection variant="home" />
 
       {/* 7 · COLORS */}
       <section className="border-y border-[color:var(--line)] bg-[color:var(--paper-warm)] py-24 md:py-32">

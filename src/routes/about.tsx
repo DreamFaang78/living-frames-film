@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 
 import { FinalCTA } from "@/components/site/FinalCTA";
+import { FounderSection } from "@/components/site/FounderSection";
 import { Reveal, Stagger, item } from "@/components/site/Reveal";
 
 import { motion } from "framer-motion";
@@ -132,6 +133,9 @@ function About() {
 
         </div>
       </section>
+
+      {/* FOUNDER */}
+      <FounderSection variant="about" />
 
       {/* VALUES CARDS */}
       <section className="py-32">
