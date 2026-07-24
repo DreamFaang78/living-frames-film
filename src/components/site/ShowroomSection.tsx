@@ -53,7 +53,7 @@ export function ShowroomSection() {
             <div className="mt-10 flex flex-wrap gap-3">
               <CTAExternal
                 href={MAPS_URL}
-                ariaLabel="Get driving directions to the NICWIN showroom using Google Maps"
+                ariaLabel="Get directions to NICWIN Window & Door Systems on Google Maps"
               >
                 <MapPin size={16} aria-hidden />
                 Get Directions
