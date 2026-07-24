@@ -51,7 +51,10 @@ export function ShowroomSection() {
           </Reveal>
           <Reveal delay={5}>
             <div className="mt-10 flex flex-wrap gap-3">
-              <CTAExternal href={MAPS_URL}>
+              <CTAExternal
+                href={MAPS_URL}
+                ariaLabel="Get driving directions to the NICWIN showroom using Google Maps"
+              >
                 <MapPin size={16} aria-hidden />
                 Get Directions
               </CTAExternal>
