@@ -5,7 +5,7 @@ import { MapPin } from "lucide-react";
 import showroomWebp from "@/assets/showroom/showroom-experience-center.webp.asset.json";
 import showroomJpg from "@/assets/showroom/showroom-experience-center.jpg.asset.json";
 
-const MAPS_URL = "https://www.google.com/maps?q=24.5050145,86.6974755&z=17&hl=en";
+const MAPS_URL = "https://www.google.com/maps/dir/?api=1&destination=24.5050145,86.6974755";
 
 export function ShowroomSection() {
   return (
