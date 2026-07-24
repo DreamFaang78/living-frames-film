@@ -28,7 +28,7 @@ export function CTAExternal({
     <a
       href={href}
       target="_blank"
-      rel="noreferrer"
+      rel="noopener noreferrer"
       data-magnetic
       className={cn(base, styles[variant], className)}
     >
