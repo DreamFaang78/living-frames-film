@@ -23,12 +23,14 @@ export function CTAExternal({
   children,
   variant = "gold",
   className,
-}: CommonProps & { href: string }) {
+  ariaLabel,
+}: CommonProps & { href: string; ariaLabel?: string }) {
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
+      aria-label={ariaLabel}
       data-magnetic
       className={cn(base, styles[variant], className)}
     >
