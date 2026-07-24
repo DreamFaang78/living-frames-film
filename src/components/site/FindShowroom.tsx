@@ -2,7 +2,7 @@ import { Reveal } from "@/components/site/Reveal";
 import { CTAExternal } from "@/components/site/CTAButton";
 import { MapPin } from "lucide-react";
 
-const MAPS_URL = "https://www.google.com/maps?q=24.5050145,86.6974755&z=17&hl=en";
+const MAPS_URL = "https://www.google.com/maps/dir/?api=1&destination=24.5050145,86.6974755";
 const EMBED_URL =
   "https://www.google.com/maps?q=24.5050145,86.6974755&z=17&hl=en&output=embed";
 
