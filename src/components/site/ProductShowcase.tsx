@@ -116,7 +116,7 @@ const products: Product[] = [
     aspect: "landscape",
   },
   {
-    name: "uPVC Sliding Window · 3-Track",
+    name: "uPVC Sliding Window",
     material: "uPVC",
     tagline: "Built for heavy monsoons.",
     details: [
