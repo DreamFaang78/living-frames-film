@@ -10,6 +10,7 @@ import upvcEco from "@/assets/products/upvc-eco.png.asset.json";
 import upvcSecure from "@/assets/products/upvc-secure.png.asset.json";
 // upvc-durability.png intentionally not imported — legacy overlay baked in.
 import tiltTurn from "@/assets/products/tilt-turn-sunset.jpeg.asset.json";
+import upvcSliding from "@/assets/products/upvc-sliding-window.jpeg.asset.json";
 
 
 
@@ -124,7 +125,7 @@ const products: Product[] = [
       "Stainless steel wheels — smooth for years",
       "Rain drainage channels — no water sitting inside",
     ],
-    img: tiltTurn,
+    img: upvcSliding,
     to: "/products/upvc/windows",
     aspect: "landscape",
   },
