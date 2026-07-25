@@ -125,7 +125,7 @@ const products: Product[] = [
       "Stainless steel wheels — smooth for years",
       "Rain drainage channels — no water sitting inside",
     ],
-    img: tiltTurn,
+    img: upvcSliding,
     to: "/products/upvc/windows",
     aspect: "landscape",
   },
